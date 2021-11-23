@@ -1,0 +1,211 @@
+package dev.petedoyle.snappy.ui.home
+
+import android.content.res.Configuration
+import android.widget.Toast
+import androidx.compose.foundation.ExperimentalFoundationApi
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.PaddingValues
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.calculateEndPadding
+import androidx.compose.foundation.layout.calculateStartPadding
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.lazy.GridCells
+import androidx.compose.foundation.lazy.LazyVerticalGrid
+import androidx.compose.material.MaterialTheme
+import androidx.compose.material.rememberScaffoldState
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.SideEffect
+import androidx.compose.runtime.collectAsState
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.LayoutDirection
+import androidx.navigation.NavHostController
+import dev.petedoyle.snappy.common.api.bigcommerce.catalog.v3.model.Category
+import dev.petedoyle.snappy.common.api.bigcommerce.catalog.v3.model.ProductFull
+import dev.petedoyle.snappy.common.api.bigcommerce.catalog.v3.model.ProductImageFull
+import dev.petedoyle.snappy.design.compose.theme.SnappyTheme
+import dev.petedoyle.snappy.ui.Screen
+import dev.petedoyle.snappy.ui.components.SnappyTopAppBarPrimary
+import dev.petedoyle.snappy.ui.home.components.FeaturedProduct
+import com.google.accompanist.insets.navigationBarsHeight
+import com.google.accompanist.insets.ui.Scaffold
+import com.google.accompanist.systemuicontroller.rememberSystemUiController
+
+private const val GRID_ROWS_COUNT = 2
+
+@Composable
+fun HomeScreen(viewModel: HomeScreenViewModel, navController: NavHostController) {
+    val uiState = viewModel.stateFlow.collectAsState().value
+
+    // Apply edge-to-edge
+    val systemUiController = rememberSystemUiController()
+    val useDarkIcons = MaterialTheme.colors.isLight
+    SideEffect {
+        systemUiController.setSystemBarsColor(
+            color = Color.Transparent,
+            darkIcons = useDarkIcons
+        )
+    }
+
+    // Handle ViewModelEffects
+    val context = LocalContext.current
+    LaunchedEffect(viewModel) {
+        viewModel.effectFlow.collect { effect ->
+            when (effect) {
+                is NavigateToProductDetail -> navController.navigate(
+                    Screen.ProductDetail.createRoute(effect.productId)
+                )
+                is NavigateToCart -> navController.navigate(Screen.Cart.route)
+                NetworkError -> Toast.makeText(context, "Network Error", Toast.LENGTH_SHORT).show()
+            }
+        }
+    }
+
+    HomeScreen(
+        uiState = uiState,
+        onProductClicked = { viewModel.onAction(ProductClicked(productId = it)) },
+        onShoppingCartClicked = { viewModel.onAction(ShoppingCartClicked) },
+    )
+}
+
+@OptIn(ExperimentalFoundationApi::class)
+@Composable
+fun HomeScreen(
+    uiState: HomeScreenState,
+    onProductClicked: (productId: Int) -> Unit,
+    onShoppingCartClicked: () -> Unit,
+) {
+    val scaffoldState = rememberScaffoldState()
+    Scaffold(
+        scaffoldState = scaffoldState,
+        topBar = {
+            SnappyTopAppBarPrimary(
+                shoppingCartBadgeEnabled = uiState.cartState.items.isNotEmpty(),
+                onShoppingCartClicked = { onShoppingCartClicked() },
+            )
+        },
+        bottomBar = {
+            Spacer(
+                Modifier
+                    .navigationBarsHeight()
+                    .fillMaxWidth()
+            )
+        }
+    ) { contentPadding ->
+        Box(Modifier.fillMaxSize()) {
+            LazyVerticalGrid(
+                cells = GridCells.Fixed(count = GRID_ROWS_COUNT),
+                contentPadding = PaddingValues(
+                    start = contentPadding.calculateStartPadding(LayoutDirection.Ltr),
+                    top = contentPadding.calculateTopPadding(),
+                    end = contentPadding.calculateEndPadding(LayoutDirection.Ltr)
+                ),
+                modifier = Modifier.padding(
+                    start = SnappyTheme.spacing.xs,
+                    top = SnappyTheme.spacing.m,
+                    end = SnappyTheme.spacing.xs,
+                ),
+            ) {
+                items(uiState.products.size) { index ->
+                    FeaturedProduct(uiState.products[index], uiState.categories, onProductClicked)
+                }
+
+                item {
+                    Spacer(Modifier.navigationBarsHeight())
+                }
+            }
+        }
+
+    }
+}
+
+@Preview(name = "Light", uiMode = Configuration.UI_MODE_NIGHT_NO)
+@Preview(name = "Dark", uiMode = Configuration.UI_MODE_NIGHT_YES)
+@Composable
+fun PreviewHomeScreen() {
+    SnappyTheme {
+        HomeScreen(
+            uiState = HomeScreenState(
+                products = listOf(
+                    ProductFull(
+                        name = "Fog Linen Chambray Towel - Beige Stripe",
+                        type = ProductFull.Type.physical,
+                        weight = 1.0f,
+                        price = 49.00f,
+                        images = listOf(
+                            ProductImageFull(
+                                urlThumbnail = "https://cdn11.bigcommerce.com/s-c22nuunnpp/products/77/images/265/foglinenbeigestripetowel3b.1652641772.220.290.jpg?c=1"
+                            )
+                        ),
+                        categories = listOf(18, 23),
+                    ),
+                    ProductFull(
+                        name = "Orbit Terrarium - Small",
+                        type = ProductFull.Type.physical,
+                        weight = 1.0f,
+                        price = 89.00f,
+                        images = listOf(
+                            ProductImageFull(
+                                urlThumbnail = "https://cdn11.bigcommerce.com/s-c22nuunnpp/products/81/images/273/roundterrariumsmall.1652641773.220.290.jpg?c=1"
+                            )
+                        ),
+                        categories = listOf(19, 23),
+                    ),
+                    ProductFull(
+                        name = "Able Brewing System",
+                        type = ProductFull.Type.physical,
+                        weight = 1.0f,
+                        price = 225.00f,
+                        images = listOf(
+                            ProductImageFull(
+                                urlThumbnail = "https://cdn11.bigcommerce.com/s-c22nuunnpp/products/86/images/283/ablebrewingsystem1.1652641773.220.290.jpg?c=1"
+                            )
+                        ),
+                        categories = listOf(21, 23),
+                    ),
+                    ProductFull(
+                        name = "Chemex Coffeemaker 3 Cup",
+                        type = ProductFull.Type.physical,
+                        weight = 1.0f,
+                        price = 49.50f,
+                        images = listOf(
+                            ProductImageFull(
+                                urlThumbnail = "https://cdn11.bigcommerce.com/s-c22nuunnpp/products/88/images/292/3cupchemex5.1652641773.220.290.jpg?c=1"
+                            )
+                        ),
+                        categories = listOf(21, 23),
+                    ),
+                ),
+                categories = listOf(
+                    Category(
+                        parentId = 0,
+                        id = 18,
+                        name = "Bath",
+                    ),
+                    Category(
+                        parentId = 0,
+                        id = 19,
+                        name = "Garden",
+                    ),
+                    Category(
+                        parentId = 0,
+                        id = 21,
+                        name = "Kitchen",
+                    ),
+                    Category(
+                        parentId = 0,
+                        id = 23,
+                        name = "Shop All",
+                    ),
+                )
+            ),
+            onProductClicked = {},
+            onShoppingCartClicked = {},
+        )
+    }
+}

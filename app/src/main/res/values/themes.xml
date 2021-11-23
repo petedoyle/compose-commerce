@@ -1,0 +1,22 @@
+<resources>
+
+  <style name="Platform.Theme.Speedy" parent="android:Theme.Material.Light.NoActionBar" />
+
+  <style name="Base.Theme.Speedy" parent="Platform.Theme.Speedy">
+    <item name="android:windowActionModeOverlay">true</item>
+  </style>
+
+  <style name="Theme.Speedy" parent="Base.Theme.Speedy" />
+
+  <style name="Theme.Speedy.NoActionBar">
+    <item name="android:windowActionBar">false</item>
+    <item name="android:windowNoTitle">true</item>
+  </style>
+
+  <style name="Theme.Speedy.SplashScreen" parent="Theme.SplashScreen">
+    <item name="windowSplashScreenBackground">@color/splashscreen_background</item>
+    <item name="windowSplashScreenAnimatedIcon">@drawable/logo_splashscreen</item>
+    <item name="postSplashScreenTheme">@style/Theme.Speedy</item>
+  </style>
+
+</resources>
