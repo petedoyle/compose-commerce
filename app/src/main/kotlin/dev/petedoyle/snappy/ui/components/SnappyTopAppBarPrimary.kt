@@ -7,6 +7,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.material.IconButton
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.ColorFilter
 import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
@@ -34,7 +35,8 @@ fun SnappyTopAppBarPrimary(
             Image(
                 painter = painterResource(id = R.drawable.logo_top_bar),
                 contentDescription = stringResource(R.string.logo_content_description),
-                Modifier
+                colorFilter = ColorFilter.tint(SnappyTheme.colors.primary_primary.value),
+                modifier = Modifier
                     .fillMaxWidth()
                     .padding(start = 36.dp) // hack to center the logo
             )
