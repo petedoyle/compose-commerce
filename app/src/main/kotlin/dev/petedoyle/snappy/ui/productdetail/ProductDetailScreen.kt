@@ -205,7 +205,7 @@ fun ProductDetailScreen(
                         HtmlCompat.FROM_HTML_SEPARATOR_LINE_BREAK_LIST_ITEM
                     ).toString().trim(),
                     color = SnappyTheme.colors.onbackground_onbackgroundvariant1.value,
-                    style = SnappyTheme.typography.label3,
+                    style = SnappyTheme.typography.body3,
                     modifier = Modifier
                         .padding(
                             top = SnappyTheme.spacing.m,
