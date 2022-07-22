@@ -61,6 +61,7 @@ fun SnappyText(
         overflow = overflow,
         softWrap = softWrap,
         maxLines = maxLines,
+        inlineContent = inlineContent,
     )
 }
 

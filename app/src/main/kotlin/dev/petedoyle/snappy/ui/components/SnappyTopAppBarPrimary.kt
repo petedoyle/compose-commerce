@@ -2,8 +2,11 @@ package dev.petedoyle.snappy.ui.components
 
 import android.content.res.Configuration
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.layout.asPaddingValues
+import androidx.compose.foundation.layout.WindowInsets
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.statusBars
 import androidx.compose.material.IconButton
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
@@ -15,8 +18,6 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import dev.petedoyle.snappy.design.compose.theme.SnappyTheme
 import dev.petedoyle.snappy.R
-import com.google.accompanist.insets.LocalWindowInsets
-import com.google.accompanist.insets.rememberInsetsPaddingValues
 import com.google.accompanist.insets.ui.TopAppBar
 
 @Composable
@@ -25,12 +26,7 @@ fun SnappyTopAppBarPrimary(
     onShoppingCartClicked: () -> Unit,
 ) {
     TopAppBar(
-        contentPadding = rememberInsetsPaddingValues(
-            insets = LocalWindowInsets.current.statusBars,
-            applyStart = true,
-            applyTop = true,
-            applyEnd = true,
-        ),
+        contentPadding = WindowInsets.statusBars.asPaddingValues(),
         title = {
             Image(
                 painter = painterResource(id = R.drawable.logo_top_bar),
@@ -41,6 +37,7 @@ fun SnappyTopAppBarPrimary(
                     .padding(start = 36.dp) // hack to center the logo
             )
         },
+        navigationIcon = null,
         actions = {
             IconButton(
                 onClick = { onShoppingCartClicked() },

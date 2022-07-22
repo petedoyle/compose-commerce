@@ -10,6 +10,7 @@ import androidx.compose.foundation.layout.aspectRatio
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.navigationBarsPadding
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
@@ -30,6 +31,9 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.core.text.HtmlCompat
 import androidx.navigation.NavHostController
+import coil.compose.AsyncImage
+import coil.compose.rememberAsyncImagePainter
+import coil.request.ImageRequest
 import dev.petedoyle.snappy.common.api.bigcommerce.catalog.v3.model.ProductFull
 import dev.petedoyle.snappy.common.api.bigcommerce.catalog.v3.model.ProductVariantFull
 import dev.petedoyle.snappy.design.compose.components.buttons.SnappyCheckoutButton
@@ -46,9 +50,7 @@ import dev.petedoyle.snappy.ui.Screen
 import dev.petedoyle.snappy.ui.components.SnappyTopAppBarSecondary
 import dev.petedoyle.snappy.ui.productdetail.components.ProductOptionsSelector
 import dev.petedoyle.snappy.ui.productdetail.components.rememberProductOptionsSelectorState
-import coil.compose.rememberImagePainter
 import coil.size.Scale
-import com.google.accompanist.insets.navigationBarsHeight
 import com.google.accompanist.placeholder.PlaceholderHighlight
 import com.google.accompanist.placeholder.material.placeholder
 import com.google.accompanist.placeholder.material.shimmer
@@ -145,16 +147,14 @@ fun ProductDetailScreen(
                     .background(SnappyTheme.colors.background_backgroundprimary.value)
                     .padding(bottom = SnappyTheme.spacing.xs)
             ) {
-                Image(
-                    painter = rememberImagePainter(
-                        data = productImageUrl,
-                        builder = {
-                            scale(Scale.FILL)
-                            crossfade(IMAGE_CROSSFADE_MS)
-                        }
-                    ),
-                    contentScale = ContentScale.Crop,
+                AsyncImage(
+                    model = ImageRequest.Builder(LocalContext.current)
+                        .data(productImageUrl)
+                        .scale(Scale.FILL)
+                        .crossfade(IMAGE_CROSSFADE_MS)
+                        .build(),
                     contentDescription = null,
+                    contentScale = ContentScale.Crop,
                     modifier = Modifier.aspectRatio(ASPECT_RATIO_SQUARE)
                 )
                 Text(
@@ -267,7 +267,7 @@ fun ProductDetailScreen(
                     .padding(bottom = SnappyTheme.spacing.m),
             )
 
-            Spacer(Modifier.navigationBarsHeight())
+            Spacer(Modifier.navigationBarsPadding())
         }
     }
 }

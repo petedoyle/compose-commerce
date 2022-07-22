@@ -10,9 +10,10 @@ import androidx.compose.foundation.layout.calculateEndPadding
 import androidx.compose.foundation.layout.calculateStartPadding
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.navigationBarsPadding
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.lazy.GridCells
-import androidx.compose.foundation.lazy.LazyVerticalGrid
+import androidx.compose.foundation.lazy.grid.GridCells
+import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.rememberScaffoldState
 import androidx.compose.runtime.Composable
@@ -32,7 +33,6 @@ import dev.petedoyle.snappy.design.compose.theme.SnappyTheme
 import dev.petedoyle.snappy.ui.Screen
 import dev.petedoyle.snappy.ui.components.SnappyTopAppBarPrimary
 import dev.petedoyle.snappy.ui.home.components.FeaturedProduct
-import com.google.accompanist.insets.navigationBarsHeight
 import com.google.accompanist.insets.ui.Scaffold
 import com.google.accompanist.systemuicontroller.rememberSystemUiController
 
@@ -92,14 +92,14 @@ fun HomeScreen(
         bottomBar = {
             Spacer(
                 Modifier
-                    .navigationBarsHeight()
+                    .navigationBarsPadding()
                     .fillMaxWidth()
             )
         }
     ) { contentPadding ->
         Box(Modifier.fillMaxSize()) {
             LazyVerticalGrid(
-                cells = GridCells.Fixed(count = GRID_ROWS_COUNT),
+                columns = GridCells.Fixed(count = GRID_ROWS_COUNT),
                 contentPadding = PaddingValues(
                     start = contentPadding.calculateStartPadding(LayoutDirection.Ltr),
                     top = contentPadding.calculateTopPadding(),
@@ -116,7 +116,7 @@ fun HomeScreen(
                 }
 
                 item {
-                    Spacer(Modifier.navigationBarsHeight())
+                    Spacer(Modifier.navigationBarsPadding())
                 }
             }
         }

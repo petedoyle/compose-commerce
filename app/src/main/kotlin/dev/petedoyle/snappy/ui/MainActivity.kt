@@ -14,7 +14,6 @@ import dev.petedoyle.snappy.ui.MainActivityActions.AppStarting
 import dev.petedoyle.snappy.ui.MainViewModelEffects.AppUpdateAvailableEffect
 import dev.petedoyle.snappy.ui.MainViewModelEffects.AppUpdateCheckFailedEffect
 import dev.petedoyle.snappy.ui.MainViewModelEffects.AppUpdateNotAvailableEffect
-import com.google.accompanist.insets.ProvideWindowInsets
 import com.google.android.play.core.appupdate.AppUpdateManager
 import com.google.android.play.core.appupdate.AppUpdateOptions
 import com.google.android.play.core.install.model.AppUpdateType
@@ -49,9 +48,7 @@ class MainActivity : ComponentActivity() {
 
         setContent {
             SnappyTheme {
-                ProvideWindowInsets {
-                    SnappyApp()
-                }
+                SnappyApp()
             }
         }
     }
