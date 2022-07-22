@@ -1,8 +1,11 @@
 package dev.petedoyle.snappy.ui.components
 
 import android.content.res.Configuration
+import androidx.compose.foundation.layout.WindowInsets
+import androidx.compose.foundation.layout.asPaddingValues
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.statusBars
 import androidx.compose.material.Icon
 import androidx.compose.material.IconButton
 import androidx.compose.material.Text
@@ -15,8 +18,6 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import dev.petedoyle.snappy.design.compose.theme.SnappyTheme
 import dev.petedoyle.snappy.R
-import com.google.accompanist.insets.LocalWindowInsets
-import com.google.accompanist.insets.rememberInsetsPaddingValues
 import com.google.accompanist.insets.ui.TopAppBar
 
 @Composable
@@ -29,12 +30,7 @@ fun SnappyTopAppBarSecondary(
     TopAppBar(
         elevation = dimensionResource(R.dimen.toolbar_elevation),
         backgroundColor = SnappyTheme.colors.background_backgroundprimary.value,
-        contentPadding = rememberInsetsPaddingValues(
-            insets = LocalWindowInsets.current.statusBars,
-            applyStart = true,
-            applyTop = true,
-            applyEnd = true,
-        ),
+        contentPadding = WindowInsets.statusBars.asPaddingValues(),
         navigationIcon = {
             IconButton(onClick = { onBackClicked() }) {
                 Icon(

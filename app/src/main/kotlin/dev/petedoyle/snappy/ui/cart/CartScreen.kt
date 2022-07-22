@@ -10,6 +10,7 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.navigationBarsPadding
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material.Divider
@@ -33,7 +34,6 @@ import androidx.navigation.NavHostController
 import dev.petedoyle.snappy.common.api.bigcommerce.catalog.v3.model.ProductFull
 import dev.petedoyle.snappy.common.api.bigcommerce.catalog.v3.model.ProductImageFull
 import dev.petedoyle.snappy.common.api.bigcommerce.catalog.v3.model.ProductVariantFull
-import dev.petedoyle.snappy.common.api.bigcommerce.catalog.v3.model.ProductVariantOptionValueFull
 import dev.petedoyle.snappy.design.compose.components.buttons.SnappyCheckoutButton
 import dev.petedoyle.snappy.design.compose.theme.SnappyTheme
 import dev.petedoyle.snappy.R
@@ -42,7 +42,6 @@ import dev.petedoyle.snappy.cart.CartState
 import dev.petedoyle.snappy.ui.cart.components.CartLineItemRow
 import dev.petedoyle.snappy.ui.cart.components.CartSummary
 import dev.petedoyle.snappy.ui.components.SnappyTopAppBarSecondary
-import com.google.accompanist.insets.navigationBarsPadding
 import com.google.accompanist.systemuicontroller.rememberSystemUiController
 
 @Composable

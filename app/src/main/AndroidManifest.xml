@@ -21,7 +21,8 @@
       android:name="dev.petedoyle.snappy.ui.MainActivity"
       android:exported="true"
       android:screenOrientation="portrait"
-      android:theme="@style/Theme.Speedy.SplashScreen">
+      android:theme="@style/Theme.Speedy.SplashScreen"
+      android:windowSoftInputMode="adjustResize">
       <intent-filter>
         <action android:name="android.intent.action.MAIN" />
         <category android:name="android.intent.category.LAUNCHER" />

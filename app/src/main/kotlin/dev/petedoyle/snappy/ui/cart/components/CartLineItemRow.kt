@@ -17,9 +17,12 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import coil.compose.AsyncImage
+import coil.request.ImageRequest
 import dev.petedoyle.snappy.common.api.bigcommerce.catalog.v3.model.ProductFull
 import dev.petedoyle.snappy.common.api.bigcommerce.catalog.v3.model.ProductImageFull
 import dev.petedoyle.snappy.common.api.bigcommerce.catalog.v3.model.ProductVariantFull
@@ -27,8 +30,9 @@ import dev.petedoyle.snappy.design.compose.components.incrementer.Incrementer
 import dev.petedoyle.snappy.design.compose.theme.SnappyTheme
 import dev.petedoyle.snappy.R
 import dev.petedoyle.snappy.cart.CartLineItem
-import coil.compose.rememberImagePainter
 import coil.size.Scale
+import dev.petedoyle.snappy.design.compose.theme.ASPECT_RATIO_SQUARE
+import dev.petedoyle.snappy.design.compose.theme.IMAGE_CROSSFADE_MS
 
 private val IMAGE_WIDTH = 40.dp
 private const val IMAGE_ASPECT_RATIO = 3 / 4f
@@ -54,19 +58,17 @@ fun CartLineItemRow(
             item.product.images?.firstOrNull()?.urlThumbnail
         }
 
-        Image(
-            painter = rememberImagePainter(
-                data = thumbnailUrl,
-                builder = {
-                    scale(Scale.FILL)
-                    crossfade(true)
-                }
-            ),
-            contentScale = ContentScale.Crop,
+        AsyncImage(
+            model = ImageRequest.Builder(LocalContext.current)
+                .data(thumbnailUrl)
+                .scale(Scale.FILL)
+                .crossfade(true)
+                .build(),
             contentDescription = stringResource(
                 R.string.cart_line_item_photo_content_description,
                 item.product.name
             ),
+            contentScale = ContentScale.Crop,
             modifier = Modifier
                 .width(IMAGE_WIDTH)
                 .aspectRatio(IMAGE_ASPECT_RATIO)

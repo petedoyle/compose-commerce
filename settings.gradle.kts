@@ -25,7 +25,3 @@ include(":common-mvi")
 include(":common-test-android")
 include(":common-test-unit")
 include(":common-design-system")
-
-// Enable version catalogs
-// https://docs.gradle.org/current/userguide/platforms.html
-enableFeaturePreview("VERSION_CATALOGS")

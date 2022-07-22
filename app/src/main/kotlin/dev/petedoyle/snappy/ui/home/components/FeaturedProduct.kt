@@ -13,10 +13,13 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import coil.compose.AsyncImage
+import coil.request.ImageRequest
 import dev.petedoyle.snappy.common.api.bigcommerce.catalog.v3.model.Category
 import dev.petedoyle.snappy.common.api.bigcommerce.catalog.v3.model.ProductFull
 import dev.petedoyle.snappy.common.api.bigcommerce.catalog.v3.model.ProductImageFull
@@ -24,8 +27,8 @@ import dev.petedoyle.snappy.design.compose.theme.ASPECT_RATIO_3_BY_4
 import dev.petedoyle.snappy.design.compose.theme.SnappyTheme
 import dev.petedoyle.snappy.design.compose.theme.IMAGE_CROSSFADE_MS
 import dev.petedoyle.snappy.R
-import coil.compose.rememberImagePainter
 import coil.size.Scale
+import dev.petedoyle.snappy.design.compose.theme.ASPECT_RATIO_SQUARE
 
 private val IMAGE_CORNER_RADIUS = 8.dp
 
@@ -44,14 +47,12 @@ fun FeaturedProduct(
             )
             .clickable { product.id?.let { onProductClicked(it) } }
     ) {
-        Image(
-            painter = rememberImagePainter(
-                data = product.images?.getOrNull(0)?.urlStandard,
-                builder = {
-                    scale(Scale.FILL)
-                    crossfade(IMAGE_CROSSFADE_MS)
-                }
-            ),
+        AsyncImage(
+            model = ImageRequest.Builder(LocalContext.current)
+                .data(product.images?.getOrNull(0)?.urlStandard)
+                .scale(Scale.FILL)
+                .crossfade(IMAGE_CROSSFADE_MS)
+                .build(),
             contentDescription = null,
             contentScale = ContentScale.Crop,
             modifier = Modifier
