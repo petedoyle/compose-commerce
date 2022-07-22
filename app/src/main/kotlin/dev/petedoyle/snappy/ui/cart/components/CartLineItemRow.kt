@@ -16,6 +16,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -47,14 +48,21 @@ fun CartLineItemRow(
             .padding(bottom = SnappyTheme.spacing.xl)
     ) {
 
+        val thumbnailUrl = if (!item.variant.imageUrl.isNullOrBlank()) {
+            item.variant.imageUrl
+        } else {
+            item.product.images?.firstOrNull()?.urlThumbnail
+        }
+
         Image(
             painter = rememberImagePainter(
-                data = item.variant.imageUrl,
+                data = thumbnailUrl,
                 builder = {
                     scale(Scale.FILL)
                     crossfade(true)
                 }
             ),
+            contentScale = ContentScale.Crop,
             contentDescription = stringResource(
                 R.string.cart_line_item_photo_content_description,
                 item.product.name
@@ -79,7 +87,10 @@ fun CartLineItemRow(
 
             Row(modifier = Modifier.padding(top = SnappyTheme.spacing.xxs)) {
                 Text(
-                    text = stringResource(R.string.price_format, item.variant.calculatedPrice ?: 0f),
+                    text = stringResource(
+                        R.string.price_format,
+                        item.variant.calculatedPrice ?: 0f
+                    ),
                     color = SnappyTheme.colors.onbackground_onbackgroundvariant1.value,
                     style = SnappyTheme.typography.label3,
                 )

@@ -12,6 +12,7 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
@@ -45,13 +46,14 @@ fun FeaturedProduct(
     ) {
         Image(
             painter = rememberImagePainter(
-                data = product.images?.getOrNull(0)?.urlThumbnail,
+                data = product.images?.getOrNull(0)?.urlStandard,
                 builder = {
                     scale(Scale.FILL)
                     crossfade(IMAGE_CROSSFADE_MS)
                 }
             ),
             contentDescription = null,
+            contentScale = ContentScale.Crop,
             modifier = Modifier
                 .aspectRatio(ASPECT_RATIO_3_BY_4)
                 .clip(RoundedCornerShape(IMAGE_CORNER_RADIUS))

@@ -23,6 +23,7 @@ import androidx.compose.runtime.SideEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextOverflow
@@ -115,7 +116,7 @@ fun ProductDetailScreen(
     val categories = uiState.categories
     val productImageUrl =
         when (uiState.selectedVariant == null || uiState.selectedVariant.imageUrl.isNullOrBlank()) {
-            true -> product?.images?.getOrNull(0)?.urlStandard
+            true -> product?.images?.getOrNull(0)?.urlZoom
             else -> uiState.selectedVariant.imageUrl
         }
 
@@ -152,6 +153,7 @@ fun ProductDetailScreen(
                             crossfade(IMAGE_CROSSFADE_MS)
                         }
                     ),
+                    contentScale = ContentScale.Crop,
                     contentDescription = null,
                     modifier = Modifier.aspectRatio(ASPECT_RATIO_SQUARE)
                 )
