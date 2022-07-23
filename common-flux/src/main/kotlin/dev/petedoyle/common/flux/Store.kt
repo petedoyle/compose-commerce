@@ -1,4 +1,4 @@
-package dev.petedoyle.snappy.common.flux
+package dev.petedoyle.common.flux
 
 import androidx.annotation.VisibleForTesting
 import kotlinx.coroutines.flow.StateFlow
