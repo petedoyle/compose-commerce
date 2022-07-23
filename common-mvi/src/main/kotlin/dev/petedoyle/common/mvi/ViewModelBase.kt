@@ -3,7 +3,7 @@ package dev.petedoyle.common.mvi
 import androidx.annotation.VisibleForTesting
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import dev.petedoyle.snappy.common.coroutines.DispatcherProvider
+import dev.petedoyle.common.coroutines.DispatcherProvider
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.MutableStateFlow

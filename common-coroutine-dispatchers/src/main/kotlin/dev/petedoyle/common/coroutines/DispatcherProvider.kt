@@ -1,4 +1,4 @@
-package dev.petedoyle.snappy.common.coroutines
+package dev.petedoyle.common.coroutines
 
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
