@@ -1,4 +1,4 @@
-package dev.petedoyle.snappy.common.test
+package dev.petedoyle.common.test
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import kotlinx.coroutines.ExperimentalCoroutinesApi

@@ -7,7 +7,7 @@ import dev.petedoyle.snappy.common.api.bigcommerce.catalog.v3.model.MetaCollecti
 import dev.petedoyle.snappy.common.api.bigcommerce.catalog.v3.model.ProductFull
 import dev.petedoyle.snappy.common.api.bigcommerce.models.CategoryCollectionResponse
 import dev.petedoyle.snappy.common.api.bigcommerce.models.ProductCollectionResponse
-import dev.petedoyle.snappy.common.test.TestBase
+import dev.petedoyle.common.test.TestBase
 import dev.petedoyle.snappy.cart.CartStore
 import dev.petedoyle.snappy.cart.LocalCartStore
 import com.nhaarman.expect.expect
