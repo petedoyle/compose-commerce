@@ -1,5 +1,5 @@
 package dev.petedoyle.snappy.ui
 
-import dev.petedoyle.snappy.common.mvi2.ViewModelState
+import dev.petedoyle.common.mvi.ViewModelState
 
 object MainViewModelState : ViewModelState

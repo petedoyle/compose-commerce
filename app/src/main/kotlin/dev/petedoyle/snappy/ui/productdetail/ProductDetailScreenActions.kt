@@ -1,7 +1,7 @@
 package dev.petedoyle.snappy.ui.productdetail
 
 import dev.petedoyle.snappy.common.api.bigcommerce.catalog.v3.model.ProductVariantFull
-import dev.petedoyle.snappy.common.mvi2.ViewAction
+import dev.petedoyle.common.mvi.ViewAction
 
 sealed class ProductDetailScreenActions : ViewAction
 object BackClicked : ProductDetailScreenActions()

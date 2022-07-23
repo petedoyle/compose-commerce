@@ -1,6 +1,6 @@
 package dev.petedoyle.snappy.ui.home
 
-import dev.petedoyle.snappy.common.mvi2.ViewModelEffect
+import dev.petedoyle.common.mvi.ViewModelEffect
 
 sealed class HomeScreenEffects : ViewModelEffect
 data class NavigateToProductDetail(val productId: Int) : HomeScreenEffects()
