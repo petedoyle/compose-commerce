@@ -1,6 +1,6 @@
 package dev.petedoyle.common.test.android
 
-import dev.petedoyle.snappy.common.coroutines.DispatcherProvider
+import dev.petedoyle.common.coroutines.DispatcherProvider
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi

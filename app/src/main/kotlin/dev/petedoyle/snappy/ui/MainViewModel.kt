@@ -1,7 +1,7 @@
 package dev.petedoyle.snappy.ui
 
 import androidx.lifecycle.viewModelScope
-import dev.petedoyle.snappy.common.coroutines.DispatcherProvider
+import dev.petedoyle.common.coroutines.DispatcherProvider
 import dev.petedoyle.common.mvi.ViewModelBase
 import dev.petedoyle.snappy.cart.CartStore
 import dev.petedoyle.snappy.cart.ClearCart

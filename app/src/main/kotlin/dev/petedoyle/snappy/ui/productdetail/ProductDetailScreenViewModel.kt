@@ -6,7 +6,7 @@ import dev.petedoyle.snappy.common.api.bigcommerce.catalog.v3.model.Category
 import dev.petedoyle.snappy.common.api.bigcommerce.catalog.v3.model.ProductFull
 import dev.petedoyle.snappy.common.api.bigcommerce.catalog.v3.model.ProductModifierFull
 import dev.petedoyle.snappy.common.api.bigcommerce.catalog.v3.model.ProductVariantFull
-import dev.petedoyle.snappy.common.coroutines.DispatcherProvider
+import dev.petedoyle.common.coroutines.DispatcherProvider
 import dev.petedoyle.common.mvi.ViewModelBase
 import dev.petedoyle.common.mvi.ViewModelState
 import dev.petedoyle.snappy.cart.AddLineItem
