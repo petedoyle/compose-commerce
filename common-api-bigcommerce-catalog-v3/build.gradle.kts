@@ -31,9 +31,9 @@ openApiGenerate {
     generatorName.set("kotlin")
     inputSpec.set("$projectDir/specs/catalog.v3.yml")
     outputDir.set("$projectDir")
-    apiPackage.set("dev.petedoyle.snappy.common.api.bigcommerce.catalog.v3")
-    modelPackage.set("dev.petedoyle.snappy.common.api.bigcommerce.catalog.v3.model")
-    invokerPackage.set("dev.petedoyle.snappy")
+    apiPackage.set("dev.petedoyle.commerce.common.api.bigcommerce.catalog.v3")
+    modelPackage.set("dev.petedoyle.commerce.common.api.bigcommerce.catalog.v3.model")
+    invokerPackage.set("dev.petedoyle.commerce")
     configOptions.set(
         mutableMapOf(
             "dateLibrary" to "java8",
