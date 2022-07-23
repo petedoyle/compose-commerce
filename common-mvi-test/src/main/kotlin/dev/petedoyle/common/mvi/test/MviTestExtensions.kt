@@ -1,5 +1,6 @@
-package dev.petedoyle.common.mvi
+package dev.petedoyle.common.mvi.test
 
+import dev.petedoyle.common.mvi.ViewModelState
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.drop
 
