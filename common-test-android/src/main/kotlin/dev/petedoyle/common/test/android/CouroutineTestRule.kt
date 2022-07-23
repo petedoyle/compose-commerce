@@ -1,4 +1,4 @@
-package dev.petedoyle.snappy.common.test.android
+package dev.petedoyle.common.test.android
 
 import dev.petedoyle.snappy.common.coroutines.DispatcherProvider
 import kotlinx.coroutines.CoroutineDispatcher

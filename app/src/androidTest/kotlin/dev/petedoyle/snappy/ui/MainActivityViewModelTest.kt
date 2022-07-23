@@ -3,7 +3,7 @@ package dev.petedoyle.snappy.ui
 import android.content.Context
 import androidx.test.core.app.ApplicationProvider
 import app.cash.turbine.test
-import dev.petedoyle.snappy.common.test.android.AndroidTestBase
+import dev.petedoyle.common.test.android.AndroidTestBase
 import dev.petedoyle.snappy.cart.CartStore
 import dev.petedoyle.snappy.cart.LocalCartStore
 import dev.petedoyle.snappy.ui.MainActivityActions.AppStarting
