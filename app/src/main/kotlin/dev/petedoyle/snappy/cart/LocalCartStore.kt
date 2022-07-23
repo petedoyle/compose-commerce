@@ -1,6 +1,6 @@
 package dev.petedoyle.snappy.cart
 
-import dev.petedoyle.snappy.common.flux.BaseStore
+import dev.petedoyle.common.flux.BaseStore
 import kotlinx.coroutines.delay
 import kotlin.random.Random
 

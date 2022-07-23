@@ -1,6 +1,6 @@
 package dev.petedoyle.snappy.cart
 
-import dev.petedoyle.snappy.common.flux.StoreActions
+import dev.petedoyle.common.flux.StoreActions
 
 sealed class CartStoreActions : StoreActions
 data class AddLineItem(val item: CartLineItem) : CartStoreActions()
