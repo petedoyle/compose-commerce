@@ -1,4 +1,4 @@
-package dev.petedoyle.snappy.common.test.android
+package dev.petedoyle.common.test.android
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import androidx.test.ext.junit.runners.AndroidJUnit4
