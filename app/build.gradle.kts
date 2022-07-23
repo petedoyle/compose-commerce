@@ -34,17 +34,17 @@ android {
     productFlavors {
         register("production") {
             dimension = "stage"
-            applicationId = "dev.petedoyle.snappy"
+            applicationId = "dev.petedoyle.commerce"
         }
 
         register("staging") {
             dimension = "stage"
-            applicationId = "dev.petedoyle.snappy.staging"
+            applicationId = "dev.petedoyle.commerce.staging"
         }
 
         register("sandbox") {
             dimension = "stage"
-            applicationId = "dev.petedoyle.snappy.sandbox"
+            applicationId = "dev.petedoyle.commerce.sandbox"
         }
     }
 
