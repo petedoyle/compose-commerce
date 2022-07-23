@@ -1,4 +1,4 @@
-package dev.petedoyle.snappy.common.mvi2
+package dev.petedoyle.common.mvi
 
 import androidx.annotation.VisibleForTesting
 import androidx.lifecycle.ViewModel

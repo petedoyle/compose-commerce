@@ -5,8 +5,8 @@ import dev.petedoyle.snappy.common.api.bigcommerce.BigCommerceManagementApi
 import dev.petedoyle.snappy.common.api.bigcommerce.catalog.v3.model.Category
 import dev.petedoyle.snappy.common.api.bigcommerce.catalog.v3.model.ProductFull
 import dev.petedoyle.snappy.common.coroutines.DispatcherProvider
-import dev.petedoyle.snappy.common.mvi2.ViewModelBase
-import dev.petedoyle.snappy.common.mvi2.ViewModelState
+import dev.petedoyle.common.mvi.ViewModelBase
+import dev.petedoyle.common.mvi.ViewModelState
 import dev.petedoyle.snappy.cart.CartState
 import dev.petedoyle.snappy.cart.CartStore
 import com.slack.eithernet.ApiResult.Failure

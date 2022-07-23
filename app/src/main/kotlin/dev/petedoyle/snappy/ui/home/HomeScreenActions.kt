@@ -1,6 +1,6 @@
 package dev.petedoyle.snappy.ui.home
 
-import dev.petedoyle.snappy.common.mvi2.ViewAction
+import dev.petedoyle.common.mvi.ViewAction
 
 sealed class HomeScreenActions : ViewAction
 data class ProductClicked(val productId: Int) : HomeScreenActions()

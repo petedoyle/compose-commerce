@@ -2,7 +2,7 @@ package dev.petedoyle.snappy.ui.productdetail
 
 import dev.petedoyle.snappy.common.api.bigcommerce.catalog.v3.model.ProductFull
 import dev.petedoyle.snappy.common.api.bigcommerce.catalog.v3.model.ProductVariantFull
-import dev.petedoyle.snappy.common.mvi2.ViewModelEffect
+import dev.petedoyle.common.mvi.ViewModelEffect
 
 sealed class ProductDetailScreenEffects : ViewModelEffect
 object NavigateBack : ProductDetailScreenEffects()

@@ -1,6 +1,6 @@
 package dev.petedoyle.snappy.ui.cart
 
-import dev.petedoyle.snappy.common.mvi2.ViewAction
+import dev.petedoyle.common.mvi.ViewAction
 import dev.petedoyle.snappy.cart.CartLineItem
 
 sealed class CartScreenActions : ViewAction

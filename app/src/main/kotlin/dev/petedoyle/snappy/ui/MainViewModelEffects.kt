@@ -1,6 +1,6 @@
 package dev.petedoyle.snappy.ui
 
-import dev.petedoyle.snappy.common.mvi2.ViewModelEffect
+import dev.petedoyle.common.mvi.ViewModelEffect
 import com.google.android.play.core.appupdate.AppUpdateInfo
 
 sealed class MainViewModelEffects : ViewModelEffect {
