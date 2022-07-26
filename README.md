@@ -1,4 +1,4 @@
-# Snappy
+# Compose Commerce
 This repo contains a sample Android app for BigCommerce.
 
 ## License
