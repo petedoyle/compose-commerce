@@ -22,9 +22,9 @@ import coil.request.ImageRequest
 import dev.petedoyle.commerce.common.api.bigcommerce.catalog.v3.model.Category
 import dev.petedoyle.commerce.common.api.bigcommerce.catalog.v3.model.ProductFull
 import dev.petedoyle.commerce.common.api.bigcommerce.catalog.v3.model.ProductImageFull
-import dev.petedoyle.commerce.design.compose.theme.ASPECT_RATIO_3_BY_4
-import dev.petedoyle.commerce.design.compose.theme.SnappyTheme
-import dev.petedoyle.commerce.design.compose.theme.IMAGE_CROSSFADE_MS
+import dev.petedoyle.common.design.compose.theme.ASPECT_RATIO_3_BY_4
+import dev.petedoyle.common.design.compose.theme.SnappyTheme
+import dev.petedoyle.common.design.compose.theme.IMAGE_CROSSFADE_MS
 import dev.petedoyle.commerce.R
 import coil.size.Scale
 

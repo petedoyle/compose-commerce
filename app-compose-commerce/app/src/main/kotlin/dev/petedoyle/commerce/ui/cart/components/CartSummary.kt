@@ -12,7 +12,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.tooling.preview.Preview
-import dev.petedoyle.commerce.design.compose.theme.SnappyTheme
+import dev.petedoyle.common.design.compose.theme.SnappyTheme
 import dev.petedoyle.commerce.R
 import dev.petedoyle.commerce.cart.CartState
 import dev.petedoyle.commerce.cart.shipping

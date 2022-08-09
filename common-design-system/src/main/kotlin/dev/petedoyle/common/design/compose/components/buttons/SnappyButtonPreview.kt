@@ -1,4 +1,4 @@
-package dev.petedoyle.commerce.design.compose.components.buttons
+package dev.petedoyle.common.design.compose.components.buttons
 
 import android.content.res.Configuration
 import androidx.compose.foundation.layout.Arrangement
@@ -12,7 +12,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.tooling.preview.PreviewParameter
 import androidx.compose.ui.tooling.preview.PreviewParameterProvider
 import dev.petedoyle.commerce.design.compose.R
-import dev.petedoyle.commerce.design.compose.theme.SnappyTheme
+import dev.petedoyle.common.design.compose.theme.SnappyTheme
 
 @Preview(name = "Light", uiMode = Configuration.UI_MODE_NIGHT_NO, showBackground = true)
 @Preview(

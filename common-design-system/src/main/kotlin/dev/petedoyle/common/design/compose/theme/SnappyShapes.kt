@@ -1,4 +1,4 @@
-package dev.petedoyle.commerce.design.compose.theme
+package dev.petedoyle.common.design.compose.theme
 
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.runtime.Immutable

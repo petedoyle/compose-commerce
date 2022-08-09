@@ -16,7 +16,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import dev.petedoyle.commerce.design.compose.theme.SnappyTheme
+import dev.petedoyle.common.design.compose.theme.SnappyTheme
 import dev.petedoyle.commerce.R
 import com.google.accompanist.insets.ui.TopAppBar
 

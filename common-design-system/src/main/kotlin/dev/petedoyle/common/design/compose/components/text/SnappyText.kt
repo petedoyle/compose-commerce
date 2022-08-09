@@ -1,4 +1,4 @@
-package dev.petedoyle.commerce.design.compose.components.text
+package dev.petedoyle.common.design.compose.components.text
 
 import android.content.res.Configuration
 import androidx.compose.foundation.background
@@ -17,7 +17,7 @@ import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.tooling.preview.Preview
-import dev.petedoyle.commerce.design.compose.theme.SnappyTheme
+import dev.petedoyle.common.design.compose.theme.SnappyTheme
 
 @Composable
 fun SnappyText(

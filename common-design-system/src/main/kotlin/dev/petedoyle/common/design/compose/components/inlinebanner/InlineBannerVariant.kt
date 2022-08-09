@@ -1,10 +1,10 @@
-package dev.petedoyle.commerce.design.compose.components.inlinebanner
+package dev.petedoyle.common.design.compose.components.inlinebanner
 
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.PreviewParameterProvider
 import dev.petedoyle.commerce.design.compose.R
-import dev.petedoyle.commerce.design.compose.theme.SnappyTheme
+import dev.petedoyle.common.design.compose.theme.SnappyTheme
 
 sealed class InlineBannerVariant {
     @Composable

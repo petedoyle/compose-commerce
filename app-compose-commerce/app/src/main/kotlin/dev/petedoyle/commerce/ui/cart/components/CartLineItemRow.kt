@@ -25,8 +25,8 @@ import coil.request.ImageRequest
 import dev.petedoyle.commerce.common.api.bigcommerce.catalog.v3.model.ProductFull
 import dev.petedoyle.commerce.common.api.bigcommerce.catalog.v3.model.ProductImageFull
 import dev.petedoyle.commerce.common.api.bigcommerce.catalog.v3.model.ProductVariantFull
-import dev.petedoyle.commerce.design.compose.components.incrementer.Incrementer
-import dev.petedoyle.commerce.design.compose.theme.SnappyTheme
+import dev.petedoyle.common.design.compose.components.incrementer.Incrementer
+import dev.petedoyle.common.design.compose.theme.SnappyTheme
 import dev.petedoyle.commerce.R
 import dev.petedoyle.commerce.cart.CartLineItem
 import coil.size.Scale

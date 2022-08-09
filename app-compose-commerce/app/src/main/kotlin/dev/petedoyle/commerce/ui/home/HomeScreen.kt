@@ -29,7 +29,7 @@ import androidx.navigation.NavHostController
 import dev.petedoyle.commerce.common.api.bigcommerce.catalog.v3.model.Category
 import dev.petedoyle.commerce.common.api.bigcommerce.catalog.v3.model.ProductFull
 import dev.petedoyle.commerce.common.api.bigcommerce.catalog.v3.model.ProductImageFull
-import dev.petedoyle.commerce.design.compose.theme.SnappyTheme
+import dev.petedoyle.common.design.compose.theme.SnappyTheme
 import dev.petedoyle.commerce.ui.Screen
 import dev.petedoyle.commerce.ui.components.SnappyTopAppBarPrimary
 import dev.petedoyle.commerce.ui.home.components.FeaturedProduct

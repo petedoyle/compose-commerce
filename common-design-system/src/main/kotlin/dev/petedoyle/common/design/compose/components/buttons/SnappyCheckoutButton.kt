@@ -1,4 +1,4 @@
-package dev.petedoyle.commerce.design.compose.components.buttons
+package dev.petedoyle.common.design.compose.components.buttons
 
 import android.content.res.Configuration
 import androidx.compose.runtime.Composable
@@ -6,7 +6,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import dev.petedoyle.commerce.design.compose.R
-import dev.petedoyle.commerce.design.compose.theme.SnappyTheme
+import dev.petedoyle.common.design.compose.theme.SnappyTheme
 
 @Composable
 fun SnappyCheckoutButton(

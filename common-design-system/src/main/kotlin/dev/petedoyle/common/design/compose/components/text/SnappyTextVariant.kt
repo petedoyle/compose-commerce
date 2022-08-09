@@ -1,9 +1,9 @@
-package dev.petedoyle.commerce.design.compose.components.text
+package dev.petedoyle.common.design.compose.components.text
 
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.TextStyle
-import dev.petedoyle.commerce.design.compose.theme.SnappyTheme
+import dev.petedoyle.common.design.compose.theme.SnappyTheme
 
 sealed class SnappyTextVariant {
     @Composable

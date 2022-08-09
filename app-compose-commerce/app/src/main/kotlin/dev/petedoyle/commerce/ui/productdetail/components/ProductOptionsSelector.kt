@@ -38,7 +38,7 @@ import dev.petedoyle.commerce.common.api.bigcommerce.catalog.v3.model.ProductOpt
 import dev.petedoyle.commerce.common.api.bigcommerce.catalog.v3.model.ProductOptionOptionValueFull
 import dev.petedoyle.commerce.common.api.bigcommerce.catalog.v3.model.ProductVariantFull
 import dev.petedoyle.commerce.common.api.bigcommerce.catalog.v3.model.ProductVariantOptionValueFull
-import dev.petedoyle.commerce.design.compose.theme.SnappyTheme
+import dev.petedoyle.common.design.compose.theme.SnappyTheme
 import dev.petedoyle.commerce.BC_INVENTORY_TRACKING_NONE
 import dev.petedoyle.commerce.BC_INVENTORY_TRACKING_PRODUCT
 import dev.petedoyle.commerce.R

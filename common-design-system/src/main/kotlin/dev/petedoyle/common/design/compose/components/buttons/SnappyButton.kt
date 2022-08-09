@@ -1,4 +1,4 @@
-package dev.petedoyle.commerce.design.compose.components.buttons
+package dev.petedoyle.common.design.compose.components.buttons
 
 import androidx.annotation.DrawableRes
 import androidx.compose.foundation.border
@@ -19,7 +19,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
-import dev.petedoyle.commerce.design.compose.theme.SnappyTheme
+import dev.petedoyle.common.design.compose.theme.SnappyTheme
 
 @Composable
 fun SnappyButton(

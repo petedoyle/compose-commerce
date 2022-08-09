@@ -1,8 +1,8 @@
-package dev.petedoyle.commerce.design.compose.components.buttons
+package dev.petedoyle.common.design.compose.components.buttons
 
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Color
-import dev.petedoyle.commerce.design.compose.theme.SnappyTheme
+import dev.petedoyle.common.design.compose.theme.SnappyTheme
 
 sealed class SnappyButtonStyleVariant {
     @get:Composable

@@ -1,4 +1,4 @@
-package dev.petedoyle.commerce.design.compose.components.incrementer
+package dev.petedoyle.common.design.compose.components.incrementer
 
 import android.content.res.Configuration
 import androidx.compose.animation.animateColorAsState
@@ -23,7 +23,7 @@ import androidx.compose.ui.tooling.preview.PreviewParameterProvider
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import dev.petedoyle.commerce.design.compose.R
-import dev.petedoyle.commerce.design.compose.theme.SnappyTheme
+import dev.petedoyle.common.design.compose.theme.SnappyTheme
 
 private val INCREMENTER_BUTTON_SIZE = 32.dp
 

@@ -1,10 +1,10 @@
-package dev.petedoyle.commerce.design.compose.components.buttons
+package dev.petedoyle.common.design.compose.components.buttons
 
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
-import dev.petedoyle.commerce.design.compose.theme.SnappyTheme
+import dev.petedoyle.common.design.compose.theme.SnappyTheme
 
 sealed class SnappyButtonSizeVariant(
     val minHeight: Dp,

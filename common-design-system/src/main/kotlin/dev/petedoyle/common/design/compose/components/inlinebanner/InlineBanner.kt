@@ -1,4 +1,4 @@
-package dev.petedoyle.commerce.design.compose.components.inlinebanner
+package dev.petedoyle.common.design.compose.components.inlinebanner
 
 import android.content.res.Configuration
 import androidx.compose.foundation.background
@@ -20,7 +20,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.tooling.preview.PreviewParameter
 import androidx.compose.ui.unit.dp
 import dev.petedoyle.commerce.design.compose.R
-import dev.petedoyle.commerce.design.compose.theme.SnappyTheme
+import dev.petedoyle.common.design.compose.theme.SnappyTheme
 
 @Composable
 fun InlineBanner(

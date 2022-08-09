@@ -34,8 +34,8 @@ import androidx.navigation.NavHostController
 import dev.petedoyle.commerce.common.api.bigcommerce.catalog.v3.model.ProductFull
 import dev.petedoyle.commerce.common.api.bigcommerce.catalog.v3.model.ProductImageFull
 import dev.petedoyle.commerce.common.api.bigcommerce.catalog.v3.model.ProductVariantFull
-import dev.petedoyle.commerce.design.compose.components.buttons.SnappyCheckoutButton
-import dev.petedoyle.commerce.design.compose.theme.SnappyTheme
+import dev.petedoyle.common.design.compose.components.buttons.SnappyCheckoutButton
+import dev.petedoyle.common.design.compose.theme.SnappyTheme
 import dev.petedoyle.commerce.R
 import dev.petedoyle.commerce.cart.CartLineItem
 import dev.petedoyle.commerce.cart.CartState

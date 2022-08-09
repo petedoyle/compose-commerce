@@ -9,7 +9,7 @@ import androidx.core.view.WindowCompat
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
-import dev.petedoyle.commerce.design.compose.theme.SnappyTheme
+import dev.petedoyle.common.design.compose.theme.SnappyTheme
 import dev.petedoyle.commerce.ui.MainActivityActions.AppStarting
 import dev.petedoyle.commerce.ui.MainViewModelEffects.AppUpdateAvailableEffect
 import dev.petedoyle.commerce.ui.MainViewModelEffects.AppUpdateCheckFailedEffect
