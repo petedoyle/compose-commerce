@@ -9,10 +9,10 @@ import androidx.compose.ui.unit.dp
 // GENERATED. Do not edit by hand.
 ///////////////////////////////////////////////////////////////////////////
 
-val LocalSnappySpacing = staticCompositionLocalOf { SnappySpacing() }
+val LocalFractalSpacing = staticCompositionLocalOf { FractalSpacing() }
 
 @Immutable
-data class SnappySpacing(
+data class FractalSpacing(
     val xxs: Dp = 4.dp,
     val xs: Dp = 8.dp,
     val s: Dp = 12.dp,

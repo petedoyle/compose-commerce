@@ -23,7 +23,7 @@ import dev.petedoyle.commerce.common.api.bigcommerce.catalog.v3.model.Category
 import dev.petedoyle.commerce.common.api.bigcommerce.catalog.v3.model.ProductFull
 import dev.petedoyle.commerce.common.api.bigcommerce.catalog.v3.model.ProductImageFull
 import dev.petedoyle.common.design.compose.theme.ASPECT_RATIO_3_BY_4
-import dev.petedoyle.common.design.compose.theme.SnappyTheme
+import dev.petedoyle.common.design.compose.theme.FractalTheme
 import dev.petedoyle.common.design.compose.theme.IMAGE_CROSSFADE_MS
 import dev.petedoyle.commerce.R
 import coil.size.Scale
@@ -39,9 +39,9 @@ fun FeaturedProduct(
     Column(
         modifier = Modifier
             .padding(
-                bottom = SnappyTheme.spacing.xl,
-                start = SnappyTheme.spacing.xs,
-                end = SnappyTheme.spacing.xs
+                bottom = FractalTheme.spacing.xl,
+                start = FractalTheme.spacing.xs,
+                end = FractalTheme.spacing.xs
             )
             .clickable { product.id?.let { onProductClicked(it) } }
     ) {
@@ -56,27 +56,27 @@ fun FeaturedProduct(
             modifier = Modifier
                 .aspectRatio(ASPECT_RATIO_3_BY_4)
                 .clip(RoundedCornerShape(IMAGE_CORNER_RADIUS))
-                .background(SnappyTheme.colors.primitives_gray_gray50.value)
+                .background(FractalTheme.colors.primitives_gray_gray50.value)
         )
         Text(
             text = categories
                 .filter { product.categories.orEmpty().contains(it.id) }
                 .joinToString { it.name },
-            color = SnappyTheme.colors.onbackground_onbackgroundvariant2.value,
-            style = SnappyTheme.typography.caption2,
-            modifier = Modifier.padding(top = SnappyTheme.spacing.xs),
+            color = FractalTheme.colors.onbackground_onbackgroundvariant2.value,
+            style = FractalTheme.typography.caption2,
+            modifier = Modifier.padding(top = FractalTheme.spacing.xs),
             maxLines = 1,
             overflow = TextOverflow.Ellipsis,
         )
         Text(
             text = product.name,
-            color = SnappyTheme.colors.onbackground_onbackground.value,
-            style = SnappyTheme.typography.heading3,
+            color = FractalTheme.colors.onbackground_onbackground.value,
+            style = FractalTheme.typography.heading3,
         )
         Text(
             text = stringResource(R.string.price_format, product.calculatedPrice ?: 0f),
-            color = SnappyTheme.colors.onbackground_onbackground.value,
-            style = SnappyTheme.typography.label2,
+            color = FractalTheme.colors.onbackground_onbackground.value,
+            style = FractalTheme.typography.label2,
         )
     }
 }
@@ -85,7 +85,7 @@ fun FeaturedProduct(
 @Preview(name = "Dark", uiMode = Configuration.UI_MODE_NIGHT_YES, showBackground = true)
 @Composable
 private fun Preview() {
-    SnappyTheme {
+    FractalTheme {
         FeaturedProduct(
             product = ProductFull(
                 id = 86,

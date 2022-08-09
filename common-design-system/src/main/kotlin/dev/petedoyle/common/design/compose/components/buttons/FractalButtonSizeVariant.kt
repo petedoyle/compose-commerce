@@ -4,9 +4,9 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
-import dev.petedoyle.common.design.compose.theme.SnappyTheme
+import dev.petedoyle.common.design.compose.theme.FractalTheme
 
-sealed class SnappyButtonSizeVariant(
+sealed class FractalButtonSizeVariant(
     val minHeight: Dp,
     val loaderSize: Dp,
 ) {
@@ -19,42 +19,42 @@ sealed class SnappyButtonSizeVariant(
     override fun equals(other: Any?): Boolean = this === other
     override fun hashCode(): Int = System.identityHashCode(this)
 
-    class Default : SnappyButtonSizeVariant(
+    class Default : FractalButtonSizeVariant(
         minHeight = 48.dp,
         loaderSize = 20.dp,
     ) {
         override val iconSpacing: Dp
             @Composable
-            get() = SnappyTheme.spacing.s
+            get() = FractalTheme.spacing.s
 
         override val textStyle: TextStyle
             @Composable
-            get() = SnappyTheme.typography.label2
+            get() = FractalTheme.typography.label2
     }
 
-    class Compact : SnappyButtonSizeVariant(
+    class Compact : FractalButtonSizeVariant(
         minHeight = 36.dp,
         loaderSize = 14.dp,
     ) {
         override val iconSpacing: Dp
             @Composable
-            get() = SnappyTheme.spacing.xs
+            get() = FractalTheme.spacing.xs
 
         override val textStyle: TextStyle
             @Composable
-            get() = SnappyTheme.typography.label3
+            get() = FractalTheme.typography.label3
     }
 
-    class Tiny : SnappyButtonSizeVariant(
+    class Tiny : FractalButtonSizeVariant(
         minHeight = 28.dp,
         loaderSize = 14.dp,
     ) {
         override val iconSpacing: Dp
             @Composable
-            get() = SnappyTheme.spacing.xs
+            get() = FractalTheme.spacing.xs
 
         override val textStyle: TextStyle
             @Composable
-            get() = SnappyTheme.typography.label4
+            get() = FractalTheme.typography.label4
     }
 }

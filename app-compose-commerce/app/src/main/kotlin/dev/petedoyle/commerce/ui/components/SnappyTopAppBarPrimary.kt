@@ -16,7 +16,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import dev.petedoyle.common.design.compose.theme.SnappyTheme
+import dev.petedoyle.common.design.compose.theme.FractalTheme
 import dev.petedoyle.commerce.R
 import com.google.accompanist.insets.ui.TopAppBar
 
@@ -31,7 +31,7 @@ fun SnappyTopAppBarPrimary(
             Image(
                 painter = painterResource(id = R.drawable.logo_top_bar),
                 contentDescription = stringResource(R.string.logo_content_description),
-                colorFilter = ColorFilter.tint(SnappyTheme.colors.primary_primary.value),
+                colorFilter = ColorFilter.tint(FractalTheme.colors.primary_primary.value),
                 modifier = Modifier
                     .fillMaxWidth()
                     .padding(start = 36.dp) // hack to center the logo
@@ -46,7 +46,7 @@ fun SnappyTopAppBarPrimary(
             }
         },
         elevation = dimensionResource(R.dimen.toolbar_elevation),
-        backgroundColor = SnappyTheme.colors.background_backgroundprimary.value,
+        backgroundColor = FractalTheme.colors.background_backgroundprimary.value,
     )
 }
 
@@ -54,7 +54,7 @@ fun SnappyTopAppBarPrimary(
 @Preview(name = "Dark", uiMode = Configuration.UI_MODE_NIGHT_YES)
 @Composable
 private fun Preview() {
-    SnappyTheme {
+    FractalTheme {
         SnappyTopAppBarPrimary(
             shoppingCartBadgeEnabled = true,
             onShoppingCartClicked = {},

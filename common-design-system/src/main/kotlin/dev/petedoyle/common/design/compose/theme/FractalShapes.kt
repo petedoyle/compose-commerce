@@ -9,10 +9,10 @@ import androidx.compose.ui.unit.dp
 // GENERATED. Do not edit by hand.
 ///////////////////////////////////////////////////////////////////////////
 
-val LocalSnappyShapes = staticCompositionLocalOf { SnappyShapes() }
+val LocalFractalShapes = staticCompositionLocalOf { FractalShapes() }
 
 @Immutable
-data class SnappyShapes(
+data class FractalShapes(
     val borderRounded: RoundedCornerShape = RoundedCornerShape(
         topStart = 6.dp,
         topEnd = 6.dp,

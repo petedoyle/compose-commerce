@@ -23,7 +23,7 @@ import androidx.compose.ui.tooling.preview.PreviewParameterProvider
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import dev.petedoyle.commerce.design.compose.R
-import dev.petedoyle.common.design.compose.theme.SnappyTheme
+import dev.petedoyle.common.design.compose.theme.FractalTheme
 
 private val INCREMENTER_BUTTON_SIZE = 32.dp
 
@@ -33,11 +33,11 @@ fun Incrementer(
     onDecrement: (newValue: Int) -> Unit,
     onIncrement: (newValue: Int) -> Unit,
 ) {
-    val buttonEnabledColor = SnappyTheme.colors.primary_primary.value
-    val buttonDisabledColor = SnappyTheme.colors.primary_primarydisabled.value
-    val iconEnabledColor = SnappyTheme.colors.onprimary_onprimary.value
-    val iconDisabledColor = SnappyTheme.colors.onprimary_onprimarydisabled.value
-    val buttonRadius: Dp = SnappyTheme.spacing.m
+    val buttonEnabledColor = FractalTheme.colors.primary_primary.value
+    val buttonDisabledColor = FractalTheme.colors.primary_primarydisabled.value
+    val iconEnabledColor = FractalTheme.colors.onprimary_onprimary.value
+    val iconDisabledColor = FractalTheme.colors.onprimary_onprimarydisabled.value
+    val buttonRadius: Dp = FractalTheme.spacing.m
     var plusEnabled = true
     var minusEnabled = quantity > 1
 
@@ -71,8 +71,8 @@ fun Incrementer(
         Text(
             text = quantity.toString(),
             modifier = Modifier.width(40.dp),
-            style = SnappyTheme.typography.label2,
-            color = SnappyTheme.colors.onbackground_onbackground.value,
+            style = FractalTheme.typography.label2,
+            color = FractalTheme.colors.onbackground_onbackground.value,
             textAlign = TextAlign.Center
         )
         IconButton(
@@ -114,7 +114,7 @@ class QuantityProvider : PreviewParameterProvider<Int> {
 )
 @Composable
 private fun Preview(@PreviewParameter(QuantityProvider::class) qty: Int) {
-    SnappyTheme {
+    FractalTheme {
         Incrementer(
             quantity = qty,
             onDecrement = {},

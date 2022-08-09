@@ -17,14 +17,14 @@ import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.tooling.preview.Preview
-import dev.petedoyle.common.design.compose.theme.SnappyTheme
+import dev.petedoyle.common.design.compose.theme.FractalTheme
 
 @Composable
-fun SnappyText(
+fun FractalText(
     text: String,
-    snappyTextVariant: SnappyTextVariant,
+    fractalTextVariant: FractalTextVariant,
     modifier: Modifier = Modifier,
-    color: Color = snappyTextVariant.defaultColor(),
+    color: Color = fractalTextVariant.defaultColor(),
     onTextLayout: (TextLayoutResult) -> Unit = {},
     overflow: TextOverflow = TextOverflow.Clip,
     softWrap: Boolean = true,
@@ -32,7 +32,7 @@ fun SnappyText(
 ) {
     BasicText(
         text = text,
-        style = snappyTextVariant.textStyle().copy(color = color),
+        style = fractalTextVariant.textStyle().copy(color = color),
         modifier = modifier,
         onTextLayout = onTextLayout,
         overflow = overflow,
@@ -42,11 +42,11 @@ fun SnappyText(
 }
 
 @Composable
-fun SnappyText(
+fun FractalText(
     text: AnnotatedString,
-    snappyTextVariant: SnappyTextVariant,
+    fractalTextVariant: FractalTextVariant,
     modifier: Modifier = Modifier,
-    color: Color = snappyTextVariant.defaultColor(),
+    color: Color = fractalTextVariant.defaultColor(),
     onTextLayout: (TextLayoutResult) -> Unit = {},
     overflow: TextOverflow = TextOverflow.Clip,
     softWrap: Boolean = true,
@@ -55,7 +55,7 @@ fun SnappyText(
 ) {
     BasicText(
         text = text,
-        style = snappyTextVariant.textStyle().copy(color = color),
+        style = fractalTextVariant.textStyle().copy(color = color),
         modifier = modifier,
         onTextLayout = onTextLayout,
         overflow = overflow,
@@ -66,27 +66,27 @@ fun SnappyText(
 }
 
 @Composable
-fun SnappyTextGallery(modifier: Modifier = Modifier) {
+fun FractalTextGallery(modifier: Modifier = Modifier) {
     Column(
-        verticalArrangement = Arrangement.spacedBy(SnappyTheme.spacing.xxs),
-        modifier = modifier.padding(SnappyTheme.spacing.m)
+        verticalArrangement = Arrangement.spacedBy(FractalTheme.spacing.xxs),
+        modifier = modifier.padding(FractalTheme.spacing.m)
     ) {
-        SnappyText("Display1", SnappyTextVariant.Display1)
-        SnappyText("Display2", SnappyTextVariant.Display2)
-        SnappyText("Display 3", SnappyTextVariant.Display3)
-        SnappyText("Heading 1", SnappyTextVariant.Heading1)
-        SnappyText("Heading 2", SnappyTextVariant.Heading2)
-        SnappyText("Heading 3", SnappyTextVariant.Heading3)
-        SnappyText("Body 1", SnappyTextVariant.Body1)
-        SnappyText("Body 2", SnappyTextVariant.Body2)
-        SnappyText("Body 3", SnappyTextVariant.Body3)
-        SnappyText("Label 1", SnappyTextVariant.Label1)
-        SnappyText("Label 2", SnappyTextVariant.Label2)
-        SnappyText("Label 3", SnappyTextVariant.Label3)
-        SnappyText("Label 4", SnappyTextVariant.Label4)
-        SnappyText("Caption 1", SnappyTextVariant.Caption1)
-        SnappyText("Caption 2", SnappyTextVariant.Caption2)
-        SnappyText("Snippet", SnappyTextVariant.Snippet)
+        FractalText("Display1", FractalTextVariant.Display1)
+        FractalText("Display2", FractalTextVariant.Display2)
+        FractalText("Display 3", FractalTextVariant.Display3)
+        FractalText("Heading 1", FractalTextVariant.Heading1)
+        FractalText("Heading 2", FractalTextVariant.Heading2)
+        FractalText("Heading 3", FractalTextVariant.Heading3)
+        FractalText("Body 1", FractalTextVariant.Body1)
+        FractalText("Body 2", FractalTextVariant.Body2)
+        FractalText("Body 3", FractalTextVariant.Body3)
+        FractalText("Label 1", FractalTextVariant.Label1)
+        FractalText("Label 2", FractalTextVariant.Label2)
+        FractalText("Label 3", FractalTextVariant.Label3)
+        FractalText("Label 4", FractalTextVariant.Label4)
+        FractalText("Caption 1", FractalTextVariant.Caption1)
+        FractalText("Caption 2", FractalTextVariant.Caption2)
+        FractalText("Snippet", FractalTextVariant.Snippet)
     }
 }
 
@@ -94,9 +94,9 @@ fun SnappyTextGallery(modifier: Modifier = Modifier) {
 @Preview(uiMode = Configuration.UI_MODE_NIGHT_YES)
 @Composable
 private fun Preview() {
-    SnappyTheme {
-        SnappyTextGallery(
-            modifier = Modifier.background(SnappyTheme.colors.background_backgroundprimary.value)
+    FractalTheme {
+        FractalTextGallery(
+            modifier = Modifier.background(FractalTheme.colors.background_backgroundprimary.value)
         )
     }
 }
@@ -105,31 +105,31 @@ private fun Preview() {
 @Preview(uiMode = Configuration.UI_MODE_NIGHT_YES)
 @Composable
 private fun PreviewParagraph() {
-    SnappyTheme {
+    FractalTheme {
         Column(
-            verticalArrangement = Arrangement.spacedBy(SnappyTheme.spacing.xs),
+            verticalArrangement = Arrangement.spacedBy(FractalTheme.spacing.xs),
             modifier = Modifier
-                .background(SnappyTheme.colors.background_backgroundprimary.value)
-                .padding(SnappyTheme.spacing.m)
+                .background(FractalTheme.colors.background_backgroundprimary.value)
+                .padding(FractalTheme.spacing.m)
         ) {
-            SnappyText(
+            FractalText(
                 "Lorem Ipsum",
-                SnappyTextVariant.Heading1
+                FractalTextVariant.Heading1
             )
-            SnappyText(
+            FractalText(
                 text = buildAnnotatedString {
                     append("Lorem ipsum dolor sit amet, ")
                     withStyle(
                         style = SpanStyle(
-                            color = SnappyTheme.colors.error_onerror_onerrorprimary.value,
-                            background = SnappyTheme.colors.error_error_errorprimary.value,
+                            color = FractalTheme.colors.error_onerror_onerrorprimary.value,
+                            background = FractalTheme.colors.error_error_errorprimary.value,
                         )
                     ) {
                         append("consectetur adipiscing elit")
                     }
                     append(", sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.")
                 },
-                snappyTextVariant = SnappyTextVariant.Body1,
+                fractalTextVariant = FractalTextVariant.Body1,
             )
         }
     }

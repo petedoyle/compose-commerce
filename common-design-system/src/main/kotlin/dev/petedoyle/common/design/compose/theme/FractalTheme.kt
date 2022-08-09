@@ -8,22 +8,22 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
 
 @Composable
-fun SnappyTheme(
+fun FractalTheme(
     darkTheme: Boolean = isSystemInDarkTheme(),
     content: @Composable () -> Unit
 ) {
-    val colors: SnappyColors = if (darkTheme) {
-        SnappyDarkColors()
+    val colors: FractalColors = if (darkTheme) {
+        FractalDarkColors()
     } else {
-        SnappyLightColors()
+        FractalLightColors()
     }
 
-    val snappyTypography = defaultSnappyTypography()
+    val fractalTypography = defaultFractalTypography()
     CompositionLocalProvider(
-        LocalSnappyColors provides colors,
-        LocalSnappyTypography provides snappyTypography,
-        LocalSnappyShapes provides SnappyShapes(),
-        LocalSnappySpacing provides SnappySpacing(),
+        LocalFractalColors provides colors,
+        LocalFractalTypography provides fractalTypography,
+        LocalFractalShapes provides FractalShapes(),
+        LocalFractalSpacing provides FractalSpacing(),
     ) {
         MaterialTheme(
             colors = Colors(
@@ -41,7 +41,7 @@ fun SnappyTheme(
                 onError = colors.error_onerror_onerrorprimary.value,
                 isLight = !darkTheme,
             ),
-            typography = Typography(defaultFontFamily = snappyTypography.defaultFontFamily),
+            typography = Typography(defaultFontFamily = fractalTypography.defaultFontFamily),
             content = content
         )
     }
@@ -50,25 +50,25 @@ fun SnappyTheme(
 /**
  * Helper that allows for easy access of theme values. Examples:
  *
- * - `SnappyTheme.colors.border_primary_borderprimary`
- * - `SnappyTheme.typography.display1`
- * - `SnappyTheme.shapes.borderRounded`
- * - `SnappyTheme.spacing.xxl`
+ * - `FractalTheme.colors.border_primary_borderprimary`
+ * - `FractalTheme.typography.display1`
+ * - `FractalTheme.shapes.borderRounded`
+ * - `FractalTheme.spacing.xxl`
  */
-object SnappyTheme {
-    val colors: SnappyColors
+object FractalTheme {
+    val colors: FractalColors
         @Composable
-        get() = LocalSnappyColors.current
+        get() = LocalFractalColors.current
 
-    val typography: SnappyTypography
+    val typography: FractalTypography
         @Composable
-        get() = LocalSnappyTypography.current
+        get() = LocalFractalTypography.current
 
-    val shapes: SnappyShapes
+    val shapes: FractalShapes
         @Composable
-        get() = LocalSnappyShapes.current
+        get() = LocalFractalShapes.current
 
-    val spacing: SnappySpacing
+    val spacing: FractalSpacing
         @Composable
-        get() = LocalSnappySpacing.current
+        get() = LocalFractalSpacing.current
 }

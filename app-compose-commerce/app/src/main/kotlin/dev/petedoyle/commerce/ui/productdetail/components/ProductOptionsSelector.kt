@@ -38,7 +38,7 @@ import dev.petedoyle.commerce.common.api.bigcommerce.catalog.v3.model.ProductOpt
 import dev.petedoyle.commerce.common.api.bigcommerce.catalog.v3.model.ProductOptionOptionValueFull
 import dev.petedoyle.commerce.common.api.bigcommerce.catalog.v3.model.ProductVariantFull
 import dev.petedoyle.commerce.common.api.bigcommerce.catalog.v3.model.ProductVariantOptionValueFull
-import dev.petedoyle.common.design.compose.theme.SnappyTheme
+import dev.petedoyle.common.design.compose.theme.FractalTheme
 import dev.petedoyle.commerce.BC_INVENTORY_TRACKING_NONE
 import dev.petedoyle.commerce.BC_INVENTORY_TRACKING_PRODUCT
 import dev.petedoyle.commerce.R
@@ -118,23 +118,23 @@ private fun ProductOptionsSelectorRow(
     Column(
         modifier
             .fillMaxWidth()
-            .padding(bottom = SnappyTheme.spacing.m)
+            .padding(bottom = FractalTheme.spacing.m)
     ) {
         Text(
             text = option.displayName.orEmpty(),
-            style = SnappyTheme.typography.heading3,
-            color = SnappyTheme.colors.onbackground_onbackground.value,
+            style = FractalTheme.typography.heading3,
+            color = FractalTheme.colors.onbackground_onbackground.value,
             modifier = Modifier.padding(
-                start = SnappyTheme.spacing.m,
-                end = SnappyTheme.spacing.m,
-                bottom = SnappyTheme.spacing.xxs,
+                start = FractalTheme.spacing.m,
+                end = FractalTheme.spacing.m,
+                bottom = FractalTheme.spacing.xxs,
             ),
         )
 
         val optionValues = option.optionValues.orEmpty()
         LazyRow {
             item {
-                Spacer(modifier = Modifier.width(SnappyTheme.spacing.m))
+                Spacer(modifier = Modifier.width(FractalTheme.spacing.m))
             }
 
             items(count = optionValues.size) { index ->
@@ -147,11 +147,11 @@ private fun ProductOptionsSelectorRow(
                     state = state,
                     onClick = { onSelectionChanged(index) },
                 )
-                Spacer(Modifier.width(SnappyTheme.spacing.xs))
+                Spacer(Modifier.width(FractalTheme.spacing.xs))
             }
 
             item {
-                Spacer(modifier = Modifier.width(SnappyTheme.spacing.xs))
+                Spacer(modifier = Modifier.width(FractalTheme.spacing.xs))
             }
         }
     }
@@ -185,49 +185,49 @@ private fun ProductOptionChoice(
 
     val backgroundColor = animateColorAsState(
         targetValue = when {
-            !inStock -> SnappyTheme.colors.primary_primarydisabled.value
-            selected -> SnappyTheme.colors.primary_primary.value
-            else -> SnappyTheme.colors.onprimary_onprimary.value
+            !inStock -> FractalTheme.colors.primary_primarydisabled.value
+            selected -> FractalTheme.colors.primary_primary.value
+            else -> FractalTheme.colors.onprimary_onprimary.value
         }
     )
 
     val textColor = animateColorAsState(
         targetValue = when {
-            !inStock -> SnappyTheme.colors.onprimary_onprimarydisabled.value
-            selected -> SnappyTheme.colors.onprimary_onprimary.value
-            else -> SnappyTheme.colors.primary_primary.value
+            !inStock -> FractalTheme.colors.onprimary_onprimarydisabled.value
+            selected -> FractalTheme.colors.onprimary_onprimary.value
+            else -> FractalTheme.colors.primary_primary.value
         }
     )
 
     val borderColor = animateColorAsState(
         targetValue = when {
-            !inStock -> SnappyTheme.colors.primary_primarydisabled.value
-            selected -> SnappyTheme.colors.primary_primary.value
-            else -> SnappyTheme.colors.border_primary_borderprimary.value
+            !inStock -> FractalTheme.colors.primary_primarydisabled.value
+            selected -> FractalTheme.colors.primary_primary.value
+            else -> FractalTheme.colors.border_primary_borderprimary.value
         }
     )
 
     Box(
         Modifier
-            .clip(SnappyTheme.shapes.borderRounded)
+            .clip(FractalTheme.shapes.borderRounded)
             .clickable(enabled = inStock) { onClick() }
-            .background(backgroundColor.value, SnappyTheme.shapes.borderRounded)
+            .background(backgroundColor.value, FractalTheme.shapes.borderRounded)
             .border(
                 1.dp,
                 borderColor.value,
-                SnappyTheme.shapes.borderRounded
+                FractalTheme.shapes.borderRounded
             )
             .widthIn(min = dimensionResource(R.dimen.product_options_selector_button_min_width))
             .heightIn(min = dimensionResource(R.dimen.product_options_selector_button_min_height))
             .padding(
-                horizontal = SnappyTheme.spacing.m,
-                vertical = SnappyTheme.spacing.xs
+                horizontal = FractalTheme.spacing.m,
+                vertical = FractalTheme.spacing.xs
             )
     ) {
         Text(
             text = optionValue.label,
             modifier = Modifier.align(Alignment.Center),
-            style = SnappyTheme.typography.label2,
+            style = FractalTheme.typography.label2,
             color = textColor.value,
         )
     }
@@ -274,7 +274,7 @@ fun rememberProductOptionsSelectorState(
 @Composable
 private fun Preview() {
     val productId = 77
-    SnappyTheme {
+    FractalTheme {
         val state = rememberProductOptionsSelectorState(
             product = ProductFull(
                 id = productId,

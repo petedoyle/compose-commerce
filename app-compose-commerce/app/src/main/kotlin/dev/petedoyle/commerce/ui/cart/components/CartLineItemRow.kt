@@ -26,7 +26,7 @@ import dev.petedoyle.commerce.common.api.bigcommerce.catalog.v3.model.ProductFul
 import dev.petedoyle.commerce.common.api.bigcommerce.catalog.v3.model.ProductImageFull
 import dev.petedoyle.commerce.common.api.bigcommerce.catalog.v3.model.ProductVariantFull
 import dev.petedoyle.common.design.compose.components.incrementer.Incrementer
-import dev.petedoyle.common.design.compose.theme.SnappyTheme
+import dev.petedoyle.common.design.compose.theme.FractalTheme
 import dev.petedoyle.commerce.R
 import dev.petedoyle.commerce.cart.CartLineItem
 import coil.size.Scale
@@ -46,7 +46,7 @@ fun CartLineItemRow(
         verticalAlignment = Alignment.CenterVertically,
         modifier = modifier
             .fillMaxWidth()
-            .padding(bottom = SnappyTheme.spacing.xl)
+            .padding(bottom = FractalTheme.spacing.xl)
     ) {
 
         val thumbnailUrl = if (!item.variant.imageUrl.isNullOrBlank()) {
@@ -70,41 +70,41 @@ fun CartLineItemRow(
                 .width(IMAGE_WIDTH)
                 .aspectRatio(IMAGE_ASPECT_RATIO)
                 .clip(RoundedCornerShape(IMAGE_CORNER_RADIUS))
-                .background(SnappyTheme.colors.primitives_gray_gray50.value)
+                .background(FractalTheme.colors.primitives_gray_gray50.value)
         )
 
         Column(
             Modifier
-                .padding(start = SnappyTheme.spacing.s)
+                .padding(start = FractalTheme.spacing.s)
                 .weight(1f)
         ) {
             Text(
                 text = item.product.name,
-                color = SnappyTheme.colors.onbackground_onbackground.value,
-                style = SnappyTheme.typography.label2,
+                color = FractalTheme.colors.onbackground_onbackground.value,
+                style = FractalTheme.typography.label2,
             )
 
-            Row(modifier = Modifier.padding(top = SnappyTheme.spacing.xxs)) {
+            Row(modifier = Modifier.padding(top = FractalTheme.spacing.xxs)) {
                 Text(
                     text = stringResource(
                         R.string.price_format,
                         item.variant.calculatedPrice ?: 0f
                     ),
-                    color = SnappyTheme.colors.onbackground_onbackgroundvariant1.value,
-                    style = SnappyTheme.typography.label3,
+                    color = FractalTheme.colors.onbackground_onbackgroundvariant1.value,
+                    style = FractalTheme.typography.label3,
                 )
 
                 Text(
                     text = "•",
-                    color = SnappyTheme.colors.onbackground_onbackgroundvariant1.value,
-                    style = SnappyTheme.typography.label3,
-                    modifier = Modifier.padding(horizontal = SnappyTheme.spacing.xxs),
+                    color = FractalTheme.colors.onbackground_onbackgroundvariant1.value,
+                    style = FractalTheme.typography.label3,
+                    modifier = Modifier.padding(horizontal = FractalTheme.spacing.xxs),
                 )
 
                 Text(
                     text = stringResource(R.string.remove),
-                    color = SnappyTheme.colors.accent_accent.value,
-                    style = SnappyTheme.typography.label3,
+                    color = FractalTheme.colors.accent_accent.value,
+                    style = FractalTheme.typography.label3,
                     modifier = Modifier.clickable { onRemoveLineItemClicked(item) },
                 )
             }
@@ -112,9 +112,9 @@ fun CartLineItemRow(
             item.variant.optionValues.orEmpty().forEach { optionValue ->
                 Text(
                     text = "${optionValue.optionDisplayName}: ${optionValue.label}",
-                    color = SnappyTheme.colors.onbackground_onbackgroundvariant1.value,
-                    style = SnappyTheme.typography.label3,
-                    modifier = Modifier.padding(top = SnappyTheme.spacing.xs)
+                    color = FractalTheme.colors.onbackground_onbackgroundvariant1.value,
+                    style = FractalTheme.typography.label3,
+                    modifier = Modifier.padding(top = FractalTheme.spacing.xs)
                 )
             }
         }
@@ -131,7 +131,7 @@ fun CartLineItemRow(
 @Preview(name = "Dark", uiMode = Configuration.UI_MODE_NIGHT_YES, showBackground = true)
 @Composable
 private fun Preview() {
-    SnappyTheme {
+    FractalTheme {
         CartLineItemRow(
             item = CartLineItem(
                 quantity = 1,

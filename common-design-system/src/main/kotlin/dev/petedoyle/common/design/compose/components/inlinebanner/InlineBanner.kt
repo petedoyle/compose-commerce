@@ -20,7 +20,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.tooling.preview.PreviewParameter
 import androidx.compose.ui.unit.dp
 import dev.petedoyle.commerce.design.compose.R
-import dev.petedoyle.common.design.compose.theme.SnappyTheme
+import dev.petedoyle.common.design.compose.theme.FractalTheme
 
 @Composable
 fun InlineBanner(
@@ -46,15 +46,15 @@ fun InlineBanner(
 ) {
     Box(
         modifier
-            .clip(SnappyTheme.shapes.borderRounded)
+            .clip(FractalTheme.shapes.borderRounded)
             .clickable(enabled = onClick != null) { onClick?.invoke() }
             .border(
                 width = 1.dp,
-                color = SnappyTheme.colors.border_primary_borderprimary.value,
-                shape = SnappyTheme.shapes.borderRounded
+                color = FractalTheme.colors.border_primary_borderprimary.value,
+                shape = FractalTheme.shapes.borderRounded
             )
-            .background(SnappyTheme.colors.background_backgroundsecondary.value)
-            .padding(SnappyTheme.spacing.m),
+            .background(FractalTheme.colors.background_backgroundsecondary.value)
+            .padding(FractalTheme.spacing.m),
         contentAlignment = Alignment.Center,
     ) {
         Row(verticalAlignment = Alignment.CenterVertically) {
@@ -67,11 +67,11 @@ fun InlineBanner(
 
             Text(
                 text = text,
-                style = SnappyTheme.typography.label4,
-                color = SnappyTheme.colors.onbackground_onbackground.value,
+                style = FractalTheme.typography.label4,
+                color = FractalTheme.colors.onbackground_onbackground.value,
                 modifier = Modifier
                     .weight(1f)
-                    .padding(start = SnappyTheme.spacing.xs)
+                    .padding(start = FractalTheme.spacing.xs)
             )
         }
     }
@@ -81,7 +81,7 @@ fun InlineBanner(
 @Preview(name = "Dark", uiMode = Configuration.UI_MODE_NIGHT_YES)
 @Composable
 private fun Preview(@PreviewParameter(InlineBannerVariantProvider::class) variant: InlineBannerVariant) {
-    SnappyTheme {
+    FractalTheme {
         InlineBanner(
             text = "Banner message goes here.",
             variant = variant,

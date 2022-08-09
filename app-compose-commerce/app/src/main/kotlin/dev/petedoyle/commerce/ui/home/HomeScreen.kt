@@ -29,7 +29,7 @@ import androidx.navigation.NavHostController
 import dev.petedoyle.commerce.common.api.bigcommerce.catalog.v3.model.Category
 import dev.petedoyle.commerce.common.api.bigcommerce.catalog.v3.model.ProductFull
 import dev.petedoyle.commerce.common.api.bigcommerce.catalog.v3.model.ProductImageFull
-import dev.petedoyle.common.design.compose.theme.SnappyTheme
+import dev.petedoyle.common.design.compose.theme.FractalTheme
 import dev.petedoyle.commerce.ui.Screen
 import dev.petedoyle.commerce.ui.components.SnappyTopAppBarPrimary
 import dev.petedoyle.commerce.ui.home.components.FeaturedProduct
@@ -106,9 +106,9 @@ fun HomeScreen(
                     end = contentPadding.calculateEndPadding(LayoutDirection.Ltr)
                 ),
                 modifier = Modifier.padding(
-                    start = SnappyTheme.spacing.xs,
-                    top = SnappyTheme.spacing.m,
-                    end = SnappyTheme.spacing.xs,
+                    start = FractalTheme.spacing.xs,
+                    top = FractalTheme.spacing.m,
+                    end = FractalTheme.spacing.xs,
                 ),
             ) {
                 items(uiState.products.size) { index ->
@@ -128,7 +128,7 @@ fun HomeScreen(
 @Preview(name = "Dark", uiMode = Configuration.UI_MODE_NIGHT_YES)
 @Composable
 fun PreviewHomeScreen() {
-    SnappyTheme {
+    FractalTheme {
         HomeScreen(
             uiState = HomeScreenState(
                 products = listOf(

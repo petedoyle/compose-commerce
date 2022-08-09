@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-  <string name="snappy_checkout">Quick Checkout</string>
+  <string name="checkout_now">Quick Checkout</string>
   <string name="decrement">Decrease quantity to %d</string>
   <string name="increment">Increase quantity to %d</string>
   <string name="inline_banner_info_content_description">Info</string>

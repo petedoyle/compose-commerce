@@ -34,12 +34,12 @@ import coil.compose.AsyncImage
 import coil.request.ImageRequest
 import dev.petedoyle.commerce.common.api.bigcommerce.catalog.v3.model.ProductFull
 import dev.petedoyle.commerce.common.api.bigcommerce.catalog.v3.model.ProductVariantFull
-import dev.petedoyle.common.design.compose.components.buttons.SnappyCheckoutButton
-import dev.petedoyle.common.design.compose.components.buttons.SnappySecondaryButton
+import dev.petedoyle.common.design.compose.components.buttons.FractalCheckoutButton
+import dev.petedoyle.common.design.compose.components.buttons.FractalSecondaryButton
 import dev.petedoyle.common.design.compose.components.inlinebanner.InlineBanner
 import dev.petedoyle.common.design.compose.components.inlinebanner.InlineBannerVariant
 import dev.petedoyle.common.design.compose.theme.ASPECT_RATIO_SQUARE
-import dev.petedoyle.common.design.compose.theme.SnappyTheme
+import dev.petedoyle.common.design.compose.theme.FractalTheme
 import dev.petedoyle.common.design.compose.theme.IMAGE_CROSSFADE_MS
 import dev.petedoyle.commerce.BC_INVENTORY_TRACKING_NONE
 import dev.petedoyle.commerce.BC_INVENTORY_TRACKING_PRODUCT
@@ -135,15 +135,15 @@ fun ProductDetailScreen(
             )
         },
         scaffoldState = scaffoldState,
-        backgroundColor = SnappyTheme.colors.background_backgroundprimary.value,
+        backgroundColor = FractalTheme.colors.background_backgroundprimary.value,
     ) {
         Column(Modifier.fillMaxSize()) {
             Column(
                 Modifier
                     .weight(1f)
                     .verticalScroll(scrollState)
-                    .background(SnappyTheme.colors.background_backgroundprimary.value)
-                    .padding(bottom = SnappyTheme.spacing.xs)
+                    .background(FractalTheme.colors.background_backgroundprimary.value)
+                    .padding(bottom = FractalTheme.spacing.xs)
             ) {
                 AsyncImage(
                     model = ImageRequest.Builder(LocalContext.current)
@@ -159,13 +159,13 @@ fun ProductDetailScreen(
                     text = categories
                         .filter { product?.categories.orEmpty().contains(it.id) }
                         .joinToString { it.name },
-                    color = SnappyTheme.colors.onbackground_onbackgroundvariant2.value,
-                    style = SnappyTheme.typography.label3,
+                    color = FractalTheme.colors.onbackground_onbackgroundvariant2.value,
+                    style = FractalTheme.typography.label3,
                     modifier = Modifier
                         .padding(
-                            top = SnappyTheme.spacing.m,
-                            start = SnappyTheme.spacing.m,
-                            end = SnappyTheme.spacing.m,
+                            top = FractalTheme.spacing.m,
+                            start = FractalTheme.spacing.m,
+                            end = FractalTheme.spacing.m,
                         )
                         .placeholder(
                             visible = uiState.loading,
@@ -177,10 +177,10 @@ fun ProductDetailScreen(
 
                 Text(
                     text = product?.name.orEmpty(),
-                    color = SnappyTheme.colors.onbackground_onbackground.value,
-                    style = SnappyTheme.typography.display3,
+                    color = FractalTheme.colors.onbackground_onbackground.value,
+                    style = FractalTheme.typography.display3,
                     modifier = Modifier
-                        .padding(horizontal = SnappyTheme.spacing.m)
+                        .padding(horizontal = FractalTheme.spacing.m)
                         .placeholder(
                             visible = uiState.loading,
                             highlight = PlaceholderHighlight.shimmer(),
@@ -189,10 +189,10 @@ fun ProductDetailScreen(
 
                 Text(
                     text = stringResource(R.string.price_format, productPrice),
-                    color = SnappyTheme.colors.onbackground_onbackground.value,
-                    style = SnappyTheme.typography.heading3,
+                    color = FractalTheme.colors.onbackground_onbackground.value,
+                    style = FractalTheme.typography.heading3,
                     modifier = Modifier
-                        .padding(horizontal = SnappyTheme.spacing.m)
+                        .padding(horizontal = FractalTheme.spacing.m)
                         .placeholder(
                             visible = uiState.loading,
                             highlight = PlaceholderHighlight.shimmer(),
@@ -204,13 +204,13 @@ fun ProductDetailScreen(
                         product?.description.orEmpty(),
                         HtmlCompat.FROM_HTML_SEPARATOR_LINE_BREAK_LIST_ITEM
                     ).toString().trim(),
-                    color = SnappyTheme.colors.onbackground_onbackgroundvariant1.value,
-                    style = SnappyTheme.typography.body3,
+                    color = FractalTheme.colors.onbackground_onbackgroundvariant1.value,
+                    style = FractalTheme.typography.body3,
                     modifier = Modifier
                         .padding(
-                            top = SnappyTheme.spacing.m,
-                            start = SnappyTheme.spacing.m,
-                            end = SnappyTheme.spacing.m,
+                            top = FractalTheme.spacing.m,
+                            start = FractalTheme.spacing.m,
+                            end = FractalTheme.spacing.m,
                         )
                         .placeholder(
                             visible = uiState.loading,
@@ -235,7 +235,7 @@ fun ProductDetailScreen(
                     ProductOptionsSelector(
                         state,
                         onVariantSelected = { onProductVariantSelected(it) },
-                        Modifier.padding(top = SnappyTheme.spacing.m)
+                        Modifier.padding(top = FractalTheme.spacing.m)
                     )
                 }
             }
@@ -243,26 +243,26 @@ fun ProductDetailScreen(
             Box(
                 Modifier
                     .fillMaxWidth()
-                    .height(SnappyTheme.spacing.m)
-                    .background(SnappyTheme.colors.background_backgroundsecondary.value)
+                    .height(FractalTheme.spacing.m)
+                    .background(FractalTheme.colors.background_backgroundsecondary.value)
             )
 
-            SnappyCheckoutButton(
+            FractalCheckoutButton(
                 onClick = onCheckoutButtonClicked,
                 enabled = uiState.selectedVariant != null,
                 modifier = Modifier
                     .fillMaxWidth()
-                    .padding(SnappyTheme.spacing.m),
+                    .padding(FractalTheme.spacing.m),
             )
 
-            SnappySecondaryButton(
+            FractalSecondaryButton(
                 text = stringResource(R.string.add_to_cart),
                 onClick = onAddToCartClicked,
                 enabled = uiState.selectedVariant != null,
                 modifier = Modifier
                     .fillMaxWidth()
-                    .padding(horizontal = SnappyTheme.spacing.m)
-                    .padding(bottom = SnappyTheme.spacing.m),
+                    .padding(horizontal = FractalTheme.spacing.m)
+                    .padding(bottom = FractalTheme.spacing.m),
             )
 
             Spacer(Modifier.navigationBarsPadding())
@@ -276,8 +276,8 @@ private fun OutOfStockBanner() {
         text = stringResource(R.string.out_of_stock),
         variant = InlineBannerVariant.Error,
         modifier = Modifier.padding(
-            horizontal = SnappyTheme.spacing.m,
-            vertical = SnappyTheme.spacing.l,
+            horizontal = FractalTheme.spacing.m,
+            vertical = FractalTheme.spacing.l,
         )
     )
 }
@@ -285,7 +285,7 @@ private fun OutOfStockBanner() {
 @Preview
 @Composable
 fun PreviewProductDetailScreen() {
-    SnappyTheme {
+    FractalTheme {
         ProductDetailScreen(
             uiState = ProductDetailScreenState(
                 product = ProductFull(

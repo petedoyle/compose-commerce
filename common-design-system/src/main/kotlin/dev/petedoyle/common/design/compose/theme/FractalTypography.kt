@@ -9,10 +9,10 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.sp
 import dev.petedoyle.commerce.design.compose.R
 
-val LocalSnappyTypography = staticCompositionLocalOf { defaultSnappyTypography() }
+val LocalFractalTypography = staticCompositionLocalOf { defaultFractalTypography() }
 
 @Immutable
-data class SnappyTypography(
+data class FractalTypography(
     val defaultFontFamily: FontFamily,
     val display1: TextStyle,
     val display2: TextStyle,
@@ -32,7 +32,7 @@ data class SnappyTypography(
     val snippet: TextStyle,
 )
 
-fun defaultSnappyTypography(): SnappyTypography {
+fun defaultFractalTypography(): FractalTypography {
     val inter = FontFamily(
         Font(R.font.inter_regular, FontWeight.Normal),
         Font(R.font.inter_medium, FontWeight.Medium),
@@ -45,7 +45,7 @@ fun defaultSnappyTypography(): SnappyTypography {
         Font(R.font.sourcecodepro_medium, FontWeight.SemiBold),
     )
 
-    return SnappyTypography(
+    return FractalTypography(
         defaultFontFamily = inter,
         display1 = TextStyle(
             fontFamily = inter,

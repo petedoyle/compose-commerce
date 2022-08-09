@@ -12,7 +12,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.tooling.preview.Preview
-import dev.petedoyle.common.design.compose.theme.SnappyTheme
+import dev.petedoyle.common.design.compose.theme.FractalTheme
 import dev.petedoyle.commerce.R
 import dev.petedoyle.commerce.cart.CartState
 import dev.petedoyle.commerce.cart.shipping
@@ -34,28 +34,28 @@ fun CartSummary(
             loading = loading,
             label = "Subtotal",
             value = stringResource(R.string.price_format, state.subtotal()),
-            style = SnappyTheme.typography.body3,
+            style = FractalTheme.typography.body3,
         )
 
         CartSummaryRow(
             loading = loading,
             label = "Shipping",
             value = stringResource(R.string.price_format, state.shipping()),
-            style = SnappyTheme.typography.body3,
+            style = FractalTheme.typography.body3,
         )
 
         CartSummaryRow(
             loading = loading,
             label = "Taxes",
             value = stringResource(R.string.price_format, state.taxes()),
-            style = SnappyTheme.typography.body3,
+            style = FractalTheme.typography.body3,
         )
 
         CartSummaryRow(
             loading = loading,
             label = "Total",
             value = stringResource(R.string.price_format, state.total()),
-            style = SnappyTheme.typography.label2,
+            style = FractalTheme.typography.label2,
         )
     }
 }
@@ -67,10 +67,10 @@ private fun CartSummaryRow(
     value: String,
     style: TextStyle,
 ) {
-    Row(Modifier.padding(top = SnappyTheme.spacing.m)) {
+    Row(Modifier.padding(top = FractalTheme.spacing.m)) {
         Text(
             text = label,
-            color = SnappyTheme.colors.onbackground_onbackground.value,
+            color = FractalTheme.colors.onbackground_onbackground.value,
             style = style,
         )
 
@@ -78,7 +78,7 @@ private fun CartSummaryRow(
 
         Text(
             text = value,
-            color = SnappyTheme.colors.onbackground_onbackground.value,
+            color = FractalTheme.colors.onbackground_onbackground.value,
             style = style,
             modifier = Modifier.placeholder(
                 visible = loading,
@@ -92,7 +92,7 @@ private fun CartSummaryRow(
 @Preview(name = "Dark", uiMode = Configuration.UI_MODE_NIGHT_YES, showBackground = true)
 @Composable
 private fun Preview() {
-    SnappyTheme {
+    FractalTheme {
         CartSummary(
             state = CartState(),
             loading = false

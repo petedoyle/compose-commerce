@@ -4,7 +4,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.PreviewParameterProvider
 import dev.petedoyle.commerce.design.compose.R
-import dev.petedoyle.common.design.compose.theme.SnappyTheme
+import dev.petedoyle.common.design.compose.theme.FractalTheme
 
 sealed class InlineBannerVariant {
     @Composable
@@ -15,7 +15,7 @@ sealed class InlineBannerVariant {
 
     object Info : InlineBannerVariant() {
         @Composable
-        override fun iconTint() = SnappyTheme.colors.accent_accent.value
+        override fun iconTint() = FractalTheme.colors.accent_accent.value
 
         @Composable
         override fun iconContentDescription() = R.string.inline_banner_info_content_description
@@ -23,7 +23,7 @@ sealed class InlineBannerVariant {
 
     object Error : InlineBannerVariant() {
         @Composable
-        override fun iconTint() = SnappyTheme.colors.onbackground_onbackgrounderror.value
+        override fun iconTint() = FractalTheme.colors.onbackground_onbackgrounderror.value
 
         @Composable
         override fun iconContentDescription() = R.string.inline_banner_error_content_description
@@ -31,7 +31,7 @@ sealed class InlineBannerVariant {
 
     object Success : InlineBannerVariant() {
         @Composable
-        override fun iconTint() = SnappyTheme.colors.onbackground_onbackgroundsuccess.value
+        override fun iconTint() = FractalTheme.colors.onbackground_onbackgroundsuccess.value
 
         @Composable
         override fun iconContentDescription() = R.string.inline_banner_success_content_description

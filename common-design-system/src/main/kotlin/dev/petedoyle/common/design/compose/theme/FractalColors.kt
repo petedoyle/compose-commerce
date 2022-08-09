@@ -10,9 +10,9 @@ import androidx.compose.ui.graphics.Color
 // GENERATED. Do not edit by hand.
 ///////////////////////////////////////////////////////////////////////////
 
-val LocalSnappyColors = staticCompositionLocalOf<SnappyColors> { SnappyLightColors() }
+val LocalFractalColors = staticCompositionLocalOf<FractalColors> { FractalLightColors() }
 
-interface SnappyColors {
+interface FractalColors {
     val accent_accent: MutableState<Color>
     val accent_accentactive: MutableState<Color>
     val accent_accentdisabled: MutableState<Color>
@@ -160,7 +160,7 @@ interface SnappyColors {
 }
 
 @Stable
-class SnappyLightColors : SnappyColors {
+class FractalLightColors : FractalColors {
     override val accent_accent = mutableStateOf(Color(0xff0c6de2))
     override val accent_accentactive = mutableStateOf(Color(0xff0a57b5))
     override val accent_accentdisabled = mutableStateOf(Color(0xff9ec5f3))
@@ -308,7 +308,7 @@ class SnappyLightColors : SnappyColors {
 }
 
 @Stable
-class SnappyDarkColors : SnappyColors {
+class FractalDarkColors : FractalColors {
     override val accent_accent = mutableStateOf(Color(0xff6da7ee))
     override val accent_accentactive = mutableStateOf(Color(0xffb6ddff))
     override val accent_accentdisabled = mutableStateOf(Color(0xff0a57b5))

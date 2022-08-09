@@ -12,7 +12,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.tooling.preview.PreviewParameter
 import androidx.compose.ui.tooling.preview.PreviewParameterProvider
 import dev.petedoyle.commerce.design.compose.R
-import dev.petedoyle.common.design.compose.theme.SnappyTheme
+import dev.petedoyle.common.design.compose.theme.FractalTheme
 
 @Preview(name = "Light", uiMode = Configuration.UI_MODE_NIGHT_NO, showBackground = true)
 @Preview(
@@ -23,70 +23,70 @@ import dev.petedoyle.common.design.compose.theme.SnappyTheme
 )
 @Composable
 private fun Preview(
-    @PreviewParameter(SnappyButtonStyleVariantProvider::class) styleVariant: SnappyButtonStyleVariant,
+    @PreviewParameter(FractalButtonStyleVariantProvider::class) styleVariant: FractalButtonStyleVariant,
 ) {
-    SnappyTheme {
-        SnappyButtonGallery(styleVariant)
+    FractalTheme {
+        FractalButtonGallery(styleVariant)
     }
 }
 
 @Composable
-private fun SnappyButtonGallery(styleVariant: SnappyButtonStyleVariant) {
+private fun FractalButtonGallery(styleVariant: FractalButtonStyleVariant) {
     val sizeVariants = listOf(
-        SnappyButtonSizeVariant.Default(),
-        SnappyButtonSizeVariant.Compact(),
-        SnappyButtonSizeVariant.Tiny()
+        FractalButtonSizeVariant.Default(),
+        FractalButtonSizeVariant.Compact(),
+        FractalButtonSizeVariant.Tiny()
     )
 
     Column(
-        verticalArrangement = Arrangement.spacedBy(SnappyTheme.spacing.xxl),
-        modifier = Modifier.padding(SnappyTheme.spacing.m)
+        verticalArrangement = Arrangement.spacedBy(FractalTheme.spacing.xxl),
+        modifier = Modifier.padding(FractalTheme.spacing.m)
     ) {
         sizeVariants.forEach { sizeVariant ->
             Column(
-                verticalArrangement = Arrangement.spacedBy(SnappyTheme.spacing.xs),
-                modifier = Modifier.padding(SnappyTheme.spacing.m)
+                verticalArrangement = Arrangement.spacedBy(FractalTheme.spacing.xs),
+                modifier = Modifier.padding(FractalTheme.spacing.m)
             ) {
                 Text(
                     text = "${styleVariant.javaClass.simpleName} / ${sizeVariant.javaClass.simpleName}:",
-                    color = SnappyTheme.colors.onbackground_onbackground.value,
-                    style = SnappyTheme.typography.heading3,
+                    color = FractalTheme.colors.onbackground_onbackground.value,
+                    style = FractalTheme.typography.heading3,
                 )
 
                 // Enabled, no icon
-                SnappyButton(
-                    text = stringResource(id = R.string.snappy_checkout),
+                FractalButton(
+                    text = stringResource(id = R.string.checkout_now),
                     sizeVariant = sizeVariant,
                     styleVariant = styleVariant,
                 )
 
                 // Loading, no icon
-                SnappyButton(
-                    text = stringResource(id = R.string.snappy_checkout),
+                FractalButton(
+                    text = stringResource(id = R.string.checkout_now),
                     sizeVariant = sizeVariant,
                     styleVariant = styleVariant,
                     loading = true,
                 )
 
                 // Disabled
-                SnappyButton(
-                    text = stringResource(id = R.string.snappy_checkout),
+                FractalButton(
+                    text = stringResource(id = R.string.checkout_now),
                     sizeVariant = sizeVariant,
                     styleVariant = styleVariant,
                     enabled = false,
                 )
 
                 // Enabled, with lock icon
-                SnappyButton(
-                    text = stringResource(id = R.string.snappy_checkout),
+                FractalButton(
+                    text = stringResource(id = R.string.checkout_now),
                     sizeVariant = sizeVariant,
                     styleVariant = styleVariant,
                     iconRes = R.drawable.ico_lock_24,
                 )
 
                 // Loading, with lock icon
-                SnappyButton(
-                    text = stringResource(id = R.string.snappy_checkout),
+                FractalButton(
+                    text = stringResource(id = R.string.checkout_now),
                     sizeVariant = sizeVariant,
                     styleVariant = styleVariant,
                     loading = true,
@@ -94,8 +94,8 @@ private fun SnappyButtonGallery(styleVariant: SnappyButtonStyleVariant) {
                 )
 
                 // Disabled, with lock icon
-                SnappyButton(
-                    text = stringResource(id = R.string.snappy_checkout),
+                FractalButton(
+                    text = stringResource(id = R.string.checkout_now),
                     sizeVariant = sizeVariant,
                     styleVariant = styleVariant,
                     enabled = false,
@@ -107,12 +107,12 @@ private fun SnappyButtonGallery(styleVariant: SnappyButtonStyleVariant) {
 }
 
 // Must not be private, or Compose tooling will cease to render anything
-class SnappyButtonStyleVariantProvider : PreviewParameterProvider<SnappyButtonStyleVariant> {
+class FractalButtonStyleVariantProvider : PreviewParameterProvider<FractalButtonStyleVariant> {
     override val values = sequenceOf(
-        SnappyButtonStyleVariant.Primary(),
-        SnappyButtonStyleVariant.Secondary(),
-        SnappyButtonStyleVariant.DestructivePrimary(),
-        SnappyButtonStyleVariant.DestructiveSecondary(),
+        FractalButtonStyleVariant.Primary(),
+        FractalButtonStyleVariant.Secondary(),
+        FractalButtonStyleVariant.DestructivePrimary(),
+        FractalButtonStyleVariant.DestructiveSecondary(),
     )
     override val count: Int = values.count()
 }

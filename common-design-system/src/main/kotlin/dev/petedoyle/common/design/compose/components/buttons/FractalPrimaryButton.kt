@@ -10,10 +10,10 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import dev.petedoyle.common.design.compose.theme.SnappyTheme
+import dev.petedoyle.common.design.compose.theme.FractalTheme
 
 @Composable
-fun SnappyPrimaryButton(
+fun FractalPrimaryButton(
     modifier: Modifier = Modifier,
     onClick: () -> Unit = {},
     enabled: Boolean = true,
@@ -24,13 +24,13 @@ fun SnappyPrimaryButton(
         onClick = { onClick() },
         enabled = enabled,
         colors = ButtonDefaults.buttonColors(
-            backgroundColor = SnappyTheme.colors.primary_primary.value,
-            contentColor = SnappyTheme.colors.onprimary_onprimary.value,
-            disabledBackgroundColor = SnappyTheme.colors.primary_primarydisabled.value,
-            disabledContentColor = SnappyTheme.colors.onprimary_onprimarydisabled.value,
+            backgroundColor = FractalTheme.colors.primary_primary.value,
+            contentColor = FractalTheme.colors.onprimary_onprimary.value,
+            disabledBackgroundColor = FractalTheme.colors.primary_primarydisabled.value,
+            disabledContentColor = FractalTheme.colors.onprimary_onprimarydisabled.value,
         ),
         modifier = modifier.defaultMinSize(minHeight = 48.dp),
-        shape = SnappyTheme.shapes.borderRounded,
+        shape = FractalTheme.shapes.borderRounded,
     ) {
         content()
     }
@@ -45,12 +45,12 @@ fun SnappyPrimaryButton(
 )
 @Composable
 private fun Preview() {
-    SnappyTheme {
-        SnappyPrimaryButton(onClick = {}) {
+    FractalTheme {
+        FractalPrimaryButton(onClick = {}) {
             Text(
                 text = "Primary",
-                style = SnappyTheme.typography.label1,
-                color = SnappyTheme.colors.onprimary_onprimary.value,
+                style = FractalTheme.typography.label1,
+                color = FractalTheme.colors.onprimary_onprimary.value,
             )
 
         }

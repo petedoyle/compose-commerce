@@ -34,8 +34,8 @@ import androidx.navigation.NavHostController
 import dev.petedoyle.commerce.common.api.bigcommerce.catalog.v3.model.ProductFull
 import dev.petedoyle.commerce.common.api.bigcommerce.catalog.v3.model.ProductImageFull
 import dev.petedoyle.commerce.common.api.bigcommerce.catalog.v3.model.ProductVariantFull
-import dev.petedoyle.common.design.compose.components.buttons.SnappyCheckoutButton
-import dev.petedoyle.common.design.compose.theme.SnappyTheme
+import dev.petedoyle.common.design.compose.components.buttons.FractalCheckoutButton
+import dev.petedoyle.common.design.compose.theme.FractalTheme
 import dev.petedoyle.commerce.R
 import dev.petedoyle.commerce.cart.CartLineItem
 import dev.petedoyle.commerce.cart.CartState
@@ -111,14 +111,14 @@ fun CartScreen(
             )
         },
         scaffoldState = scaffoldState,
-        backgroundColor = SnappyTheme.colors.background_backgroundsecondary.value,
+        backgroundColor = FractalTheme.colors.background_backgroundsecondary.value,
     ) {
         Column(
             Modifier
                 .fillMaxSize()
-                .background(SnappyTheme.colors.background_backgroundprimary.value)
+                .background(FractalTheme.colors.background_backgroundprimary.value)
                 .padding(
-                    bottom = SnappyTheme.spacing.xs,
+                    bottom = FractalTheme.spacing.xs,
                 )
         ) {
             if (uiState.cartState.items.isEmpty()) {
@@ -130,7 +130,7 @@ fun CartScreen(
                         .weight(1f)
                 ) {
                     item {
-                        Spacer(modifier = Modifier.padding(top = SnappyTheme.spacing.xl))
+                        Spacer(modifier = Modifier.padding(top = FractalTheme.spacing.xl))
                     }
 
                     items(uiState.cartState.items.size, key = { it }) { index ->
@@ -139,17 +139,17 @@ fun CartScreen(
                             onRemoveLineItemClicked,
                             onChangeLineItemQuantityClicked,
                             Modifier
-                                .padding(horizontal = SnappyTheme.spacing.m)
+                                .padding(horizontal = FractalTheme.spacing.m)
                                 .animateItemPlacement()
                         )
                     }
 
                     item {
                         Divider(
-                            color = SnappyTheme.colors.border_primary_borderprimary.value,
+                            color = FractalTheme.colors.border_primary_borderprimary.value,
                             modifier = Modifier
                                 .fillMaxWidth()
-                                .padding(horizontal = SnappyTheme.spacing.m)
+                                .padding(horizontal = FractalTheme.spacing.m)
                         )
                     }
 
@@ -158,10 +158,10 @@ fun CartScreen(
                             state = uiState.cartState,
                             loading = uiState.recalculatingCartTotals,
                             modifier = Modifier.padding(
-                                start = SnappyTheme.spacing.m,
-                                top = SnappyTheme.spacing.xl,
-                                end = SnappyTheme.spacing.m,
-                                bottom = SnappyTheme.spacing.xxxxl,
+                                start = FractalTheme.spacing.m,
+                                top = FractalTheme.spacing.xl,
+                                end = FractalTheme.spacing.m,
+                                bottom = FractalTheme.spacing.xxxxl,
                             )
                         )
                     }
@@ -171,16 +171,16 @@ fun CartScreen(
             Box(
                 Modifier
                     .fillMaxWidth()
-                    .height(SnappyTheme.spacing.m)
-                    .background(SnappyTheme.colors.background_backgroundsecondary.value)
+                    .height(FractalTheme.spacing.m)
+                    .background(FractalTheme.colors.background_backgroundsecondary.value)
             )
 
-            SnappyCheckoutButton(
+            FractalCheckoutButton(
                 onClick = onCheckoutButtonClicked,
                 enabled = uiState.cartState.items.isNotEmpty(),
                 modifier = Modifier
                     .fillMaxWidth()
-                    .padding(SnappyTheme.spacing.m)
+                    .padding(FractalTheme.spacing.m)
                     .navigationBarsPadding(),
             )
         }
@@ -193,19 +193,19 @@ private fun EmptyState(modifier: Modifier = Modifier) {
         horizontalAlignment = Alignment.CenterHorizontally,
         modifier = modifier
             .fillMaxWidth()
-            .padding(top = SnappyTheme.spacing.xxxxl),
+            .padding(top = FractalTheme.spacing.xxxxl),
     ) {
         Icon(
             painter = painterResource(id = R.drawable.ico_cart_40),
             contentDescription = null,
-            tint = SnappyTheme.colors.onbackground_onbackground.value,
+            tint = FractalTheme.colors.onbackground_onbackground.value,
         )
         Text(
             text = stringResource(R.string.cart_empty),
-            style = SnappyTheme.typography.heading3,
+            style = FractalTheme.typography.heading3,
             textAlign = TextAlign.Center,
-            color = SnappyTheme.colors.onbackground_onbackground.value,
-            modifier = Modifier.padding(top = SnappyTheme.spacing.xxl)
+            color = FractalTheme.colors.onbackground_onbackground.value,
+            modifier = Modifier.padding(top = FractalTheme.spacing.xxl)
         )
     }
 }
@@ -214,7 +214,7 @@ private fun EmptyState(modifier: Modifier = Modifier) {
 @Preview(name = "Empty state", uiMode = Configuration.UI_MODE_NIGHT_YES, showBackground = true)
 @Composable
 private fun PreviewEmptyState() {
-    SnappyTheme {
+    FractalTheme {
         CartScreen(
             uiState = CartScreenState(CartState(items = listOf())),
             onBackClicked = {},
@@ -230,7 +230,7 @@ private fun PreviewEmptyState() {
 @Preview(name = "With items", uiMode = Configuration.UI_MODE_NIGHT_YES)
 @Composable
 private fun PreviewWithLineItems() {
-    SnappyTheme {
+    FractalTheme {
         CartScreen(
             uiState = CartScreenState(
                 CartState(

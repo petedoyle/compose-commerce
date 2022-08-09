@@ -16,7 +16,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
-import dev.petedoyle.common.design.compose.theme.SnappyTheme
+import dev.petedoyle.common.design.compose.theme.FractalTheme
 import dev.petedoyle.commerce.R
 import com.google.accompanist.insets.ui.TopAppBar
 
@@ -29,26 +29,26 @@ fun SnappyTopAppBarSecondary(
 ) {
     TopAppBar(
         elevation = dimensionResource(R.dimen.toolbar_elevation),
-        backgroundColor = SnappyTheme.colors.background_backgroundprimary.value,
+        backgroundColor = FractalTheme.colors.background_backgroundprimary.value,
         contentPadding = WindowInsets.statusBars.asPaddingValues(),
         navigationIcon = {
             IconButton(onClick = { onBackClicked() }) {
                 Icon(
                     painter = painterResource(id = R.drawable.ico_chevronleft_24),
                     contentDescription = stringResource(R.string.icon_shopping_cart_content_description),
-                    tint = SnappyTheme.colors.onbackground_onbackground.value,
+                    tint = FractalTheme.colors.onbackground_onbackground.value,
                 )
             }
         },
         title = {
             Text(
                 text = title,
-                style = SnappyTheme.typography.heading3,
+                style = FractalTheme.typography.heading3,
                 textAlign = TextAlign.Center,
-                color = SnappyTheme.colors.onbackground_onbackground.value,
+                color = FractalTheme.colors.onbackground_onbackground.value,
                 modifier = Modifier
                     .fillMaxWidth()
-                    .padding(end = SnappyTheme.spacing.m),
+                    .padding(end = FractalTheme.spacing.m),
             )
         },
         actions = {
@@ -63,7 +63,7 @@ fun SnappyTopAppBarSecondary(
 @Preview(name = "Dark", uiMode = Configuration.UI_MODE_NIGHT_YES)
 @Composable
 private fun Preview() {
-    SnappyTheme {
+    FractalTheme {
         SnappyTopAppBarSecondary(
             title = "Neck Gaiter",
             toolbarShoppingCartBadgeEnabled = true,

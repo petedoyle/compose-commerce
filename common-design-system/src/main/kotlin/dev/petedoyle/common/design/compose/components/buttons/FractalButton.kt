@@ -19,14 +19,14 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
-import dev.petedoyle.common.design.compose.theme.SnappyTheme
+import dev.petedoyle.common.design.compose.theme.FractalTheme
 
 @Composable
-fun SnappyButton(
+fun FractalButton(
     text: String,
     modifier: Modifier = Modifier,
-    sizeVariant: SnappyButtonSizeVariant = SnappyButtonSizeVariant.Default(),
-    styleVariant: SnappyButtonStyleVariant = SnappyButtonStyleVariant.Primary(),
+    sizeVariant: FractalButtonSizeVariant = FractalButtonSizeVariant.Default(),
+    styleVariant: FractalButtonStyleVariant = FractalButtonStyleVariant.Primary(),
     onClick: () -> Unit = {},
     enabled: Boolean = true,
     loading: Boolean = false,
@@ -36,7 +36,7 @@ fun SnappyButton(
 
     val outlineColor = styleVariant.outlineColor
     if (outlineColor != null) {
-        buttonModifier = buttonModifier.border(1.dp, outlineColor, SnappyTheme.shapes.borderRounded)
+        buttonModifier = buttonModifier.border(1.dp, outlineColor, FractalTheme.shapes.borderRounded)
     }
 
     val buttonColors = when (styleVariant.outlineColor) {
@@ -59,7 +59,7 @@ fun SnappyButton(
         onClick = { onClick() },
         enabled = enabled,
         colors = buttonColors,
-        shape = SnappyTheme.shapes.borderRounded,
+        shape = FractalTheme.shapes.borderRounded,
     ) {
         Box {
             if (loading) {

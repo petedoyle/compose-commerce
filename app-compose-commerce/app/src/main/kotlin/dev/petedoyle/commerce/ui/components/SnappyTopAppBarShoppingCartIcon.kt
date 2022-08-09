@@ -16,7 +16,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import dev.petedoyle.common.design.compose.theme.SnappyTheme
+import dev.petedoyle.common.design.compose.theme.FractalTheme
 import dev.petedoyle.commerce.R
 
 @Composable
@@ -28,7 +28,7 @@ fun SnappyTopAppBarShoppingCartIcon(
         Icon(
             painter = painterResource(id = R.drawable.ico_cart_24),
             contentDescription = stringResource(R.string.icon_shopping_cart_content_description),
-            tint = SnappyTheme.colors.onbackground_onbackground.value,
+            tint = FractalTheme.colors.onbackground_onbackground.value,
         )
 
         AnimatedVisibility(
@@ -40,10 +40,10 @@ fun SnappyTopAppBarShoppingCartIcon(
                     .size(8.dp)
                     .clip(CircleShape)
                     .background( // TODO spec is pink800 but looks white in dark mode
-                        SnappyTheme.colors.primitives_pink_pink500.value,
+                        FractalTheme.colors.primitives_pink_pink500.value,
                         CircleShape
                     )
-                    .border(1.dp, SnappyTheme.colors.background_backgroundprimary.value, CircleShape)
+                    .border(1.dp, FractalTheme.colors.background_backgroundprimary.value, CircleShape)
             )
         }
     }
@@ -53,7 +53,7 @@ fun SnappyTopAppBarShoppingCartIcon(
 @Preview(name = "Dark", uiMode = Configuration.UI_MODE_NIGHT_YES)
 @Composable
 private fun Preview() {
-    SnappyTheme {
+    FractalTheme {
         SnappyTopAppBarShoppingCartIcon(badgeEnabled = true)
     }
 }

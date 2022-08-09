@@ -6,19 +6,19 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import dev.petedoyle.commerce.design.compose.R
-import dev.petedoyle.common.design.compose.theme.SnappyTheme
+import dev.petedoyle.common.design.compose.theme.FractalTheme
 
 @Composable
-fun SnappyCheckoutButton(
+fun FractalCheckoutButton(
     modifier: Modifier = Modifier,
-    sizeVariant: SnappyButtonSizeVariant = SnappyButtonSizeVariant.Default(),
-    styleVariant: SnappyButtonStyleVariant = SnappyButtonStyleVariant.Primary(),
+    sizeVariant: FractalButtonSizeVariant = FractalButtonSizeVariant.Default(),
+    styleVariant: FractalButtonStyleVariant = FractalButtonStyleVariant.Primary(),
     onClick: () -> Unit = {},
     enabled: Boolean = true,
     loading: Boolean = false,
 ) {
-    SnappyButton(
-        text = stringResource(id = R.string.snappy_checkout),
+    FractalButton(
+        text = stringResource(id = R.string.checkout_now),
         modifier = modifier,
         sizeVariant = sizeVariant,
         styleVariant = styleVariant,
@@ -38,7 +38,7 @@ fun SnappyCheckoutButton(
 )
 @Composable
 private fun Preview() {
-    SnappyTheme {
-        SnappyCheckoutButton(onClick = {})
+    FractalTheme {
+        FractalCheckoutButton(onClick = {})
     }
 }
