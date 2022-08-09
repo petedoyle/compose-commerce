@@ -14,15 +14,15 @@ dependencyResolutionManagement {
   }
 }
 
-rootProject.name = "Snappy"
-include(":app")
-include(":common-api-bigcommerce-catalog-v3")
-include(":common-api-bigcommerce-carts-v3")
-include(":common-api-bigcommerce-client")
+rootProject.name = "Samples - Pete Doyle"
+include(":app-compose-commerce:app")
+include(":app-compose-commerce:api-bigcommerce-catalog-v3")
+include(":app-compose-commerce:api-bigcommerce-carts-v3")
+include(":app-compose-commerce:api-bigcommerce-client")
 include(":common-coroutine-dispatchers")
+include(":common-design-system")
 include(":common-flux")
 include(":common-mvi")
 include(":common-mvi-test")
 include(":common-test-android")
 include(":common-test-unit")
-include(":common-design-system")
