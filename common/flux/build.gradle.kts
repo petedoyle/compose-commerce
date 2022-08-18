@@ -12,7 +12,7 @@ android {
 }
 
 dependencies {
-  implementation(project(":core:coroutine-dispatchers"))
+  implementation(project(":common:coroutine-dispatchers"))
   implementation(libs.androidx.annotation)
   implementation(libs.kotlinx.coroutines.core)
 

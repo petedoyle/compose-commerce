@@ -12,7 +12,7 @@ android {
 }
 
 dependencies {
-  implementation(project(":core:coroutine-dispatchers"))
+  implementation(project(":common:coroutine-dispatchers"))
   implementation(libs.androidx.fragment.ktx)
   implementation(libs.androidx.lifecycle.runtime.ktx)
   implementation(libs.androidx.lifecycle.viewmodel.ktx)

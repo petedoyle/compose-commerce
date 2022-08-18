@@ -12,6 +12,6 @@ android {
 }
 
 dependencies {
-  implementation(project(":core:mvi"))
+  implementation(project(":common:mvi"))
   implementation(libs.kotlinx.coroutines.core)
 }
