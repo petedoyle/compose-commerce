@@ -16,8 +16,8 @@ dependencyResolutionManagement {
 
 rootProject.name = "Samples - Pete Doyle"
 include(":app:compose-commerce:app")
-include(":app:compose-commerce:api-bigcommerce-catalog-v3")
 include(":app:compose-commerce:api-bigcommerce-carts-v3")
+include(":app:compose-commerce:api-bigcommerce-catalog-v3")
 include(":app:compose-commerce:api-bigcommerce-client")
 include(":app:compose-movie-search:app")
 include(":core:coroutine-dispatchers")
