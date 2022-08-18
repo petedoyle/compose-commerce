@@ -6,5 +6,5 @@ This module contains:
 It only contains OpenAPI specs, Gradle build scripts, and generated model classes.
   
 **Notes:**
-1. To validate changes to `specs/catalog.v3.yml`, run `./gradlew :app-compose-commerce:api-bigcommerce-catalog-v3:openApiValidate`.  
-1. To recreate models from `specs/catalog.v3.yml`, run `./gradlew :app-compose-commerce:api-bigcommerce-catalog-v3:openApiGenerate`.
+1. To validate changes to `specs/catalog.v3.yml`, run `./gradlew :apps:compose-commerce:api-bigcommerce-catalog-v3:openApiValidate`.  
+1. To recreate models from `specs/catalog.v3.yml`, run `./gradlew :apps:compose-commerce:api-bigcommerce-catalog-v3:openApiGenerate`.
