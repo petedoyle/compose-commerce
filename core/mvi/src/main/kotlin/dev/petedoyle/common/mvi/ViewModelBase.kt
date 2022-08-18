@@ -39,18 +39,3 @@ abstract class ViewModelBase<S : ViewModelState, A : ViewAction, E : ViewModelEf
         }
     }
 }
-
-/**
- * Marker interface for actions sent (typically from the UI) to a [ViewModelBase].
- */
-interface ViewAction
-
-/**
- * Marker interface for effects emitted by the ViewModel.
- */
-interface ViewModelEffect
-
-/**
- * Marker interface for [ViewModelBase] state.
- */
-interface ViewModelState
