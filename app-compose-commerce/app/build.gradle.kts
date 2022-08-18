@@ -74,10 +74,10 @@ dependencies {
     implementation(project(":app-compose-commerce:api-bigcommerce-client"))
     implementation(project(":app-compose-commerce:api-bigcommerce-carts-v3"))
     implementation(project(":app-compose-commerce:api-bigcommerce-catalog-v3"))
-    implementation(project(":common-coroutine-dispatchers"))
-    implementation(project(":common-flux"))
-    implementation(project(":common-mvi"))
-    implementation(project(":common-design-system"))
+    implementation(project(":core:coroutine-dispatchers"))
+    implementation(project(":core:flux"))
+    implementation(project(":core:mvi"))
+    implementation(project(":core:design-system"))
     implementation(libs.accompanist.navigation.animation)
     implementation(libs.accompanist.insets)
     implementation(libs.accompanist.insets.ui)
@@ -107,7 +107,7 @@ dependencies {
 
     debugImplementation(libs.androidx.compose.ui.tooling)
 
-    testImplementation(project(":common-test-unit"))
+    testImplementation(project(":core:test-unit"))
     testImplementation(libs.cashapp.turbine)
     testImplementation(libs.expectKt)
     testImplementation(libs.junit.junit)
@@ -115,7 +115,7 @@ dependencies {
     testImplementation(libs.mockk)
     testImplementation(testFixtures("com.slack.eithernet:eithernet:" + libs.versions.eithernet.get()))
 
-    androidTestImplementation(project(":common-test-android"))
+    androidTestImplementation(project(":core:test-android"))
     androidTestImplementation(libs.androidx.compose.ui.test.junit4)
     androidTestImplementation(libs.androidx.test.core)
     androidTestImplementation(libs.androidx.test.rules)

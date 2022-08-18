@@ -12,7 +12,7 @@ android {
 }
 
 dependencies {
-  implementation(project(":common-coroutine-dispatchers"))
+  implementation(project(":core:coroutine-dispatchers"))
   implementation(libs.androidx.arch.core)
   implementation(libs.androidx.compose.ui.test.junit4)
   implementation(libs.androidx.test.core)

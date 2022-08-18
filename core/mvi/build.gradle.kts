@@ -12,8 +12,10 @@ android {
 }
 
 dependencies {
-  implementation(project(":common-coroutine-dispatchers"))
-  implementation(libs.androidx.annotation)
+  implementation(project(":core:coroutine-dispatchers"))
+  implementation(libs.androidx.fragment.ktx)
+  implementation(libs.androidx.lifecycle.runtime.ktx)
+  implementation(libs.androidx.lifecycle.viewmodel.ktx)
   implementation(libs.kotlinx.coroutines.core)
 
   testImplementation(libs.junit.junit)

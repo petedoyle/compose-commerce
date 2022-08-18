@@ -49,9 +49,9 @@ android {
 }
 
 dependencies {
-    implementation(project(":common-design-system"))
-    implementation(project(":common-coroutine-dispatchers"))
-    implementation(project(":common-mvi"))
+    implementation(project(":core:design-system"))
+    implementation(project(":core:coroutine-dispatchers"))
+    implementation(project(":core:mvi"))
     implementation(libs.androidx.core.ktx)
     implementation(libs.kotlinx.coroutines.core)
     implementation(libs.androidx.lifecycle.runtime.ktx)
@@ -61,7 +61,7 @@ dependencies {
     implementation(libs.androidx.compose.material.icons.extended)
     implementation(libs.androidx.activity.compose)
 
-    testImplementation(project(":common-test-unit"))
+    testImplementation(project(":core:test-unit"))
     testImplementation(libs.junit.junit)
     testImplementation(libs.cashapp.turbine)
     testImplementation(libs.expectKt)

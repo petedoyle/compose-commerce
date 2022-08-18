@@ -12,7 +12,7 @@ android {
 }
 
 dependencies {
-  implementation(project(":common-coroutine-dispatchers"))
+  implementation(project(":core:coroutine-dispatchers"))
   implementation(libs.androidx.arch.core)
   implementation(libs.junit.junit)
   implementation(libs.mockk)
