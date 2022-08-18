@@ -71,9 +71,9 @@ android {
 }
 
 dependencies {
-    implementation(project(":app:compose-commerce:api-bigcommerce-client"))
-    implementation(project(":app:compose-commerce:api-bigcommerce-carts-v3"))
-    implementation(project(":app:compose-commerce:api-bigcommerce-catalog-v3"))
+    implementation(project(":apps:compose-commerce:api-bigcommerce-client"))
+    implementation(project(":apps:compose-commerce:api-bigcommerce-carts-v3"))
+    implementation(project(":apps:compose-commerce:api-bigcommerce-catalog-v3"))
     implementation(project(":common:coroutine-dispatchers"))
     implementation(project(":common:flux"))
     implementation(project(":common:mvi"))
