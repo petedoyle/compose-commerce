@@ -55,7 +55,7 @@ import androidx.compose.ui.text.input.KeyboardCapitalization
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import dev.petedoyle.common.design.compose.theme.FractalTheme
-import dev.petedoyle.sample.moviesearch.R
+import dev.petedoyle.moviesearch.R
 
 @Composable
 fun MainScreen(viewModel: MainScreenViewModel) {
