@@ -14,7 +14,7 @@ dependencyResolutionManagement {
   }
 }
 
-rootProject.name = "Samples - Pete Doyle"
+rootProject.name = "Compose Samples"
 include(":app:compose-commerce:app")
 include(":app:compose-commerce:api-bigcommerce-carts-v3")
 include(":app:compose-commerce:api-bigcommerce-catalog-v3")
