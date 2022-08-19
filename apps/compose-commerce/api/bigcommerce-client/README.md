@@ -1,4 +1,4 @@
-# Module common-api-bigcommerce-client
+# About this module
 This module contains:
 - Retrofit client for making calls to the BigCommerce REST v3 API.
 - Moshi for JSON parsing
