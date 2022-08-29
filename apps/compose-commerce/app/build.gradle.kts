@@ -37,14 +37,9 @@ android {
             applicationId = "dev.petedoyle.commerce"
         }
 
-        register("staging") {
+        register("dev") {
             dimension = "stage"
-            applicationId = "dev.petedoyle.commerce.staging"
-        }
-
-        register("sandbox") {
-            dimension = "stage"
-            applicationId = "dev.petedoyle.commerce.sandbox"
+            applicationId = "dev.petedoyle.commerce.dev"
         }
     }
 

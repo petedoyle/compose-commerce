@@ -19,14 +19,6 @@ android {
             dimension = "stage"
         }
 
-        register("staging") {
-            dimension = "stage"
-        }
-
-        register("sandbox") {
-            dimension = "stage"
-        }
-
         register("dev") {
             dimension = "stage"
         }
