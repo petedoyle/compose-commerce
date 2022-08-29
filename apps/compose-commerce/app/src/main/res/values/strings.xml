@@ -6,7 +6,7 @@
     <string name="logo_content_description">Logo</string>
     <string name="back">Back</string>
     <string name="add_to_cart">Add to cart</string>
-    <string name="checkout_now">Snappy Checkout</string>
+    <string name="checkout_now">Quick checkout</string>
     <string name="cart_title">Shopping cart</string>
     <string name="cart_line_item_photo_content_description">Photo for %s</string>
     <string name="remove">Remove</string>
