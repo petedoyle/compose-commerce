@@ -41,7 +41,7 @@ import dev.petedoyle.commerce.cart.CartLineItem
 import dev.petedoyle.commerce.cart.CartState
 import dev.petedoyle.commerce.ui.cart.components.CartLineItemRow
 import dev.petedoyle.commerce.ui.cart.components.CartSummary
-import dev.petedoyle.commerce.ui.components.SnappyTopAppBarSecondary
+import dev.petedoyle.commerce.ui.components.CommerceTopAppBarSecondary
 import com.google.accompanist.systemuicontroller.rememberSystemUiController
 
 @Composable
@@ -103,7 +103,7 @@ fun CartScreen(
     val scaffoldState = rememberScaffoldState()
     Scaffold(
         topBar = {
-            SnappyTopAppBarSecondary(
+            CommerceTopAppBarSecondary(
                 title = stringResource(R.string.cart_title),
                 toolbarShoppingCartBadgeEnabled = uiState.cartState.items.isNotEmpty(),
                 onBackClicked = { onBackClicked() },

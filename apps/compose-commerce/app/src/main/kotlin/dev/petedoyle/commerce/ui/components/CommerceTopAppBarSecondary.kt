@@ -21,7 +21,7 @@ import dev.petedoyle.commerce.R
 import com.google.accompanist.insets.ui.TopAppBar
 
 @Composable
-fun SnappyTopAppBarSecondary(
+fun CommerceTopAppBarSecondary(
     title: String,
     toolbarShoppingCartBadgeEnabled: Boolean,
     onBackClicked: () -> Unit,
@@ -53,7 +53,7 @@ fun SnappyTopAppBarSecondary(
         },
         actions = {
             IconButton(onClick = { onShoppingCartClicked() }) {
-                SnappyTopAppBarShoppingCartIcon(badgeEnabled = toolbarShoppingCartBadgeEnabled)
+                CommerceTopAppBarShoppingCartIcon(badgeEnabled = toolbarShoppingCartBadgeEnabled)
             }
         }
     )
@@ -64,7 +64,7 @@ fun SnappyTopAppBarSecondary(
 @Composable
 private fun Preview() {
     FractalTheme {
-        SnappyTopAppBarSecondary(
+        CommerceTopAppBarSecondary(
             title = "Neck Gaiter",
             toolbarShoppingCartBadgeEnabled = true,
             onBackClicked = {},

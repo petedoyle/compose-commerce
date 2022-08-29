@@ -20,7 +20,7 @@ import dev.petedoyle.common.design.compose.theme.FractalTheme
 import dev.petedoyle.commerce.R
 
 @Composable
-fun SnappyTopAppBarShoppingCartIcon(
+fun CommerceTopAppBarShoppingCartIcon(
     badgeEnabled: Boolean,
     modifier: Modifier = Modifier
 ) {
@@ -54,6 +54,6 @@ fun SnappyTopAppBarShoppingCartIcon(
 @Composable
 private fun Preview() {
     FractalTheme {
-        SnappyTopAppBarShoppingCartIcon(badgeEnabled = true)
+        CommerceTopAppBarShoppingCartIcon(badgeEnabled = true)
     }
 }

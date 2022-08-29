@@ -31,7 +31,7 @@ import dev.petedoyle.commerce.common.api.bigcommerce.catalog.v3.model.ProductFul
 import dev.petedoyle.commerce.common.api.bigcommerce.catalog.v3.model.ProductImageFull
 import dev.petedoyle.common.design.compose.theme.FractalTheme
 import dev.petedoyle.commerce.ui.Screen
-import dev.petedoyle.commerce.ui.components.SnappyTopAppBarPrimary
+import dev.petedoyle.commerce.ui.components.CommerceTopAppBarPrimary
 import dev.petedoyle.commerce.ui.home.components.FeaturedProduct
 import com.google.accompanist.insets.ui.Scaffold
 import com.google.accompanist.systemuicontroller.rememberSystemUiController
@@ -84,7 +84,7 @@ fun HomeScreen(
     Scaffold(
         scaffoldState = scaffoldState,
         topBar = {
-            SnappyTopAppBarPrimary(
+            CommerceTopAppBarPrimary(
                 shoppingCartBadgeEnabled = uiState.cartState.items.isNotEmpty(),
                 onShoppingCartClicked = { onShoppingCartClicked() },
             )

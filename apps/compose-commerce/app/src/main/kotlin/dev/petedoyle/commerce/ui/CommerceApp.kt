@@ -26,7 +26,7 @@ sealed class Screen(val route: String) {
 
 @OptIn(ExperimentalAnimationApi::class)
 @Composable
-fun SnappyApp(appState: SnappyAppState = rememberAppState()) {
+fun CommerceApp(appState: CommerceAppState = rememberAppState()) {
     AnimatedNavHost(
         navController = appState.navController,
         startDestination = Screen.Home.route,
@@ -62,9 +62,9 @@ fun SnappyApp(appState: SnappyAppState = rememberAppState()) {
 fun rememberAppState(
     navController: NavHostController = rememberAnimatedNavController(),
 ) = remember(navController) {
-    SnappyAppState(navController)
+    CommerceAppState(navController)
 }
 
-class SnappyAppState(
+class CommerceAppState(
     val navController: NavHostController,
 )

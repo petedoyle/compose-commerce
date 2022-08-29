@@ -45,7 +45,7 @@ import dev.petedoyle.commerce.BC_INVENTORY_TRACKING_NONE
 import dev.petedoyle.commerce.BC_INVENTORY_TRACKING_PRODUCT
 import dev.petedoyle.commerce.R
 import dev.petedoyle.commerce.ui.Screen
-import dev.petedoyle.commerce.ui.components.SnappyTopAppBarSecondary
+import dev.petedoyle.commerce.ui.components.CommerceTopAppBarSecondary
 import dev.petedoyle.commerce.ui.productdetail.components.ProductOptionsSelector
 import dev.petedoyle.commerce.ui.productdetail.components.rememberProductOptionsSelectorState
 import coil.size.Scale
@@ -127,7 +127,7 @@ fun ProductDetailScreen(
 
     Scaffold(
         topBar = {
-            SnappyTopAppBarSecondary(
+            CommerceTopAppBarSecondary(
                 title = product?.name.orEmpty(),
                 toolbarShoppingCartBadgeEnabled = uiState.cartState.items.isNotEmpty(),
                 onBackClicked = { onBackClicked() },
