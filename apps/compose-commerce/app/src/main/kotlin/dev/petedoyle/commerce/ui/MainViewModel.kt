@@ -7,11 +7,13 @@ import dev.petedoyle.commerce.cart.CartStore
 import dev.petedoyle.commerce.cart.ClearCart
 import dev.petedoyle.commerce.ui.MainActivityActions.AppStarting
 import dev.petedoyle.commerce.ui.MainActivityActions.CheckoutComplete
-import dev.petedoyle.commerce.ui.MainViewModelEffects.*
 import com.google.android.play.core.appupdate.AppUpdateInfo
 import com.google.android.play.core.appupdate.AppUpdateManager
 import com.google.android.play.core.install.model.UpdateAvailability
 import dagger.hilt.android.lifecycle.HiltViewModel
+import dev.petedoyle.commerce.ui.MainViewModelEffects.AppUpdateAvailableEffect
+import dev.petedoyle.commerce.ui.MainViewModelEffects.AppUpdateCheckFailedEffect
+import dev.petedoyle.commerce.ui.MainViewModelEffects.AppUpdateNotAvailableEffect
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
