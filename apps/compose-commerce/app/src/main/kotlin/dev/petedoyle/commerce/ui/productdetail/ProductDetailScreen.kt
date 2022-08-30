@@ -54,6 +54,8 @@ import com.google.accompanist.placeholder.material.placeholder
 import com.google.accompanist.placeholder.material.shimmer
 import com.google.accompanist.systemuicontroller.rememberSystemUiController
 import dev.petedoyle.commerce.common.api.bigcommerce.catalog.v3.model.ProductImageFull
+import dev.petedoyle.common.design.compose.components.buttons.FractalButton
+import dev.petedoyle.common.design.compose.components.buttons.FractalButtonStyleVariant
 
 @Composable
 fun ProductDetailScreen(
@@ -247,22 +249,15 @@ fun ProductDetailScreen(
                     .background(FractalTheme.colors.background_backgroundsecondary.value)
             )
 
-            FractalCheckoutButton(
-                onClick = onCheckoutButtonClicked,
-                enabled = uiState.selectedVariant != null,
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(FractalTheme.spacing.m),
-            )
-
-            FractalSecondaryButton(
+            FractalButton(
                 text = stringResource(R.string.add_to_cart),
+                styleVariant = FractalButtonStyleVariant.Primary(),
+                iconRes = R.drawable.ico_cart_24,
                 onClick = onAddToCartClicked,
                 enabled = uiState.selectedVariant != null,
                 modifier = Modifier
                     .fillMaxWidth()
-                    .padding(horizontal = FractalTheme.spacing.m)
-                    .padding(bottom = FractalTheme.spacing.m),
+                    .padding(FractalTheme.spacing.m),
             )
 
             Spacer(Modifier.navigationBarsPadding())
