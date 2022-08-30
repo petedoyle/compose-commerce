@@ -31,7 +31,6 @@ fun CommerceTopAppBarPrimary(
             Image(
                 painter = painterResource(id = R.drawable.logo_top_bar),
                 contentDescription = stringResource(R.string.logo_content_description),
-                colorFilter = ColorFilter.tint(FractalTheme.colors.primary_primary.value),
                 modifier = Modifier
                     .fillMaxWidth()
                     .padding(start = 36.dp) // hack to center the logo
