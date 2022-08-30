@@ -91,20 +91,20 @@ fun CartLineItemRow(
                         item.variant.calculatedPrice ?: 0f
                     ),
                     color = FractalTheme.colors.onbackground_onbackgroundvariant1.value,
-                    style = FractalTheme.typography.label3,
+                    style = FractalTheme.typography.label4,
                 )
 
                 Text(
                     text = "•",
                     color = FractalTheme.colors.onbackground_onbackgroundvariant1.value,
-                    style = FractalTheme.typography.label3,
+                    style = FractalTheme.typography.label4,
                     modifier = Modifier.padding(horizontal = FractalTheme.spacing.xxs),
                 )
 
                 Text(
                     text = stringResource(R.string.remove),
                     color = FractalTheme.colors.accent_accent.value,
-                    style = FractalTheme.typography.label3,
+                    style = FractalTheme.typography.label4,
                     modifier = Modifier.clickable { onRemoveLineItemClicked(item) },
                 )
             }
@@ -113,7 +113,7 @@ fun CartLineItemRow(
                 Text(
                     text = "${optionValue.optionDisplayName}: ${optionValue.label}",
                     color = FractalTheme.colors.onbackground_onbackgroundvariant1.value,
-                    style = FractalTheme.typography.label3,
+                    style = FractalTheme.typography.label4,
                     modifier = Modifier.padding(top = FractalTheme.spacing.xs)
                 )
             }
