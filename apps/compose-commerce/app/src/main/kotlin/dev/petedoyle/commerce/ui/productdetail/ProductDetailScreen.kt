@@ -135,7 +135,11 @@ fun ProductDetailScreen(
         scaffoldState = scaffoldState,
         backgroundColor = FractalTheme.colors.background_backgroundprimary.value,
     ) {
-        Column(Modifier.fillMaxSize()) {
+        Column(
+            Modifier
+                .fillMaxSize()
+                .padding(it)
+        ) {
             Column(
                 Modifier
                     .weight(1f)
