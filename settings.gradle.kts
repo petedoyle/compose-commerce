@@ -33,3 +33,9 @@ include(":common:mvi")
 include(":common:mvi-test")
 include(":common:test-android")
 include(":common:test-unit")
+
+refreshVersions {
+  rejectVersionIf {
+    candidate.stabilityLevel.isLessStableThan(current.stabilityLevel)
+  }
+}
