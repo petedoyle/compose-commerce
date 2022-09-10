@@ -14,6 +14,10 @@ dependencyResolutionManagement {
   }
 }
 
+plugins {
+  id("de.fayard.refreshVersions") version "0.50.0"
+}
+
 rootProject.name = "Compose Samples"
 include(":apps:compose-commerce:app")
 include(":apps:compose-commerce:api:bigcommerce-models-carts-v3")
