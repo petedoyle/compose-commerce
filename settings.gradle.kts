@@ -14,6 +14,8 @@ dependencyResolutionManagement {
   }
 }
 
+enableFeaturePreview("STABLE_CONFIGURATION_CACHE")
+
 plugins {
   id("de.fayard.refreshVersions") version "0.50.0"
 }
