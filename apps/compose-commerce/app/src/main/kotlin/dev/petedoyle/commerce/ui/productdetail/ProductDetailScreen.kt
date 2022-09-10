@@ -34,8 +34,6 @@ import coil.compose.AsyncImage
 import coil.request.ImageRequest
 import dev.petedoyle.commerce.common.api.bigcommerce.catalog.v3.model.ProductFull
 import dev.petedoyle.commerce.common.api.bigcommerce.catalog.v3.model.ProductVariantFull
-import dev.petedoyle.common.design.compose.components.buttons.FractalCheckoutButton
-import dev.petedoyle.common.design.compose.components.buttons.FractalSecondaryButton
 import dev.petedoyle.common.design.compose.components.inlinebanner.InlineBanner
 import dev.petedoyle.common.design.compose.components.inlinebanner.InlineBannerVariant
 import dev.petedoyle.common.design.compose.theme.ASPECT_RATIO_SQUARE
@@ -96,7 +94,6 @@ fun ProductDetailScreen(
         onBackClicked = { viewModel.onAction(BackClicked) },
         onShoppingCartClicked = { viewModel.onAction(ShoppingCartClicked) },
         onProductVariantSelected = { viewModel.onAction(ProductVariantSelected(it)) },
-        onCheckoutButtonClicked = { viewModel.onAction(CheckoutClicked) },
         onAddToCartClicked = { viewModel.onAction(AddToCartClicked) },
     )
 }
@@ -107,7 +104,6 @@ fun ProductDetailScreen(
     onBackClicked: () -> Unit,
     onShoppingCartClicked: () -> Unit,
     onProductVariantSelected: (variant: ProductVariantFull) -> Unit,
-    onCheckoutButtonClicked: () -> Unit,
     onAddToCartClicked: () -> Unit,
 ) {
     val scaffoldState = rememberScaffoldState()
@@ -301,7 +297,6 @@ fun PreviewProductDetailScreen() {
             onBackClicked = {},
             onShoppingCartClicked = {},
             onProductVariantSelected = {},
-            onCheckoutButtonClicked = {},
             onAddToCartClicked = {},
         )
     }
