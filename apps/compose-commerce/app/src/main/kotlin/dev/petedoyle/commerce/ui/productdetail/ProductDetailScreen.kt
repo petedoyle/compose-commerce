@@ -252,7 +252,7 @@ fun ProductDetailScreen(
             FractalButton(
                 text = stringResource(R.string.add_to_cart),
                 styleVariant = FractalButtonStyleVariant.Primary(),
-                iconRes = R.drawable.ico_cart_24,
+                iconRes = dev.petedoyle.commerce.design.compose.R.drawable.ico_cart_24,
                 onClick = onAddToCartClicked,
                 enabled = uiState.selectedVariant != null,
                 modifier = Modifier
