@@ -132,9 +132,7 @@ fun CartScreen(
             Modifier
                 .fillMaxSize()
                 .background(FractalTheme.colors.background_backgroundprimary.value)
-                .padding(
-                    bottom = FractalTheme.spacing.xs,
-                ),
+                .padding(it),
         ) {
             if (uiState.cartState.items.isEmpty()) {
                 EmptyState(Modifier.weight(1f))
