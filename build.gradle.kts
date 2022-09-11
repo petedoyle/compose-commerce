@@ -1,3 +1,7 @@
+import com.diffplug.gradle.spotless.SpotlessExtension
+import io.gitlab.arturbosch.detekt.Detekt
+import io.gitlab.arturbosch.detekt.extensions.DetektExtension
+
 buildscript {
     repositories {
         google()
@@ -11,10 +15,72 @@ buildscript {
     }
 }
 
+plugins {
+    alias(libs.plugins.detekt)
+    alias(libs.plugins.spotless) apply false
+}
+
 apply(from = "gradle/projectDependencyGraph.gradle")
 
-tasks.register<Delete>("clean") {
-    delete(rootProject.buildDir)
+configure<DetektExtension> {
+    toolVersion = libs.versions.detekt.get()
+    allRules = true
+}
+
+tasks.withType<Detekt>().configureEach {
+    reports {
+        html.required.set(true)
+        xml.required.set(true)
+        txt.required.set(true)
+    }
+}
+
+allprojects {
+    apply(plugin = "com.diffplug.spotless")
+    configure<SpotlessExtension> {
+        format("misc") {
+            target("*.md", ".gitignore")
+            trimTrailingWhitespace()
+            endWithNewline()
+        }
+
+        kotlin {
+            target("src/**/*.kt")
+            targetExclude(
+                "**/copyright.kt",
+                "**/v3/model/**/*.kt", // exclude generated bigcommerce models
+            )
+            ktlint(libs.versions.ktlint.get())
+                .editorConfigOverride(
+                    mapOf(
+                        "disabled_rules" to "filename",
+                        "ij_kotlin_allow_trailing_comma" to "true",
+                        "ij_kotlin_allow_trailing_comma_on_call_site" to "true",
+                    )
+                )
+            trimTrailingWhitespace()
+            endWithNewline()
+            licenseHeaderFile(rootProject.file("spotless/copyright.kt"), "package ")
+        }
+
+        kotlinGradle {
+            target("src/**/*.kts")
+            ktlint(libs.versions.ktlint.get())
+                .editorConfigOverride(
+                    mapOf(
+                        "disabled_rules" to "filename",
+                        "ij_kotlin_allow_trailing_comma" to "true",
+                        "ij_kotlin_allow_trailing_comma_on_call_site" to "true",
+                    )
+                )
+            trimTrailingWhitespace()
+            endWithNewline()
+            licenseHeaderFile(
+                rootProject.file("spotless/copyright.kt"),
+                "(import|plugins|buildscript|dependencies|pluginManagement)"
+            )
+        }
+    }
 }
 
 subprojects {

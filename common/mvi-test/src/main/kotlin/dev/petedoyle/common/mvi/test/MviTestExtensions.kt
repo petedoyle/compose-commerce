@@ -1,3 +1,4 @@
+// ktlint-disable filename
 package dev.petedoyle.common.mvi.test
 
 import dev.petedoyle.common.mvi.ViewModelState

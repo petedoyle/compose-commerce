@@ -1,3 +1,4 @@
+// ktlint-disable filename
 package dev.petedoyle.common.design.compose.components.buttons
 
 import android.content.res.Configuration
