@@ -16,26 +16,33 @@ buildscript {
 }
 
 plugins {
-    alias(libs.plugins.detekt)
+    alias(libs.plugins.detekt) apply false
     alias(libs.plugins.spotless) apply false
 }
 
 apply(from = "gradle/projectDependencyGraph.gradle")
 
-configure<DetektExtension> {
-    toolVersion = libs.versions.detekt.get()
-    allRules = true
-}
-
-tasks.withType<Detekt>().configureEach {
-    reports {
-        html.required.set(true)
-        xml.required.set(true)
-        txt.required.set(true)
-    }
-}
-
+val detektVersion = libs.versions.detekt.get()
 allprojects {
+    // Detekt
+    apply(plugin = "io.gitlab.arturbosch.detekt")
+    configure<DetektExtension> {
+        toolVersion = detektVersion
+        allRules = true
+    }
+
+    tasks.withType<Detekt>().configureEach {
+        reports {
+            html.required.set(true)
+            xml.required.set(true)
+            txt.required.set(true)
+        }
+        jvmTarget = "11"
+        excludes.add("**/v3/model/**/*.kt") // exclude generated bigcommerce models
+        config.setFrom(files(rootProject.file("detekt.yml")))
+    }
+
+    // Spotless
     apply(plugin = "com.diffplug.spotless")
     configure<SpotlessExtension> {
         format("misc") {
