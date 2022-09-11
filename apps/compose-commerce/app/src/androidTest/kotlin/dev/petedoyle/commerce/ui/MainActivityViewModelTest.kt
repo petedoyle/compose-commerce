@@ -64,7 +64,6 @@ class MainActivityViewModelTest : AndroidTestBase() {
     }
 
     @Test
-    @Ignore
     fun actionAppStartingShouldEmitWhenAppUpdateAvailable() = runTest {
         // Given
         fakeAppUpdateManager.setUpdateAvailable(FAKE_VERSION_CODE)
@@ -81,7 +80,6 @@ class MainActivityViewModelTest : AndroidTestBase() {
     }
 
     @Test
-    @Ignore
     fun actionAppStartingShouldEmitWhenFlexibleAppUpdateAvailable() = runTest {
         // Given
         fakeAppUpdateManager.setUpdateAvailable(FAKE_VERSION_CODE, AppUpdateType.FLEXIBLE)
@@ -98,7 +96,6 @@ class MainActivityViewModelTest : AndroidTestBase() {
     }
 
     @Test
-    @Ignore
     fun actionAppStartingShouldEmitWhenImmediateAppUpdateAvailable() = runTest {
         // Given
         fakeAppUpdateManager.setUpdateAvailable(FAKE_VERSION_CODE, AppUpdateType.IMMEDIATE)
