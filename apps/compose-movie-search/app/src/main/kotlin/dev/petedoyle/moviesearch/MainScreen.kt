@@ -1,11 +1,11 @@
 /*
- * Copyright 2021 Pete Doyle <petedoyle@gmail.com>
+ * Copyright (C) 2021 Pete Doyle
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- *     http://www.apache.org/licenses/LICENSE-2.0
+ *    https://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -55,7 +55,6 @@ import androidx.compose.ui.text.input.KeyboardCapitalization
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import dev.petedoyle.common.design.compose.theme.FractalTheme
-import dev.petedoyle.moviesearch.R
 
 @Composable
 fun MainScreen(viewModel: MainScreenViewModel) {
@@ -90,7 +89,7 @@ private fun MainScreenContent(
         Column(
             modifier = Modifier
                 .fillMaxSize()
-                .padding(it)
+                .padding(it),
         ) {
             Header()
             SearchField(query, actionHandler)
@@ -106,7 +105,7 @@ private fun Header() {
         modifier = Modifier
             .fillMaxWidth()
             .wrapContentHeight()
-            .padding(FractalTheme.spacing.l)
+            .padding(FractalTheme.spacing.l),
     )
 }
 
@@ -125,22 +124,22 @@ private fun SearchField(
             },
             keyboardOptions = KeyboardOptions(
                 capitalization = KeyboardCapitalization.Words,
-                imeAction = ImeAction.Done
+                imeAction = ImeAction.Done,
             ),
             keyboardActions = KeyboardActions(
-                onDone = { keyboardController?.hide() }
+                onDone = { keyboardController?.hide() },
             ),
             label = {
                 Text(stringResource(id = R.string.query_hint))
             },
             modifier = Modifier
                 .padding(horizontal = FractalTheme.spacing.l)
-                .fillMaxWidth()
+                .fillMaxWidth(),
         )
 
         AnimatedVisibility(
             visible = query.isNotEmpty(),
-            modifier = Modifier.align(Alignment.CenterEnd)
+            modifier = Modifier.align(Alignment.CenterEnd),
         ) {
             Icon(
                 Icons.Filled.Close,
@@ -185,7 +184,7 @@ private fun SearchResultRow(
                 actionHandler(MainScreenActions.MovieFocused(movie))
                 keyboardController?.hide()
             }
-            .padding(horizontal = FractalTheme.spacing.l)
+            .padding(horizontal = FractalTheme.spacing.l),
     ) {
         Text(text = movie.title)
     }
@@ -201,9 +200,9 @@ private fun DefaultPreview() {
                 query = "Star",
                 searchResults = Movie.MOVIE_TEST_DATA.filter {
                     it.title.contains("Star", ignoreCase = true)
-                }
+                },
             ),
-            actionHandler = { }
+            actionHandler = { },
         )
     }
 }

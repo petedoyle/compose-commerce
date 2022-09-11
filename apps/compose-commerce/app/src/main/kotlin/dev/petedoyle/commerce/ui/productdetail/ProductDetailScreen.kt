@@ -1,3 +1,18 @@
+/*
+ * Copyright (C) 2022 Pete Doyle
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *    https://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 package dev.petedoyle.commerce.ui.productdetail
 
 import android.widget.Toast
@@ -32,33 +47,33 @@ import androidx.core.text.HtmlCompat
 import androidx.navigation.NavHostController
 import coil.compose.AsyncImage
 import coil.request.ImageRequest
-import dev.petedoyle.commerce.common.api.bigcommerce.catalog.v3.model.ProductFull
-import dev.petedoyle.commerce.common.api.bigcommerce.catalog.v3.model.ProductVariantFull
-import dev.petedoyle.common.design.compose.components.inlinebanner.InlineBanner
-import dev.petedoyle.common.design.compose.components.inlinebanner.InlineBannerVariant
-import dev.petedoyle.common.design.compose.theme.ASPECT_RATIO_SQUARE
-import dev.petedoyle.common.design.compose.theme.FractalTheme
-import dev.petedoyle.common.design.compose.theme.IMAGE_CROSSFADE_MS
-import dev.petedoyle.commerce.BC_INVENTORY_TRACKING_NONE
-import dev.petedoyle.commerce.BC_INVENTORY_TRACKING_PRODUCT
-import dev.petedoyle.commerce.R
-import dev.petedoyle.commerce.ui.Screen
-import dev.petedoyle.commerce.ui.components.CommerceTopAppBarSecondary
-import dev.petedoyle.commerce.ui.productdetail.components.ProductOptionsSelector
-import dev.petedoyle.commerce.ui.productdetail.components.rememberProductOptionsSelectorState
 import coil.size.Scale
 import com.google.accompanist.placeholder.PlaceholderHighlight
 import com.google.accompanist.placeholder.material.placeholder
 import com.google.accompanist.placeholder.material.shimmer
 import com.google.accompanist.systemuicontroller.rememberSystemUiController
+import dev.petedoyle.commerce.BC_INVENTORY_TRACKING_NONE
+import dev.petedoyle.commerce.BC_INVENTORY_TRACKING_PRODUCT
+import dev.petedoyle.commerce.R
+import dev.petedoyle.commerce.common.api.bigcommerce.catalog.v3.model.ProductFull
 import dev.petedoyle.commerce.common.api.bigcommerce.catalog.v3.model.ProductImageFull
+import dev.petedoyle.commerce.common.api.bigcommerce.catalog.v3.model.ProductVariantFull
+import dev.petedoyle.commerce.ui.Screen
+import dev.petedoyle.commerce.ui.components.CommerceTopAppBarSecondary
+import dev.petedoyle.commerce.ui.productdetail.components.ProductOptionsSelector
+import dev.petedoyle.commerce.ui.productdetail.components.rememberProductOptionsSelectorState
 import dev.petedoyle.common.design.compose.components.buttons.FractalButton
 import dev.petedoyle.common.design.compose.components.buttons.FractalButtonStyleVariant
+import dev.petedoyle.common.design.compose.components.inlinebanner.InlineBanner
+import dev.petedoyle.common.design.compose.components.inlinebanner.InlineBannerVariant
+import dev.petedoyle.common.design.compose.theme.ASPECT_RATIO_SQUARE
+import dev.petedoyle.common.design.compose.theme.FractalTheme
+import dev.petedoyle.common.design.compose.theme.IMAGE_CROSSFADE_MS
 
 @Composable
 fun ProductDetailScreen(
     viewModel: ProductDetailScreenViewModel,
-    navController: NavHostController
+    navController: NavHostController,
 ) {
     val uiState = viewModel.stateFlow.collectAsState().value
 
@@ -68,7 +83,7 @@ fun ProductDetailScreen(
     SideEffect {
         systemUiController.setSystemBarsColor(
             color = Color.Transparent,
-            darkIcons = useDarkIcons
+            darkIcons = useDarkIcons,
         )
     }
 
@@ -129,7 +144,7 @@ fun ProductDetailScreen(
                 title = product?.name.orEmpty(),
                 toolbarShoppingCartBadgeEnabled = uiState.cartState.items.isNotEmpty(),
                 onBackClicked = { onBackClicked() },
-                onShoppingCartClicked = { onShoppingCartClicked() }
+                onShoppingCartClicked = { onShoppingCartClicked() },
             )
         },
         scaffoldState = scaffoldState,
@@ -138,14 +153,14 @@ fun ProductDetailScreen(
         Column(
             Modifier
                 .fillMaxSize()
-                .padding(it)
+                .padding(it),
         ) {
             Column(
                 Modifier
                     .weight(1f)
                     .verticalScroll(scrollState)
                     .background(FractalTheme.colors.background_backgroundprimary.value)
-                    .padding(bottom = FractalTheme.spacing.xs)
+                    .padding(bottom = FractalTheme.spacing.xs),
             ) {
                 AsyncImage(
                     model = ImageRequest.Builder(LocalContext.current)
@@ -155,7 +170,7 @@ fun ProductDetailScreen(
                         .build(),
                     contentDescription = null,
                     contentScale = ContentScale.Crop,
-                    modifier = Modifier.aspectRatio(ASPECT_RATIO_SQUARE)
+                    modifier = Modifier.aspectRatio(ASPECT_RATIO_SQUARE),
                 )
                 Text(
                     text = categories
@@ -204,7 +219,7 @@ fun ProductDetailScreen(
                 Text(
                     text = HtmlCompat.fromHtml(
                         product?.description.orEmpty(),
-                        HtmlCompat.FROM_HTML_SEPARATOR_LINE_BREAK_LIST_ITEM
+                        HtmlCompat.FROM_HTML_SEPARATOR_LINE_BREAK_LIST_ITEM,
                     ).toString().trim(),
                     color = FractalTheme.colors.onbackground_onbackgroundvariant1.value,
                     style = FractalTheme.typography.body3,
@@ -220,9 +235,9 @@ fun ProductDetailScreen(
                         ),
                 )
 
-                val inStock = product?.inventoryTracking?.value == BC_INVENTORY_TRACKING_NONE
-                        || (product?.inventoryTracking?.value == BC_INVENTORY_TRACKING_PRODUCT && product.inventoryLevel ?: 0 > 0)
-                        || variants.any { it.inventoryLevel ?: 0 > 0 }
+                val inStock = product?.inventoryTracking?.value == BC_INVENTORY_TRACKING_NONE ||
+                    (product?.inventoryTracking?.value == BC_INVENTORY_TRACKING_PRODUCT && product.inventoryLevel ?: 0 > 0) ||
+                    variants.any { it.inventoryLevel ?: 0 > 0 }
 
                 if (!inStock) {
                     OutOfStockBanner()
@@ -237,7 +252,7 @@ fun ProductDetailScreen(
                     ProductOptionsSelector(
                         state,
                         onVariantSelected = { onProductVariantSelected(it) },
-                        Modifier.padding(top = FractalTheme.spacing.m)
+                        Modifier.padding(top = FractalTheme.spacing.m),
                     )
                 }
             }
@@ -246,7 +261,7 @@ fun ProductDetailScreen(
                 Modifier
                     .fillMaxWidth()
                     .height(FractalTheme.spacing.m)
-                    .background(FractalTheme.colors.background_backgroundsecondary.value)
+                    .background(FractalTheme.colors.background_backgroundsecondary.value),
             )
 
             FractalButton(
@@ -273,7 +288,7 @@ private fun OutOfStockBanner() {
         modifier = Modifier.padding(
             horizontal = FractalTheme.spacing.m,
             vertical = FractalTheme.spacing.l,
-        )
+        ),
     )
 }
 
@@ -292,11 +307,11 @@ fun PreviewProductDetailScreen() {
                     price = 225.00f,
                     images = listOf(
                         ProductImageFull(
-                            urlThumbnail = "https://cdn11.bigcommerce.com/s-c22nuunnpp/products/86/images/283/ablebrewingsystem1.1652641773.220.290.jpg?c=1"
-                        )
+                            urlThumbnail = "https://cdn11.bigcommerce.com/s-c22nuunnpp/products/86/images/283/ablebrewingsystem1.1652641773.220.290.jpg?c=1",
+                        ),
                     ),
                     categories = listOf(0, 1, 2),
-                )
+                ),
             ),
             onBackClicked = {},
             onShoppingCartClicked = {},
@@ -305,4 +320,3 @@ fun PreviewProductDetailScreen() {
         )
     }
 }
-

@@ -1,3 +1,18 @@
+/*
+ * Copyright (C) 2022 Pete Doyle
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *    https://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 package dev.petedoyle.commerce.ui.cart
 
 import android.content.res.Configuration
@@ -31,23 +46,23 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.NavHostController
-import dev.petedoyle.commerce.common.api.bigcommerce.catalog.v3.model.ProductFull
-import dev.petedoyle.commerce.common.api.bigcommerce.catalog.v3.model.ProductImageFull
-import dev.petedoyle.commerce.common.api.bigcommerce.catalog.v3.model.ProductVariantFull
-import dev.petedoyle.common.design.compose.components.buttons.FractalCheckoutButton
-import dev.petedoyle.common.design.compose.theme.FractalTheme
+import com.google.accompanist.systemuicontroller.rememberSystemUiController
 import dev.petedoyle.commerce.R
 import dev.petedoyle.commerce.cart.CartLineItem
 import dev.petedoyle.commerce.cart.CartState
+import dev.petedoyle.commerce.common.api.bigcommerce.catalog.v3.model.ProductFull
+import dev.petedoyle.commerce.common.api.bigcommerce.catalog.v3.model.ProductImageFull
+import dev.petedoyle.commerce.common.api.bigcommerce.catalog.v3.model.ProductVariantFull
 import dev.petedoyle.commerce.ui.cart.components.CartLineItemRow
 import dev.petedoyle.commerce.ui.cart.components.CartSummary
 import dev.petedoyle.commerce.ui.components.CommerceTopAppBarSecondary
-import com.google.accompanist.systemuicontroller.rememberSystemUiController
+import dev.petedoyle.common.design.compose.components.buttons.FractalCheckoutButton
+import dev.petedoyle.common.design.compose.theme.FractalTheme
 
 @Composable
 fun CartScreen(
     viewModel: CartScreenViewModel,
-    navController: NavHostController
+    navController: NavHostController,
 ) {
     val uiState = viewModel.stateFlow.collectAsState().value
 
@@ -57,7 +72,7 @@ fun CartScreen(
     SideEffect {
         systemUiController.setSystemBarsColor(
             color = Color.Transparent,
-            darkIcons = useDarkIcons
+            darkIcons = useDarkIcons,
         )
     }
 
@@ -69,8 +84,8 @@ fun CartScreen(
                 NavigateBackEffect -> navController.popBackStack()
                 is LaunchCheckoutEffect -> {
                     if (effect.cartState.items.isNotEmpty()) {
-                         if (effect.cartState.items.isNotEmpty()) {
-                             // TODO launch checkout
+                        if (effect.cartState.items.isNotEmpty()) {
+                            // TODO launch checkout
                         }
                     }
                 }
@@ -107,7 +122,7 @@ fun CartScreen(
                 title = stringResource(R.string.cart_title),
                 toolbarShoppingCartBadgeEnabled = uiState.cartState.items.isNotEmpty(),
                 onBackClicked = { onBackClicked() },
-                onShoppingCartClicked = { onShoppingCartClicked() }
+                onShoppingCartClicked = { onShoppingCartClicked() },
             )
         },
         scaffoldState = scaffoldState,
@@ -119,7 +134,7 @@ fun CartScreen(
                 .background(FractalTheme.colors.background_backgroundprimary.value)
                 .padding(
                     bottom = FractalTheme.spacing.xs,
-                )
+                ),
         ) {
             if (uiState.cartState.items.isEmpty()) {
                 EmptyState(Modifier.weight(1f))
@@ -127,7 +142,7 @@ fun CartScreen(
                 LazyColumn(
                     Modifier
                         .fillMaxWidth()
-                        .weight(1f)
+                        .weight(1f),
                 ) {
                     item {
                         Spacer(modifier = Modifier.padding(top = FractalTheme.spacing.xl))
@@ -140,7 +155,7 @@ fun CartScreen(
                             onChangeLineItemQuantityClicked,
                             Modifier
                                 .padding(horizontal = FractalTheme.spacing.m)
-                                .animateItemPlacement()
+                                .animateItemPlacement(),
                         )
                     }
 
@@ -149,7 +164,7 @@ fun CartScreen(
                             color = FractalTheme.colors.border_primary_borderprimary.value,
                             modifier = Modifier
                                 .fillMaxWidth()
-                                .padding(horizontal = FractalTheme.spacing.m)
+                                .padding(horizontal = FractalTheme.spacing.m),
                         )
                     }
 
@@ -162,7 +177,7 @@ fun CartScreen(
                                 top = FractalTheme.spacing.xl,
                                 end = FractalTheme.spacing.m,
                                 bottom = FractalTheme.spacing.xxxxl,
-                            )
+                            ),
                         )
                     }
                 }
@@ -172,7 +187,7 @@ fun CartScreen(
                 Modifier
                     .fillMaxWidth()
                     .height(FractalTheme.spacing.m)
-                    .background(FractalTheme.colors.background_backgroundsecondary.value)
+                    .background(FractalTheme.colors.background_backgroundsecondary.value),
             )
 
             FractalCheckoutButton(
@@ -205,7 +220,7 @@ private fun EmptyState(modifier: Modifier = Modifier) {
             style = FractalTheme.typography.heading3,
             textAlign = TextAlign.Center,
             color = FractalTheme.colors.onbackground_onbackground.value,
-            modifier = Modifier.padding(top = FractalTheme.spacing.xxl)
+            modifier = Modifier.padding(top = FractalTheme.spacing.xxl),
         )
     }
 }
@@ -247,8 +262,8 @@ private fun PreviewWithLineItems() {
                                 price = 225.00f,
                                 images = listOf(
                                     ProductImageFull(
-                                        urlThumbnail = "https://cdn11.bigcommerce.com/s-c22nuunnpp/products/86/images/283/ablebrewingsystem1.1652641773.220.290.jpg?c=1"
-                                    )
+                                        urlThumbnail = "https://cdn11.bigcommerce.com/s-c22nuunnpp/products/86/images/283/ablebrewingsystem1.1652641773.220.290.jpg?c=1",
+                                    ),
                                 ),
                                 categories = listOf(1, 2, 3),
                             ),
@@ -257,11 +272,11 @@ private fun PreviewWithLineItems() {
                                 productId = 86,
                                 price = 225.00,
                                 inventoryLevel = 200,
-                                optionValues = listOf()
+                                optionValues = listOf(),
                             ),
-                        )
-                    )
-                )
+                        ),
+                    ),
+                ),
             ),
             onBackClicked = {},
             onShoppingCartClicked = {},

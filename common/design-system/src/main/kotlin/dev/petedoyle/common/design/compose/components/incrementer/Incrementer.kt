@@ -1,3 +1,18 @@
+/*
+ * Copyright (C) 2022 Pete Doyle
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *    https://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 package dev.petedoyle.common.design.compose.components.incrementer
 
 import android.content.res.Configuration
@@ -55,7 +70,7 @@ fun Incrementer(
                 }
             },
             enabled = minusEnabled,
-            modifier = Modifier.size(INCREMENTER_BUTTON_SIZE)
+            modifier = Modifier.size(INCREMENTER_BUTTON_SIZE),
         ) {
             Icon(
                 painter = painterResource(id = R.drawable.ico_minus_16),
@@ -65,7 +80,7 @@ fun Incrementer(
                     .drawBehind {
                         val color = if (minusEnabled) buttonEnabledColor else buttonDisabledColor
                         drawCircle(color, radius = buttonRadius.toPx())
-                    }
+                    },
             )
         }
         Text(
@@ -73,7 +88,7 @@ fun Incrementer(
             modifier = Modifier.width(40.dp),
             style = FractalTheme.typography.label2,
             color = FractalTheme.colors.onbackground_onbackground.value,
-            textAlign = TextAlign.Center
+            textAlign = TextAlign.Center,
         )
         IconButton(
             onClick = {
@@ -85,7 +100,7 @@ fun Incrementer(
             },
             enabled = plusEnabled,
             modifier = Modifier
-                .size(INCREMENTER_BUTTON_SIZE)
+                .size(INCREMENTER_BUTTON_SIZE),
         ) {
             Icon(
                 painter = painterResource(id = R.drawable.ico_plus_16),
@@ -94,7 +109,7 @@ fun Incrementer(
                 modifier = Modifier.drawBehind {
                     val color = if (plusEnabled) buttonEnabledColor else buttonDisabledColor
                     drawCircle(color, radius = buttonRadius.toPx())
-                }
+                },
             )
         }
     }
@@ -110,7 +125,7 @@ class QuantityProvider : PreviewParameterProvider<Int> {
     name = "Dark",
     uiMode = Configuration.UI_MODE_NIGHT_YES,
     showBackground = true,
-    backgroundColor = 0xff000000
+    backgroundColor = 0xff000000,
 )
 @Composable
 private fun Preview(@PreviewParameter(QuantityProvider::class) qty: Int) {

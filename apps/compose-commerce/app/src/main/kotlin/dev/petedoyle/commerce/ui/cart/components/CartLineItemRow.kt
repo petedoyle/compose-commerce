@@ -1,3 +1,18 @@
+/*
+ * Copyright (C) 2022 Pete Doyle
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *    https://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 package dev.petedoyle.commerce.ui.cart.components
 
 import android.content.res.Configuration
@@ -22,14 +37,14 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
 import coil.request.ImageRequest
+import coil.size.Scale
+import dev.petedoyle.commerce.R
+import dev.petedoyle.commerce.cart.CartLineItem
 import dev.petedoyle.commerce.common.api.bigcommerce.catalog.v3.model.ProductFull
 import dev.petedoyle.commerce.common.api.bigcommerce.catalog.v3.model.ProductImageFull
 import dev.petedoyle.commerce.common.api.bigcommerce.catalog.v3.model.ProductVariantFull
 import dev.petedoyle.common.design.compose.components.incrementer.Incrementer
 import dev.petedoyle.common.design.compose.theme.FractalTheme
-import dev.petedoyle.commerce.R
-import dev.petedoyle.commerce.cart.CartLineItem
-import coil.size.Scale
 
 private val IMAGE_WIDTH = 40.dp
 private const val IMAGE_ASPECT_RATIO = 3 / 4f
@@ -40,15 +55,14 @@ fun CartLineItemRow(
     item: CartLineItem,
     onRemoveLineItemClicked: (item: CartLineItem) -> Unit,
     onChangeLineItemQuantityClicked: (item: CartLineItem, newQuantity: Int) -> Unit,
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
 ) {
     Row(
         verticalAlignment = Alignment.CenterVertically,
         modifier = modifier
             .fillMaxWidth()
-            .padding(bottom = FractalTheme.spacing.xl)
+            .padding(bottom = FractalTheme.spacing.xl),
     ) {
-
         val thumbnailUrl = if (!item.variant.imageUrl.isNullOrBlank()) {
             item.variant.imageUrl
         } else {
@@ -63,20 +77,20 @@ fun CartLineItemRow(
                 .build(),
             contentDescription = stringResource(
                 R.string.cart_line_item_photo_content_description,
-                item.product.name
+                item.product.name,
             ),
             contentScale = ContentScale.Crop,
             modifier = Modifier
                 .width(IMAGE_WIDTH)
                 .aspectRatio(IMAGE_ASPECT_RATIO)
                 .clip(RoundedCornerShape(IMAGE_CORNER_RADIUS))
-                .background(FractalTheme.colors.primitives_gray_gray50.value)
+                .background(FractalTheme.colors.primitives_gray_gray50.value),
         )
 
         Column(
             Modifier
                 .padding(start = FractalTheme.spacing.s)
-                .weight(1f)
+                .weight(1f),
         ) {
             Text(
                 text = item.product.name,
@@ -88,7 +102,7 @@ fun CartLineItemRow(
                 Text(
                     text = stringResource(
                         R.string.price_format,
-                        item.variant.calculatedPrice ?: 0f
+                        item.variant.calculatedPrice ?: 0f,
                     ),
                     color = FractalTheme.colors.onbackground_onbackgroundvariant1.value,
                     style = FractalTheme.typography.label4,
@@ -114,7 +128,7 @@ fun CartLineItemRow(
                     text = "${optionValue.optionDisplayName}: ${optionValue.label}",
                     color = FractalTheme.colors.onbackground_onbackgroundvariant1.value,
                     style = FractalTheme.typography.label4,
-                    modifier = Modifier.padding(top = FractalTheme.spacing.xs)
+                    modifier = Modifier.padding(top = FractalTheme.spacing.xs),
                 )
             }
         }
@@ -142,16 +156,16 @@ private fun Preview() {
                     price = 89.00f,
                     images = listOf(
                         ProductImageFull(
-                            urlThumbnail = "https://cdn11.bigcommerce.com/s-c22nuunnpp/products/81/images/274/roundterrariumsmall2.1652641773.220.290.jpg?c=1"
-                        )
+                            urlThumbnail = "https://cdn11.bigcommerce.com/s-c22nuunnpp/products/81/images/274/roundterrariumsmall2.1652641773.220.290.jpg?c=1",
+                        ),
                     ),
                 ),
                 variant = ProductVariantFull(
-                    price = 9.99
-                )
+                    price = 9.99,
+                ),
             ),
             onRemoveLineItemClicked = {},
-            onChangeLineItemQuantityClicked = { _, _ -> }
+            onChangeLineItemQuantityClicked = { _, _ -> },
         )
     }
 }

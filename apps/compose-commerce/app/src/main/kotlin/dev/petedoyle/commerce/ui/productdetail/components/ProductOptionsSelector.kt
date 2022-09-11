@@ -1,3 +1,18 @@
+/*
+ * Copyright (C) 2022 Pete Doyle
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *    https://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 package dev.petedoyle.commerce.ui.productdetail.components
 
 import android.content.res.Configuration
@@ -33,15 +48,15 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import dev.petedoyle.commerce.BC_INVENTORY_TRACKING_NONE
+import dev.petedoyle.commerce.BC_INVENTORY_TRACKING_PRODUCT
+import dev.petedoyle.commerce.R
 import dev.petedoyle.commerce.common.api.bigcommerce.catalog.v3.model.ProductFull
 import dev.petedoyle.commerce.common.api.bigcommerce.catalog.v3.model.ProductOptionBase
 import dev.petedoyle.commerce.common.api.bigcommerce.catalog.v3.model.ProductOptionOptionValueFull
 import dev.petedoyle.commerce.common.api.bigcommerce.catalog.v3.model.ProductVariantFull
 import dev.petedoyle.commerce.common.api.bigcommerce.catalog.v3.model.ProductVariantOptionValueFull
 import dev.petedoyle.common.design.compose.theme.FractalTheme
-import dev.petedoyle.commerce.BC_INVENTORY_TRACKING_NONE
-import dev.petedoyle.commerce.BC_INVENTORY_TRACKING_PRODUCT
-import dev.petedoyle.commerce.R
 
 /**
  * Allows for selecting BigCommerce "product options" from a product. For example,
@@ -63,9 +78,8 @@ import dev.petedoyle.commerce.R
 fun ProductOptionsSelector(
     state: ProductOptionsSelectorState,
     onVariantSelected: (variant: ProductVariantFull) -> Unit,
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
 ) {
-
     LaunchedEffect(state) {
         val a = snapshotFlow { state.matchingVariants.value }
         a.collect { variantsMatchingSelections ->
@@ -118,7 +132,7 @@ private fun ProductOptionsSelectorRow(
     Column(
         modifier
             .fillMaxWidth()
-            .padding(bottom = FractalTheme.spacing.m)
+            .padding(bottom = FractalTheme.spacing.m),
     ) {
         Text(
             text = option.displayName.orEmpty(),
@@ -178,17 +192,20 @@ private fun ProductOptionChoice(
     }.any { (it.inventoryLevel ?: 0) > 0 }
 
     val inStock = (
-            state.product?.inventoryTracking?.value == BC_INVENTORY_TRACKING_NONE
-                    || (state.product?.inventoryTracking?.value == BC_INVENTORY_TRACKING_PRODUCT &&
-                    (state.product?.inventoryLevel ?: 0) > 0)
-                    || variantsInStock)
+        state.product?.inventoryTracking?.value == BC_INVENTORY_TRACKING_NONE ||
+            (
+                state.product?.inventoryTracking?.value == BC_INVENTORY_TRACKING_PRODUCT &&
+                    (state.product?.inventoryLevel ?: 0) > 0
+                ) ||
+            variantsInStock
+        )
 
     val backgroundColor = animateColorAsState(
         targetValue = when {
             !inStock -> FractalTheme.colors.primary_primarydisabled.value
             selected -> FractalTheme.colors.primary_primary.value
             else -> FractalTheme.colors.onprimary_onprimary.value
-        }
+        },
     )
 
     val textColor = animateColorAsState(
@@ -196,7 +213,7 @@ private fun ProductOptionChoice(
             !inStock -> FractalTheme.colors.onprimary_onprimarydisabled.value
             selected -> FractalTheme.colors.onprimary_onprimary.value
             else -> FractalTheme.colors.primary_primary.value
-        }
+        },
     )
 
     val borderColor = animateColorAsState(
@@ -204,7 +221,7 @@ private fun ProductOptionChoice(
             !inStock -> FractalTheme.colors.primary_primarydisabled.value
             selected -> FractalTheme.colors.primary_primary.value
             else -> FractalTheme.colors.border_primary_borderprimary.value
-        }
+        },
     )
 
     Box(
@@ -215,14 +232,14 @@ private fun ProductOptionChoice(
             .border(
                 1.dp,
                 borderColor.value,
-                FractalTheme.shapes.borderRounded
+                FractalTheme.shapes.borderRounded,
             )
             .widthIn(min = dimensionResource(R.dimen.product_options_selector_button_min_width))
             .heightIn(min = dimensionResource(R.dimen.product_options_selector_button_min_height))
             .padding(
                 horizontal = FractalTheme.spacing.m,
-                vertical = FractalTheme.spacing.xs
-            )
+                vertical = FractalTheme.spacing.xs,
+            ),
     ) {
         Text(
             text = optionValue.label,
@@ -258,7 +275,7 @@ class ProductOptionsSelectorState {
 @Composable
 fun rememberProductOptionsSelectorState(
     product: ProductFull? = null,
-    variants: List<ProductVariantFull> = listOf()
+    variants: List<ProductVariantFull> = listOf(),
 ): ProductOptionsSelectorState {
     return remember {
         ProductOptionsSelectorState().also {
@@ -314,7 +331,7 @@ private fun Preview() {
                                 label = "XL",
                                 sortOrder = 4,
                             ),
-                        )
+                        ),
                     ),
                     ProductOptionBase(
                         id = 109,
@@ -336,9 +353,9 @@ private fun Preview() {
                                 label = "Purple",
                                 sortOrder = 3,
                             ),
-                        )
+                        ),
                     ),
-                )
+                ),
             ),
             variants = listOf(
 
@@ -360,7 +377,7 @@ private fun Preview() {
                             optionId = 109,
                             optionDisplayName = "Color",
                         ),
-                    )
+                    ),
                 ),
 
                 // Towel - S - Silver
@@ -381,7 +398,7 @@ private fun Preview() {
                             optionId = 109,
                             optionDisplayName = "Color",
                         ),
-                    )
+                    ),
                 ),
 
                 // Towel - Medium - Black
@@ -402,7 +419,7 @@ private fun Preview() {
                             optionId = 109,
                             optionDisplayName = "Color",
                         ),
-                    )
+                    ),
                 ),
 
                 // Towel - Large - Black
@@ -423,7 +440,7 @@ private fun Preview() {
                             optionId = 109,
                             optionDisplayName = "Size",
                         ),
-                    )
+                    ),
                 ),
 
                 // Towel - Purple - Small
@@ -444,7 +461,7 @@ private fun Preview() {
                             optionId = 109,
                             optionDisplayName = "Color",
                         ),
-                    )
+                    ),
                 ),
 
                 // Towel - Purple - Medium
@@ -465,7 +482,7 @@ private fun Preview() {
                             optionId = 109,
                             optionDisplayName = "Color",
                         ),
-                    )
+                    ),
                 ),
 
                 // Towel - Purple - Large - Out of stock
@@ -486,7 +503,7 @@ private fun Preview() {
                             optionId = 109,
                             optionDisplayName = "Color",
                         ),
-                    )
+                    ),
                 ),
             ),
         )

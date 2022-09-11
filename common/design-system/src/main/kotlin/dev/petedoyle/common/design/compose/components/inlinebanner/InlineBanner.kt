@@ -1,3 +1,18 @@
+/*
+ * Copyright (C) 2022 Pete Doyle
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *    https://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 package dev.petedoyle.common.design.compose.components.inlinebanner
 
 import android.content.res.Configuration
@@ -33,7 +48,7 @@ fun InlineBanner(
         text = AnnotatedString(text),
         variant = variant,
         modifier = modifier,
-        onClick = onClick
+        onClick = onClick,
     )
 }
 
@@ -51,7 +66,7 @@ fun InlineBanner(
             .border(
                 width = 1.dp,
                 color = FractalTheme.colors.border_primary_borderprimary.value,
-                shape = FractalTheme.shapes.borderRounded
+                shape = FractalTheme.shapes.borderRounded,
             )
             .background(FractalTheme.colors.background_backgroundsecondary.value)
             .padding(FractalTheme.spacing.m),
@@ -62,7 +77,7 @@ fun InlineBanner(
                 painter = painterResource(id = R.drawable.ico_infocircle_24),
                 contentDescription = stringResource(variant.iconContentDescription()),
                 tint = variant.iconTint(),
-                modifier = Modifier.align(Alignment.CenterVertically)
+                modifier = Modifier.align(Alignment.CenterVertically),
             )
 
             Text(
@@ -71,7 +86,7 @@ fun InlineBanner(
                 color = FractalTheme.colors.onbackground_onbackground.value,
                 modifier = Modifier
                     .weight(1f)
-                    .padding(start = FractalTheme.spacing.xs)
+                    .padding(start = FractalTheme.spacing.xs),
             )
         }
     }

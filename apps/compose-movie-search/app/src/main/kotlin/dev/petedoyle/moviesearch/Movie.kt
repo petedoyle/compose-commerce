@@ -1,11 +1,11 @@
 /*
- * Copyright 2021 Pete Doyle <petedoyle@gmail.com>
+ * Copyright (C) 2021 Pete Doyle
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- *     http://www.apache.org/licenses/LICENSE-2.0
+ *    https://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -17,7 +17,7 @@ package dev.petedoyle.moviesearch
 
 data class Movie(
     val title: String,
-    val year: String
+    val year: String,
 ) {
     companion object {
         val MOVIE_TEST_DATA = listOf(
@@ -35,7 +35,7 @@ data class Movie(
             Movie("Happy Gilmore", "1996"),
             Movie("Mr. Deeds", "2002"),
             Movie("Spider-Man: Into the Spider-Verse", "2018"),
-            Movie("The Edge", "1997")
+            Movie("The Edge", "1997"),
         ).sortedBy { it.title }
     }
 }

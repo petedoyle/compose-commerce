@@ -1,3 +1,18 @@
+/*
+ * Copyright (C) 2022 Pete Doyle
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *    https://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 package dev.petedoyle.commerce.ui.home.components
 
 import android.content.res.Configuration
@@ -19,14 +34,14 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
 import coil.request.ImageRequest
+import coil.size.Scale
+import dev.petedoyle.commerce.R
 import dev.petedoyle.commerce.common.api.bigcommerce.catalog.v3.model.Category
 import dev.petedoyle.commerce.common.api.bigcommerce.catalog.v3.model.ProductFull
 import dev.petedoyle.commerce.common.api.bigcommerce.catalog.v3.model.ProductImageFull
 import dev.petedoyle.common.design.compose.theme.ASPECT_RATIO_3_BY_4
 import dev.petedoyle.common.design.compose.theme.FractalTheme
 import dev.petedoyle.common.design.compose.theme.IMAGE_CROSSFADE_MS
-import dev.petedoyle.commerce.R
-import coil.size.Scale
 
 private val IMAGE_CORNER_RADIUS = 8.dp
 
@@ -34,16 +49,16 @@ private val IMAGE_CORNER_RADIUS = 8.dp
 fun FeaturedProduct(
     product: ProductFull,
     categories: List<Category>,
-    onProductClicked: (productId: Int) -> Unit
+    onProductClicked: (productId: Int) -> Unit,
 ) {
     Column(
         modifier = Modifier
             .padding(
                 bottom = FractalTheme.spacing.xl,
                 start = FractalTheme.spacing.xs,
-                end = FractalTheme.spacing.xs
+                end = FractalTheme.spacing.xs,
             )
-            .clickable { product.id?.let { onProductClicked(it) } }
+            .clickable { product.id?.let { onProductClicked(it) } },
     ) {
         AsyncImage(
             model = ImageRequest.Builder(LocalContext.current)
@@ -56,7 +71,7 @@ fun FeaturedProduct(
             modifier = Modifier
                 .aspectRatio(ASPECT_RATIO_3_BY_4)
                 .clip(RoundedCornerShape(IMAGE_CORNER_RADIUS))
-                .background(FractalTheme.colors.primitives_gray_gray50.value)
+                .background(FractalTheme.colors.primitives_gray_gray50.value),
         )
         Text(
             text = categories
@@ -96,8 +111,8 @@ private fun Preview() {
                 price = 225.00f,
                 images = listOf(
                     ProductImageFull(
-                        urlThumbnail = "https://cdn11.bigcommerce.com/s-c22nuunnpp/products/86/images/283/ablebrewingsystem1.1652641773.220.290.jpg?c=1"
-                    )
+                        urlThumbnail = "https://cdn11.bigcommerce.com/s-c22nuunnpp/products/86/images/283/ablebrewingsystem1.1652641773.220.290.jpg?c=1",
+                    ),
                 ),
                 categories = listOf(0, 1, 2),
             ),

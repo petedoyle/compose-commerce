@@ -1,3 +1,18 @@
+/*
+ * Copyright (C) 2022 Pete Doyle
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *    https://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 package dev.petedoyle.commerce.cart
 
 import dev.petedoyle.common.flux.BaseStore
@@ -29,18 +44,18 @@ class LocalCartStore : CartStore, BaseStore<CartState, CartStoreActions>(CartSta
             val newQuantity = existingItem.quantity + 1
             val newItem = existingItem.copy(quantity = newQuantity)
             cartState.copy(
-                items = cartState.items.toMutableList().apply { set(index, newItem) }.toList()
+                items = cartState.items.toMutableList().apply { set(index, newItem) }.toList(),
             )
         } else { // else add a new line item
             cartState.copy(
-                items = cartState.items.toMutableList().apply { add(action.item) }.toList()
+                items = cartState.items.toMutableList().apply { add(action.item) }.toList(),
             )
         }
     }
 
     private fun updateLineItemQuantity(
         cartState: CartState,
-        action: UpdateLineItemQuantity
+        action: UpdateLineItemQuantity,
     ): CartState {
         val index = cartState.items.indexOfFirst {
             it.product.id == action.item.product.id && it.variant.id == action.item.variant.id
@@ -50,16 +65,18 @@ class LocalCartStore : CartStore, BaseStore<CartState, CartStoreActions>(CartSta
             true -> cartState.copy(
                 items = cartState.items.toMutableList().apply {
                     set(index, action.item.copy(quantity = action.newQuantity))
-                }.toList()
+                }.toList(),
             )
             else -> cartState
         }
     }
 
     private fun removeLineItem(cartState: CartState, action: RemoveLineItem): CartState {
-        return cartState.copy(items = cartState.items.filterNot {
-            it.product.id == action.item.product.id && it.variant.id == action.item.variant.id
-        })
+        return cartState.copy(
+            items = cartState.items.filterNot {
+                it.product.id == action.item.product.id && it.variant.id == action.item.variant.id
+            },
+        )
     }
 
     private fun clearCart(): CartState {

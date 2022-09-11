@@ -1,3 +1,18 @@
+/*
+ * Copyright (C) 2022 Pete Doyle
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *    https://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 package dev.petedoyle.common.design.compose.components.text
 
 import android.content.res.Configuration
@@ -69,7 +84,7 @@ fun FractalText(
 fun FractalTextGallery(modifier: Modifier = Modifier) {
     Column(
         verticalArrangement = Arrangement.spacedBy(FractalTheme.spacing.xxs),
-        modifier = modifier.padding(FractalTheme.spacing.m)
+        modifier = modifier.padding(FractalTheme.spacing.m),
     ) {
         FractalText("Display1", FractalTextVariant.Display1)
         FractalText("Display2", FractalTextVariant.Display2)
@@ -96,7 +111,7 @@ fun FractalTextGallery(modifier: Modifier = Modifier) {
 private fun Preview() {
     FractalTheme {
         FractalTextGallery(
-            modifier = Modifier.background(FractalTheme.colors.background_backgroundprimary.value)
+            modifier = Modifier.background(FractalTheme.colors.background_backgroundprimary.value),
         )
     }
 }
@@ -110,11 +125,11 @@ private fun PreviewParagraph() {
             verticalArrangement = Arrangement.spacedBy(FractalTheme.spacing.xs),
             modifier = Modifier
                 .background(FractalTheme.colors.background_backgroundprimary.value)
-                .padding(FractalTheme.spacing.m)
+                .padding(FractalTheme.spacing.m),
         ) {
             FractalText(
                 "Lorem Ipsum",
-                FractalTextVariant.Heading1
+                FractalTextVariant.Heading1,
             )
             FractalText(
                 text = buildAnnotatedString {
@@ -123,7 +138,7 @@ private fun PreviewParagraph() {
                         style = SpanStyle(
                             color = FractalTheme.colors.error_onerror_onerrorprimary.value,
                             background = FractalTheme.colors.error_error_errorprimary.value,
-                        )
+                        ),
                     ) {
                         append("consectetur adipiscing elit")
                     }

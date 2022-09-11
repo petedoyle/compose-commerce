@@ -1,3 +1,18 @@
+/*
+ * Copyright (C) 2022 Pete Doyle
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *    https://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 package dev.petedoyle.commerce.ui.home
 
 import android.content.res.Configuration
@@ -26,15 +41,15 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.LayoutDirection
 import androidx.navigation.NavHostController
+import com.google.accompanist.insets.ui.Scaffold
+import com.google.accompanist.systemuicontroller.rememberSystemUiController
 import dev.petedoyle.commerce.common.api.bigcommerce.catalog.v3.model.Category
 import dev.petedoyle.commerce.common.api.bigcommerce.catalog.v3.model.ProductFull
 import dev.petedoyle.commerce.common.api.bigcommerce.catalog.v3.model.ProductImageFull
-import dev.petedoyle.common.design.compose.theme.FractalTheme
 import dev.petedoyle.commerce.ui.Screen
 import dev.petedoyle.commerce.ui.components.CommerceTopAppBarPrimary
 import dev.petedoyle.commerce.ui.home.components.FeaturedProduct
-import com.google.accompanist.insets.ui.Scaffold
-import com.google.accompanist.systemuicontroller.rememberSystemUiController
+import dev.petedoyle.common.design.compose.theme.FractalTheme
 
 private const val GRID_ROWS_COUNT = 2
 
@@ -48,7 +63,7 @@ fun HomeScreen(viewModel: HomeScreenViewModel, navController: NavHostController)
     SideEffect {
         systemUiController.setSystemBarsColor(
             color = Color.Transparent,
-            darkIcons = useDarkIcons
+            darkIcons = useDarkIcons,
         )
     }
 
@@ -58,7 +73,7 @@ fun HomeScreen(viewModel: HomeScreenViewModel, navController: NavHostController)
         viewModel.effectFlow.collect { effect ->
             when (effect) {
                 is NavigateToProductDetail -> navController.navigate(
-                    Screen.ProductDetail.createRoute(effect.productId)
+                    Screen.ProductDetail.createRoute(effect.productId),
                 )
                 is NavigateToCart -> navController.navigate(Screen.Cart.route)
                 NetworkError -> Toast.makeText(context, "Network Error", Toast.LENGTH_SHORT).show()
@@ -93,9 +108,9 @@ fun HomeScreen(
             Spacer(
                 Modifier
                     .navigationBarsPadding()
-                    .fillMaxWidth()
+                    .fillMaxWidth(),
             )
-        }
+        },
     ) { contentPadding ->
         Box(Modifier.fillMaxSize()) {
             LazyVerticalGrid(
@@ -103,7 +118,7 @@ fun HomeScreen(
                 contentPadding = PaddingValues(
                     start = contentPadding.calculateStartPadding(LayoutDirection.Ltr),
                     top = contentPadding.calculateTopPadding(),
-                    end = contentPadding.calculateEndPadding(LayoutDirection.Ltr)
+                    end = contentPadding.calculateEndPadding(LayoutDirection.Ltr),
                 ),
                 modifier = Modifier.padding(
                     start = FractalTheme.spacing.xs,
@@ -120,7 +135,6 @@ fun HomeScreen(
                 }
             }
         }
-
     }
 }
 
@@ -139,8 +153,8 @@ fun PreviewHomeScreen() {
                         price = 49.00f,
                         images = listOf(
                             ProductImageFull(
-                                urlThumbnail = "https://cdn11.bigcommerce.com/s-c22nuunnpp/products/77/images/265/foglinenbeigestripetowel3b.1652641772.220.290.jpg?c=1"
-                            )
+                                urlThumbnail = "https://cdn11.bigcommerce.com/s-c22nuunnpp/products/77/images/265/foglinenbeigestripetowel3b.1652641772.220.290.jpg?c=1",
+                            ),
                         ),
                         categories = listOf(18, 23),
                     ),
@@ -151,8 +165,8 @@ fun PreviewHomeScreen() {
                         price = 89.00f,
                         images = listOf(
                             ProductImageFull(
-                                urlThumbnail = "https://cdn11.bigcommerce.com/s-c22nuunnpp/products/81/images/273/roundterrariumsmall.1652641773.220.290.jpg?c=1"
-                            )
+                                urlThumbnail = "https://cdn11.bigcommerce.com/s-c22nuunnpp/products/81/images/273/roundterrariumsmall.1652641773.220.290.jpg?c=1",
+                            ),
                         ),
                         categories = listOf(19, 23),
                     ),
@@ -163,8 +177,8 @@ fun PreviewHomeScreen() {
                         price = 225.00f,
                         images = listOf(
                             ProductImageFull(
-                                urlThumbnail = "https://cdn11.bigcommerce.com/s-c22nuunnpp/products/86/images/283/ablebrewingsystem1.1652641773.220.290.jpg?c=1"
-                            )
+                                urlThumbnail = "https://cdn11.bigcommerce.com/s-c22nuunnpp/products/86/images/283/ablebrewingsystem1.1652641773.220.290.jpg?c=1",
+                            ),
                         ),
                         categories = listOf(21, 23),
                     ),
@@ -175,8 +189,8 @@ fun PreviewHomeScreen() {
                         price = 49.50f,
                         images = listOf(
                             ProductImageFull(
-                                urlThumbnail = "https://cdn11.bigcommerce.com/s-c22nuunnpp/products/88/images/292/3cupchemex5.1652641773.220.290.jpg?c=1"
-                            )
+                                urlThumbnail = "https://cdn11.bigcommerce.com/s-c22nuunnpp/products/88/images/292/3cupchemex5.1652641773.220.290.jpg?c=1",
+                            ),
                         ),
                         categories = listOf(21, 23),
                     ),
@@ -202,7 +216,7 @@ fun PreviewHomeScreen() {
                         id = 23,
                         name = "Shop All",
                     ),
-                )
+                ),
             ),
             onProductClicked = {},
             onShoppingCartClicked = {},
