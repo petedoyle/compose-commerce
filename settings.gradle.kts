@@ -20,7 +20,7 @@ plugins {
   id("de.fayard.refreshVersions") version "0.50.0"
 }
 
-rootProject.name = "Compose Samples"
+rootProject.name = "Compose Playground"
 include(":apps:compose-commerce:app")
 include(":apps:compose-commerce:api:bigcommerce-models-carts-v3")
 include(":apps:compose-commerce:api:bigcommerce-models-catalog-v3")
