@@ -1,5 +1,5 @@
-# Compose Commerce
-This repo contains a sample Android app for BigCommerce.
+# Compose Playground
+WIP
 
 ## License
 ```
