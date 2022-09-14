@@ -16,6 +16,7 @@
 package dev.petedoyle.moviesearch
 
 import androidx.annotation.VisibleForTesting
+import androidx.compose.runtime.Immutable
 import androidx.lifecycle.viewModelScope
 import dev.petedoyle.common.coroutines.DefaultDispatcherProvider
 import dev.petedoyle.common.mvi.ViewAction
@@ -31,6 +32,7 @@ import kotlinx.coroutines.launch
 /**
  * [ViewModelState] for [MainScreenViewModel].
  */
+@Immutable
 data class MainScreenState(
     val query: String = "",
     val searchResults: List<Movie> = listOf(),

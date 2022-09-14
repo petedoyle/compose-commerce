@@ -15,6 +15,7 @@
  */
 package dev.petedoyle.commerce.ui.home
 
+import androidx.compose.runtime.Immutable
 import androidx.lifecycle.viewModelScope
 import com.slack.eithernet.ApiResult.Failure
 import com.slack.eithernet.ApiResult.Failure.ApiFailure
@@ -36,6 +37,7 @@ import kotlinx.coroutines.awaitAll
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
+@Immutable
 data class HomeScreenState(
     val cartState: CartState = CartState(),
     val products: List<ProductFull> = listOf(),

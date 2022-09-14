@@ -15,6 +15,7 @@
  */
 package dev.petedoyle.commerce.ui.cart
 
+import androidx.compose.runtime.Immutable
 import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
 import dev.petedoyle.commerce.cart.CartState
@@ -27,6 +28,7 @@ import dev.petedoyle.common.mvi.ViewModelState
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
+@Immutable
 data class CartScreenState(
     val cartState: CartState = CartState(),
     val recalculatingCartTotals: Boolean = false,

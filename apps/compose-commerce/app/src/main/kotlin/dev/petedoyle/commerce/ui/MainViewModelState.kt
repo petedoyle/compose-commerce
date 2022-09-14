@@ -15,6 +15,8 @@
  */
 package dev.petedoyle.commerce.ui
 
+import androidx.compose.runtime.Immutable
 import dev.petedoyle.common.mvi.ViewModelState
 
+@Immutable
 object MainViewModelState : ViewModelState

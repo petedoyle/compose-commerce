@@ -15,6 +15,7 @@
  */
 package dev.petedoyle.commerce.ui.productdetail
 
+import androidx.compose.runtime.Immutable
 import androidx.lifecycle.viewModelScope
 import com.slack.eithernet.ApiResult.Failure
 import com.slack.eithernet.ApiResult.Failure.ApiFailure
@@ -40,6 +41,7 @@ import kotlinx.coroutines.awaitAll
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
+@Immutable
 data class ProductDetailScreenState(
     val loading: Boolean = false,
     val cartState: CartState = CartState(),
