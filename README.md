@@ -1,9 +1,15 @@
+[![Figma Design System](https://www.figma.com/file/iJbFMd9ZzU2U9iQZ0nk72t/Fractal-Foundations)
+
 # Compose Playground
-A work-in-progress collection of sample apps and experiments utilizing Jetpack Compose.
+A 🚧 work-in-progress 🚧 collection of sample apps and experiments utilizing Jetpack Compose.
+
+## Sample apps
+- **Compose Movie Search** - (Module: `:apps:compose-movie-search:app`) A simple single-screen app that allows you to search / filter a list of movies. A small sample showing Unidirectional Data Flow (UDF) via MVI, including tests.
+- **Compose Commerce** - (Module: `:apps:compose-commerce:app`) - An online shopping app that integrates with the [BigCommerce](https://www.bigcommerce.com) API.
 
 ## Modules
 This is a Gradle monorepo, with many modules:
-![Modules](/utils/art/project.dot.png)
+![Modules Graph](/utils/art/project.dot.png)
 
 ## License
 ```
