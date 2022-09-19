@@ -30,7 +30,6 @@ import dev.petedoyle.common.test.android.AndroidTestBase
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.test.runTest
 import org.junit.Before
-import org.junit.Ignore
 import org.junit.Test
 
 @ExperimentalCoroutinesApi
