@@ -48,10 +48,10 @@ fun Incrementer(
     onDecrement: (newValue: Int) -> Unit,
     onIncrement: (newValue: Int) -> Unit,
 ) {
-    val buttonEnabledColor = FractalTheme.colors.primary_primary.value
-    val buttonDisabledColor = FractalTheme.colors.primary_primarydisabled.value
-    val iconEnabledColor = FractalTheme.colors.onprimary_onprimary.value
-    val iconDisabledColor = FractalTheme.colors.onprimary_onprimarydisabled.value
+    val buttonEnabledColor = FractalTheme.colors.primary.value
+    val buttonDisabledColor = FractalTheme.colors.primaryDisabled.value
+    val iconEnabledColor = FractalTheme.colors.onPrimary.value
+    val iconDisabledColor = FractalTheme.colors.onPrimaryDisabled.value
     val buttonRadius: Dp = FractalTheme.spacing.m
     var plusEnabled = true
     var minusEnabled = quantity > 1
@@ -87,7 +87,7 @@ fun Incrementer(
             text = quantity.toString(),
             modifier = Modifier.width(40.dp),
             style = FractalTheme.typography.label2,
-            color = FractalTheme.colors.onbackground_onbackground.value,
+            color = FractalTheme.colors.onBackground.value,
             textAlign = TextAlign.Center,
         )
         IconButton(

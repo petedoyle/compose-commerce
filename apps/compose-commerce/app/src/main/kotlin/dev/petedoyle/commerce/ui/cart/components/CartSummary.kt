@@ -85,7 +85,7 @@ private fun CartSummaryRow(
     Row(Modifier.padding(top = FractalTheme.spacing.m)) {
         Text(
             text = label,
-            color = FractalTheme.colors.onbackground_onbackground.value,
+            color = FractalTheme.colors.onBackground.value,
             style = style,
         )
 
@@ -93,7 +93,7 @@ private fun CartSummaryRow(
 
         Text(
             text = value,
-            color = FractalTheme.colors.onbackground_onbackground.value,
+            color = FractalTheme.colors.onBackground.value,
             style = style,
             modifier = Modifier.placeholder(
                 visible = loading,

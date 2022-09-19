@@ -59,7 +59,7 @@ fun CommerceTopAppBarPrimary(
             }
         },
         elevation = dimensionResource(R.dimen.toolbar_elevation),
-        backgroundColor = FractalTheme.colors.background_backgroundprimary.value,
+        backgroundColor = FractalTheme.colors.backgroundPrimary.value,
     )
 }
 

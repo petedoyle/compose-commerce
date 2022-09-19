@@ -84,7 +84,7 @@ fun CartLineItemRow(
                 .width(IMAGE_WIDTH)
                 .aspectRatio(IMAGE_ASPECT_RATIO)
                 .clip(RoundedCornerShape(IMAGE_CORNER_RADIUS))
-                .background(FractalTheme.colors.primitives_gray_gray050.value),
+                .background(FractalTheme.primitiveColors.gray050.value),
         )
 
         Column(
@@ -94,7 +94,7 @@ fun CartLineItemRow(
         ) {
             Text(
                 text = item.product.name,
-                color = FractalTheme.colors.onbackground_onbackground.value,
+                color = FractalTheme.colors.onBackground.value,
                 style = FractalTheme.typography.label2,
             )
 
@@ -104,20 +104,20 @@ fun CartLineItemRow(
                         R.string.price_format,
                         item.variant.calculatedPrice ?: 0f,
                     ),
-                    color = FractalTheme.colors.onbackground_onbackgroundvariant1.value,
+                    color = FractalTheme.colors.onBackgroundVariant1.value,
                     style = FractalTheme.typography.label4,
                 )
 
                 Text(
                     text = "•",
-                    color = FractalTheme.colors.onbackground_onbackgroundvariant1.value,
+                    color = FractalTheme.colors.onBackgroundVariant1.value,
                     style = FractalTheme.typography.label4,
                     modifier = Modifier.padding(horizontal = FractalTheme.spacing.xxs),
                 )
 
                 Text(
                     text = stringResource(R.string.remove),
-                    color = FractalTheme.colors.accent_accent.value,
+                    color = FractalTheme.colors.accent.value,
                     style = FractalTheme.typography.label4,
                     modifier = Modifier.clickable { onRemoveLineItemClicked(item) },
                 )
@@ -126,7 +126,7 @@ fun CartLineItemRow(
             item.variant.optionValues.orEmpty().forEach { optionValue ->
                 Text(
                     text = "${optionValue.optionDisplayName}: ${optionValue.label}",
-                    color = FractalTheme.colors.onbackground_onbackgroundvariant1.value,
+                    color = FractalTheme.colors.onBackgroundVariant1.value,
                     style = FractalTheme.typography.label4,
                     modifier = Modifier.padding(top = FractalTheme.spacing.xs),
                 )

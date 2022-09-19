@@ -111,7 +111,7 @@ fun FractalTextGallery(modifier: Modifier = Modifier) {
 private fun Preview() {
     FractalTheme {
         FractalTextGallery(
-            modifier = Modifier.background(FractalTheme.colors.background_backgroundprimary.value),
+            modifier = Modifier.background(FractalTheme.colors.backgroundPrimary.value),
         )
     }
 }
@@ -124,7 +124,7 @@ private fun PreviewParagraph() {
         Column(
             verticalArrangement = Arrangement.spacedBy(FractalTheme.spacing.xs),
             modifier = Modifier
-                .background(FractalTheme.colors.background_backgroundprimary.value)
+                .background(FractalTheme.colors.backgroundPrimary.value)
                 .padding(FractalTheme.spacing.m),
         ) {
             FractalText(
@@ -136,8 +136,8 @@ private fun PreviewParagraph() {
                     append("Lorem ipsum dolor sit amet, ")
                     withStyle(
                         style = SpanStyle(
-                            color = FractalTheme.colors.error_onerror_onerrorprimary.value,
-                            background = FractalTheme.colors.error_error_errorprimary.value,
+                            color = FractalTheme.colors.onErrorPrimary.value,
+                            background = FractalTheme.colors.errorPrimary.value,
                         ),
                     ) {
                         append("consectetur adipiscing elit")

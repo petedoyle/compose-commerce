@@ -39,16 +39,16 @@ fun FractalSecondaryButton(
         onClick = { onClick() },
         enabled = enabled,
         colors = ButtonDefaults.buttonColors(
-            backgroundColor = FractalTheme.colors.secondary_secondary.value,
-            contentColor = FractalTheme.colors.onsecondary_onsecondary.value,
-            disabledBackgroundColor = FractalTheme.colors.secondary_secondarydisabled.value,
-            disabledContentColor = FractalTheme.colors.onsecondary_onsecondarydisabled.value,
+            backgroundColor = FractalTheme.colors.secondary.value,
+            contentColor = FractalTheme.colors.onSecondary.value,
+            disabledBackgroundColor = FractalTheme.colors.secondaryDisabled.value,
+            disabledContentColor = FractalTheme.colors.onSecondaryDisabled.value,
         ),
         modifier = modifier
             .defaultMinSize(minHeight = 48.dp)
             .border(
                 1.dp,
-                FractalTheme.colors.onsecondary_onsecondary.value,
+                FractalTheme.colors.onSecondary.value,
                 FractalTheme.shapes.borderRounded,
             ),
         shape = FractalTheme.shapes.borderRounded,
@@ -56,8 +56,8 @@ fun FractalSecondaryButton(
         Text(
             text = text,
             color = when (enabled) {
-                true -> FractalTheme.colors.onsecondary_onsecondary.value
-                else -> FractalTheme.colors.onsecondary_onsecondarydisabled.value
+                true -> FractalTheme.colors.onSecondary.value
+                else -> FractalTheme.colors.onSecondaryDisabled.value
             },
             style = FractalTheme.typography.label1,
         )

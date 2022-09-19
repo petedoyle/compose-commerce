@@ -65,10 +65,10 @@ fun InlineBanner(
             .clickable(enabled = onClick != null) { onClick?.invoke() }
             .border(
                 width = 1.dp,
-                color = FractalTheme.colors.border_primary_borderprimary.value,
+                color = FractalTheme.colors.borderPrimary.value,
                 shape = FractalTheme.shapes.borderRounded,
             )
-            .background(FractalTheme.colors.background_backgroundsecondary.value)
+            .background(FractalTheme.colors.backgroundSecondary.value)
             .padding(FractalTheme.spacing.m),
         contentAlignment = Alignment.Center,
     ) {
@@ -83,7 +83,7 @@ fun InlineBanner(
             Text(
                 text = text,
                 style = FractalTheme.typography.label4,
-                color = FractalTheme.colors.onbackground_onbackground.value,
+                color = FractalTheme.colors.onBackground.value,
                 modifier = Modifier
                     .weight(1f)
                     .padding(start = FractalTheme.spacing.xs),

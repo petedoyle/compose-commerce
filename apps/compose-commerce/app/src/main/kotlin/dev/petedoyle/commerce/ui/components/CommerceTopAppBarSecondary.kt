@@ -44,14 +44,14 @@ fun CommerceTopAppBarSecondary(
 ) {
     TopAppBar(
         elevation = dimensionResource(R.dimen.toolbar_elevation),
-        backgroundColor = FractalTheme.colors.background_backgroundprimary.value,
+        backgroundColor = FractalTheme.colors.backgroundPrimary.value,
         contentPadding = WindowInsets.statusBars.asPaddingValues(),
         navigationIcon = {
             IconButton(onClick = { onBackClicked() }) {
                 Icon(
                     painter = painterResource(id = dev.petedoyle.commerce.design.compose.R.drawable.ico_chevronleft_24),
                     contentDescription = stringResource(R.string.icon_shopping_cart_content_description),
-                    tint = FractalTheme.colors.onbackground_onbackground.value,
+                    tint = FractalTheme.colors.onBackground.value,
                 )
             }
         },
@@ -60,7 +60,7 @@ fun CommerceTopAppBarSecondary(
                 text = title,
                 style = FractalTheme.typography.heading3,
                 textAlign = TextAlign.Center,
-                color = FractalTheme.colors.onbackground_onbackground.value,
+                color = FractalTheme.colors.onBackground.value,
                 modifier = Modifier
                     .fillMaxWidth()
                     .padding(end = FractalTheme.spacing.m),

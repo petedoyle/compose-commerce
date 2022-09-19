@@ -64,7 +64,7 @@ private fun FractalButtonGallery(styleVariant: FractalButtonStyleVariant) {
             ) {
                 Text(
                     text = "${styleVariant.javaClass.simpleName} / ${sizeVariant.javaClass.simpleName}:",
-                    color = FractalTheme.colors.onbackground_onbackground.value,
+                    color = FractalTheme.colors.onBackground.value,
                     style = FractalTheme.typography.heading3,
                 )
 

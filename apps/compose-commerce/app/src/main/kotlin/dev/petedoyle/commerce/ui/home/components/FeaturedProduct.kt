@@ -71,13 +71,13 @@ fun FeaturedProduct(
             modifier = Modifier
                 .aspectRatio(ASPECT_RATIO_3_BY_4)
                 .clip(RoundedCornerShape(IMAGE_CORNER_RADIUS))
-                .background(FractalTheme.colors.primitives_gray_gray050.value),
+                .background(FractalTheme.primitiveColors.gray050.value),
         )
         Text(
             text = categories
                 .filter { product.categories.orEmpty().contains(it.id) }
                 .joinToString { it.name },
-            color = FractalTheme.colors.onbackground_onbackgroundvariant2.value,
+            color = FractalTheme.colors.onBackgroundVariant2.value,
             style = FractalTheme.typography.caption2,
             modifier = Modifier.padding(top = FractalTheme.spacing.xs),
             maxLines = 1,
@@ -85,12 +85,12 @@ fun FeaturedProduct(
         )
         Text(
             text = product.name,
-            color = FractalTheme.colors.onbackground_onbackground.value,
+            color = FractalTheme.colors.onBackground.value,
             style = FractalTheme.typography.heading3,
         )
         Text(
             text = stringResource(R.string.price_format, product.calculatedPrice ?: 0f),
-            color = FractalTheme.colors.onbackground_onbackground.value,
+            color = FractalTheme.colors.onBackground.value,
             style = FractalTheme.typography.label2,
         )
     }

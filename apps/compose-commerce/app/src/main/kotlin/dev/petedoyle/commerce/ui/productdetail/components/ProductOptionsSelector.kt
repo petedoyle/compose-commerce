@@ -137,7 +137,7 @@ private fun ProductOptionsSelectorRow(
         Text(
             text = option.displayName.orEmpty(),
             style = FractalTheme.typography.heading3,
-            color = FractalTheme.colors.onbackground_onbackground.value,
+            color = FractalTheme.colors.onBackground.value,
             modifier = Modifier.padding(
                 start = FractalTheme.spacing.m,
                 end = FractalTheme.spacing.m,
@@ -202,25 +202,25 @@ private fun ProductOptionChoice(
 
     val backgroundColor = animateColorAsState(
         targetValue = when {
-            !inStock -> FractalTheme.colors.primary_primarydisabled.value
-            selected -> FractalTheme.colors.primary_primary.value
-            else -> FractalTheme.colors.onprimary_onprimary.value
+            !inStock -> FractalTheme.colors.primaryDisabled.value
+            selected -> FractalTheme.colors.primary.value
+            else -> FractalTheme.colors.onPrimary.value
         },
     )
 
     val textColor = animateColorAsState(
         targetValue = when {
-            !inStock -> FractalTheme.colors.onprimary_onprimarydisabled.value
-            selected -> FractalTheme.colors.onprimary_onprimary.value
-            else -> FractalTheme.colors.primary_primary.value
+            !inStock -> FractalTheme.colors.onPrimaryDisabled.value
+            selected -> FractalTheme.colors.onPrimary.value
+            else -> FractalTheme.colors.primary.value
         },
     )
 
     val borderColor = animateColorAsState(
         targetValue = when {
-            !inStock -> FractalTheme.colors.primary_primarydisabled.value
-            selected -> FractalTheme.colors.primary_primary.value
-            else -> FractalTheme.colors.border_primary_borderprimary.value
+            !inStock -> FractalTheme.colors.primaryDisabled.value
+            selected -> FractalTheme.colors.primary.value
+            else -> FractalTheme.colors.borderPrimary.value
         },
     )
 

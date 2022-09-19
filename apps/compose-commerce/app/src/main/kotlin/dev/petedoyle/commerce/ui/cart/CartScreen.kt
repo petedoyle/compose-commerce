@@ -126,12 +126,12 @@ fun CartScreen(
             )
         },
         scaffoldState = scaffoldState,
-        backgroundColor = FractalTheme.colors.background_backgroundsecondary.value,
+        backgroundColor = FractalTheme.colors.backgroundSecondary.value,
     ) {
         Column(
             Modifier
                 .fillMaxSize()
-                .background(FractalTheme.colors.background_backgroundprimary.value)
+                .background(FractalTheme.colors.backgroundPrimary.value)
                 .padding(it),
         ) {
             if (uiState.cartState.items.isEmpty()) {
@@ -159,7 +159,7 @@ fun CartScreen(
 
                     item {
                         Divider(
-                            color = FractalTheme.colors.border_primary_borderprimary.value,
+                            color = FractalTheme.colors.borderPrimary.value,
                             modifier = Modifier
                                 .fillMaxWidth()
                                 .padding(horizontal = FractalTheme.spacing.m),
@@ -185,7 +185,7 @@ fun CartScreen(
                 Modifier
                     .fillMaxWidth()
                     .height(FractalTheme.spacing.m)
-                    .background(FractalTheme.colors.background_backgroundsecondary.value),
+                    .background(FractalTheme.colors.backgroundSecondary.value),
             )
 
             FractalCheckoutButton(
@@ -211,13 +211,13 @@ private fun EmptyState(modifier: Modifier = Modifier) {
         Icon(
             painter = painterResource(id = R.drawable.ico_cart_40),
             contentDescription = null,
-            tint = FractalTheme.colors.onbackground_onbackground.value,
+            tint = FractalTheme.colors.onBackground.value,
         )
         Text(
             text = stringResource(R.string.cart_empty),
             style = FractalTheme.typography.heading3,
             textAlign = TextAlign.Center,
-            color = FractalTheme.colors.onbackground_onbackground.value,
+            color = FractalTheme.colors.onBackground.value,
             modifier = Modifier.padding(top = FractalTheme.spacing.xxl),
         )
     }

@@ -27,6 +27,12 @@ fun FractalTheme(
     darkTheme: Boolean = isSystemInDarkTheme(),
     content: @Composable () -> Unit,
 ) {
+    val primitiveColors: FractalPrimitiveColors = if (darkTheme) {
+        FractalDarkPrimitiveColors()
+    } else {
+        FractalLightPrimitiveColors()
+    }
+
     val colors: FractalColors = if (darkTheme) {
         FractalDarkColors()
     } else {
@@ -35,6 +41,7 @@ fun FractalTheme(
 
     val fractalTypography = defaultFractalTypography()
     CompositionLocalProvider(
+        LocalFractalPrimitiveColors provides primitiveColors,
         LocalFractalColors provides colors,
         LocalFractalTypography provides fractalTypography,
         LocalFractalShapes provides FractalShapes(),
@@ -42,18 +49,18 @@ fun FractalTheme(
     ) {
         MaterialTheme(
             colors = Colors(
-                primary = colors.primary_primary.value,
-                primaryVariant = colors.primary_primaryactive.value,
-                secondary = colors.secondary_secondary.value,
-                secondaryVariant = colors.secondary_secondaryactive.value,
-                background = colors.background_backgroundprimary.value,
-                surface = colors.surface_surface.value,
-                error = colors.error_error_errorprimary.value,
-                onPrimary = colors.onprimary_onprimary.value,
-                onSecondary = colors.onsecondary_onsecondary.value,
-                onBackground = colors.onbackground_onbackground.value,
-                onSurface = colors.onsurface_onsurface.value,
-                onError = colors.error_onerror_onerrorprimary.value,
+                primary = colors.primary.value,
+                primaryVariant = colors.primaryActive.value,
+                secondary = colors.secondary.value,
+                secondaryVariant = colors.secondaryActive.value,
+                background = colors.backgroundPrimary.value,
+                surface = colors.surface.value,
+                error = colors.errorPrimary.value,
+                onPrimary = colors.onPrimary.value,
+                onSecondary = colors.onSecondary.value,
+                onBackground = colors.onBackground.value,
+                onSurface = colors.onSurface.value,
+                onError = colors.onErrorPrimary.value,
                 isLight = !darkTheme,
             ),
             typography = Typography(defaultFontFamily = fractalTypography.defaultFontFamily),
@@ -71,6 +78,10 @@ fun FractalTheme(
  * - `FractalTheme.spacing.xxl`
  */
 object FractalTheme {
+    val primitiveColors: FractalPrimitiveColors
+        @Composable
+        get() = LocalFractalPrimitiveColors.current
+
     val colors: FractalColors
         @Composable
         get() = LocalFractalColors.current
