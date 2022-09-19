@@ -1,4 +1,4 @@
-[![Figma Design System](https://www.figma.com/file/iJbFMd9ZzU2U9iQZ0nk72t/Fractal-Foundations)
+![Figma Design System](https://www.figma.com/file/iJbFMd9ZzU2U9iQZ0nk72t/Fractal-Foundations)
 
 # Compose Playground
 A 🚧 work-in-progress 🚧 collection of sample apps and experiments utilizing Jetpack Compose.
