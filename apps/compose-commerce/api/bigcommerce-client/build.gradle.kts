@@ -12,17 +12,6 @@ android {
     buildFeatures {
         buildConfig = true
     }
-
-    flavorDimensions.add("stage")
-    productFlavors {
-        register("production") {
-            dimension = "stage"
-        }
-
-        register("dev") {
-            dimension = "stage"
-        }
-    }
 }
 
 dependencies {

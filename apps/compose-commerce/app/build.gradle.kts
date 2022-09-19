@@ -13,6 +13,7 @@ android {
         targetSdk = 33
         versionCode = 1
         versionName = "1.0 ($versionCode)"
+        applicationId = "dev.petedoyle.commerce"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables {
@@ -27,19 +28,6 @@ android {
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
             )
-        }
-    }
-
-    flavorDimensions.add("stage")
-    productFlavors {
-        register("production") {
-            dimension = "stage"
-            applicationId = "dev.petedoyle.commerce"
-        }
-
-        register("dev") {
-            dimension = "stage"
-            applicationId = "dev.petedoyle.commerce.dev"
         }
     }
 
