@@ -25,7 +25,7 @@ sealed class FractalTextVariant {
     abstract fun textStyle(): TextStyle
 
     @Composable
-    fun defaultColor(): Color = FractalTheme.colors.onBackground.value
+    fun defaultColor(): Color = FractalTheme.colors.onBackground
 
     override fun equals(other: Any?): Boolean = this === other
     override fun hashCode(): Int = System.identityHashCode(this)

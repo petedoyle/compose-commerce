@@ -30,7 +30,7 @@ sealed class InlineBannerVariant {
 
     object Info : InlineBannerVariant() {
         @Composable
-        override fun iconTint() = FractalTheme.colors.accent.value
+        override fun iconTint() = FractalTheme.colors.accent
 
         @Composable
         override fun iconContentDescription() = R.string.inline_banner_info_content_description
@@ -38,7 +38,7 @@ sealed class InlineBannerVariant {
 
     object Error : InlineBannerVariant() {
         @Composable
-        override fun iconTint() = FractalTheme.colors.onBackgroundError.value
+        override fun iconTint() = FractalTheme.colors.onBackgroundError
 
         @Composable
         override fun iconContentDescription() = R.string.inline_banner_error_content_description
@@ -46,7 +46,7 @@ sealed class InlineBannerVariant {
 
     object Success : InlineBannerVariant() {
         @Composable
-        override fun iconTint() = FractalTheme.colors.onBackgroundSuccess.value
+        override fun iconTint() = FractalTheme.colors.onBackgroundSuccess
 
         @Composable
         override fun iconContentDescription() = R.string.inline_banner_success_content_description

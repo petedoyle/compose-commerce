@@ -39,10 +39,10 @@ fun FractalPrimaryButton(
         onClick = { onClick() },
         enabled = enabled,
         colors = ButtonDefaults.buttonColors(
-            backgroundColor = FractalTheme.colors.primary.value,
-            contentColor = FractalTheme.colors.onPrimary.value,
-            disabledBackgroundColor = FractalTheme.colors.primaryDisabled.value,
-            disabledContentColor = FractalTheme.colors.onPrimaryDisabled.value,
+            backgroundColor = FractalTheme.colors.primary,
+            contentColor = FractalTheme.colors.onPrimary,
+            disabledBackgroundColor = FractalTheme.colors.primaryDisabled,
+            disabledContentColor = FractalTheme.colors.onPrimaryDisabled,
         ),
         modifier = modifier.defaultMinSize(minHeight = 48.dp),
         shape = FractalTheme.shapes.borderRounded,
@@ -65,7 +65,7 @@ private fun Preview() {
             Text(
                 text = "Primary",
                 style = FractalTheme.typography.label1,
-                color = FractalTheme.colors.onPrimary.value,
+                color = FractalTheme.colors.onPrimary,
             )
         }
     }

@@ -43,7 +43,7 @@ fun CommerceTopAppBarShoppingCartIcon(
         Icon(
             painter = painterResource(id = dev.petedoyle.commerce.design.compose.R.drawable.ico_cart_24),
             contentDescription = stringResource(R.string.icon_shopping_cart_content_description),
-            tint = FractalTheme.colors.onBackground.value,
+            tint = FractalTheme.colors.onBackground,
         )
 
         AnimatedVisibility(
@@ -54,11 +54,8 @@ fun CommerceTopAppBarShoppingCartIcon(
                 modifier = Modifier
                     .size(8.dp)
                     .clip(CircleShape)
-                    .background(
-                        FractalTheme.primitiveColors.pink500.value,
-                        CircleShape,
-                    )
-                    .border(1.dp, FractalTheme.colors.backgroundPrimary.value, CircleShape),
+                    .background(FractalTheme.primitiveColors.pink500, CircleShape)
+                    .border(1.dp, FractalTheme.colors.backgroundPrimary, CircleShape),
             )
         }
     }

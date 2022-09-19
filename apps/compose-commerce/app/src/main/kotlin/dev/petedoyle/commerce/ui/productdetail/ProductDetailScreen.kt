@@ -148,7 +148,7 @@ fun ProductDetailScreen(
             )
         },
         scaffoldState = scaffoldState,
-        backgroundColor = FractalTheme.colors.backgroundPrimary.value,
+        backgroundColor = FractalTheme.colors.backgroundPrimary,
     ) {
         Column(
             Modifier
@@ -159,7 +159,7 @@ fun ProductDetailScreen(
                 Modifier
                     .weight(1f)
                     .verticalScroll(scrollState)
-                    .background(FractalTheme.colors.backgroundPrimary.value)
+                    .background(FractalTheme.colors.backgroundPrimary)
                     .padding(bottom = FractalTheme.spacing.xs),
             ) {
                 AsyncImage(
@@ -176,7 +176,7 @@ fun ProductDetailScreen(
                     text = categories
                         .filter { product?.categories.orEmpty().contains(it.id) }
                         .joinToString { it.name },
-                    color = FractalTheme.colors.onBackgroundVariant2.value,
+                    color = FractalTheme.colors.onBackgroundVariant2,
                     style = FractalTheme.typography.label3,
                     modifier = Modifier
                         .padding(
@@ -194,7 +194,7 @@ fun ProductDetailScreen(
 
                 Text(
                     text = product?.name.orEmpty(),
-                    color = FractalTheme.colors.onBackground.value,
+                    color = FractalTheme.colors.onBackground,
                     style = FractalTheme.typography.display3,
                     modifier = Modifier
                         .padding(horizontal = FractalTheme.spacing.m)
@@ -206,7 +206,7 @@ fun ProductDetailScreen(
 
                 Text(
                     text = stringResource(R.string.price_format, productPrice),
-                    color = FractalTheme.colors.onBackground.value,
+                    color = FractalTheme.colors.onBackground,
                     style = FractalTheme.typography.heading3,
                     modifier = Modifier
                         .padding(horizontal = FractalTheme.spacing.m)
@@ -221,7 +221,7 @@ fun ProductDetailScreen(
                         product?.description.orEmpty(),
                         HtmlCompat.FROM_HTML_SEPARATOR_LINE_BREAK_LIST_ITEM,
                     ).toString().trim(),
-                    color = FractalTheme.colors.onBackgroundVariant1.value,
+                    color = FractalTheme.colors.onBackgroundVariant1,
                     style = FractalTheme.typography.body3,
                     modifier = Modifier
                         .padding(
@@ -261,7 +261,7 @@ fun ProductDetailScreen(
                 Modifier
                     .fillMaxWidth()
                     .height(FractalTheme.spacing.m)
-                    .background(FractalTheme.colors.backgroundSecondary.value),
+                    .background(FractalTheme.colors.backgroundSecondary),
             )
 
             FractalButton(

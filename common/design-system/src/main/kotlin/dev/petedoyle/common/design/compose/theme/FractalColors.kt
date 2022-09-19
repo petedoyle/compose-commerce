@@ -15,8 +15,8 @@
  */
 package dev.petedoyle.common.design.compose.theme
 
-import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.Stable
+import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.staticCompositionLocalOf
 import androidx.compose.ui.graphics.Color
@@ -25,82 +25,82 @@ val LocalFractalColors = staticCompositionLocalOf<FractalColors> { FractalLightC
 
 @Stable
 interface FractalColors {
-    val accent: MutableState<Color>
-    val accentActive: MutableState<Color>
-    val accentDisabled: MutableState<Color>
-    val accentHover: MutableState<Color>
-    val backgroundPrimary: MutableState<Color>
-    val backgroundSecondary: MutableState<Color>
-    val badgeBlue: MutableState<Color>
-    val onBadgeBlue: MutableState<Color>
-    val badgeGray: MutableState<Color>
-    val onBadgeGray: MutableState<Color>
-    val badgeGreen: MutableState<Color>
-    val onBadgeGreen: MutableState<Color>
-    val badgeRed: MutableState<Color>
-    val onBadgeRed: MutableState<Color>
-    val badgeYellow: MutableState<Color>
-    val onBadgeYellow: MutableState<Color>
-    val borderError: MutableState<Color>
-    val borderErrorActive: MutableState<Color>
-    val borderErrorDisabled: MutableState<Color>
-    val borderErrorHover: MutableState<Color>
-    val borderPrimary: MutableState<Color>
-    val borderPrimaryActive: MutableState<Color>
-    val borderPrimaryDisabled: MutableState<Color>
-    val borderPrimaryHover: MutableState<Color>
-    val borderSecondary: MutableState<Color>
-    val borderSuccess: MutableState<Color>
-    val borderWarning: MutableState<Color>
-    val errorPrimary: MutableState<Color>
-    val errorPrimaryActive: MutableState<Color>
-    val errorPrimaryDisabled: MutableState<Color>
-    val errorPrimaryHover: MutableState<Color>
-    val errorSecondary: MutableState<Color>
-    val errorSecondaryActive: MutableState<Color>
-    val errorSecondaryDisabled: MutableState<Color>
-    val errorSecondaryHover: MutableState<Color>
-    val onErrorDisabled: MutableState<Color>
-    val onErrorPrimary: MutableState<Color>
-    val onErrorSecondary: MutableState<Color>
-    val onBackground: MutableState<Color>
-    val onBackgroundError: MutableState<Color>
-    val onBackgroundPrimaryDisabled: MutableState<Color>
-    val onBackgroundSecondaryDisabled: MutableState<Color>
-    val onBackgroundSuccess: MutableState<Color>
-    val onBackgroundVariant1: MutableState<Color>
-    val onBackgroundVariant2: MutableState<Color>
-    val onBackgroundWarning: MutableState<Color>
-    val onPrimary: MutableState<Color>
-    val onPrimaryDisabled: MutableState<Color>
-    val onSecondary: MutableState<Color>
-    val onSecondaryDisabled: MutableState<Color>
-    val onSurface: MutableState<Color>
-    val onSurfaceDisabled: MutableState<Color>
-    val onSurfaceError: MutableState<Color>
-    val onSurfaceSuccess: MutableState<Color>
-    val onSurfaceVariant1: MutableState<Color>
-    val onSurfaceVariant2: MutableState<Color>
-    val onSurfaceWarning: MutableState<Color>
-    val outlinePrimary: MutableState<Color>
-    val outlineQuaternary: MutableState<Color>
-    val outlineSecondary: MutableState<Color>
-    val outlineTertiary: MutableState<Color>
-    val primary: MutableState<Color>
-    val primaryActive: MutableState<Color>
-    val primaryDisabled: MutableState<Color>
-    val primaryHover: MutableState<Color>
-    val secondary: MutableState<Color>
-    val secondaryActive: MutableState<Color>
-    val secondaryDisabled: MutableState<Color>
-    val secondaryHover: MutableState<Color>
-    val onSuccessPrimary: MutableState<Color>
-    val successPrimary: MutableState<Color>
-    val surface: MutableState<Color>
-    val surfaceActive: MutableState<Color>
-    val surfaceHover: MutableState<Color>
-    val onWarningPrimary: MutableState<Color>
-    val warningPrimary: MutableState<Color>
+    val accent: Color
+    val accentActive: Color
+    val accentDisabled: Color
+    val accentHover: Color
+    val backgroundPrimary: Color
+    val backgroundSecondary: Color
+    val badgeBlue: Color
+    val onBadgeBlue: Color
+    val badgeGray: Color
+    val onBadgeGray: Color
+    val badgeGreen: Color
+    val onBadgeGreen: Color
+    val badgeRed: Color
+    val onBadgeRed: Color
+    val badgeYellow: Color
+    val onBadgeYellow: Color
+    val borderError: Color
+    val borderErrorActive: Color
+    val borderErrorDisabled: Color
+    val borderErrorHover: Color
+    val borderPrimary: Color
+    val borderPrimaryActive: Color
+    val borderPrimaryDisabled: Color
+    val borderPrimaryHover: Color
+    val borderSecondary: Color
+    val borderSuccess: Color
+    val borderWarning: Color
+    val errorPrimary: Color
+    val errorPrimaryActive: Color
+    val errorPrimaryDisabled: Color
+    val errorPrimaryHover: Color
+    val errorSecondary: Color
+    val errorSecondaryActive: Color
+    val errorSecondaryDisabled: Color
+    val errorSecondaryHover: Color
+    val onErrorDisabled: Color
+    val onErrorPrimary: Color
+    val onErrorSecondary: Color
+    val onBackground: Color
+    val onBackgroundError: Color
+    val onBackgroundPrimaryDisabled: Color
+    val onBackgroundSecondaryDisabled: Color
+    val onBackgroundSuccess: Color
+    val onBackgroundVariant1: Color
+    val onBackgroundVariant2: Color
+    val onBackgroundWarning: Color
+    val onPrimary: Color
+    val onPrimaryDisabled: Color
+    val onSecondary: Color
+    val onSecondaryDisabled: Color
+    val onSurface: Color
+    val onSurfaceDisabled: Color
+    val onSurfaceError: Color
+    val onSurfaceSuccess: Color
+    val onSurfaceVariant1: Color
+    val onSurfaceVariant2: Color
+    val onSurfaceWarning: Color
+    val outlinePrimary: Color
+    val outlineQuaternary: Color
+    val outlineSecondary: Color
+    val outlineTertiary: Color
+    val primary: Color
+    val primaryActive: Color
+    val primaryDisabled: Color
+    val primaryHover: Color
+    val secondary: Color
+    val secondaryActive: Color
+    val secondaryDisabled: Color
+    val secondaryHover: Color
+    val onSuccessPrimary: Color
+    val successPrimary: Color
+    val surface: Color
+    val surfaceActive: Color
+    val surfaceHover: Color
+    val onWarningPrimary: Color
+    val warningPrimary: Color
 }
 
 @Stable
@@ -136,9 +136,9 @@ class FractalLightColors(p: FractalPrimitiveColors) : FractalColors {
     override val errorPrimaryActive = p.red600
     override val errorPrimaryDisabled = p.red050
     override val errorPrimaryHover = p.red400
-    override val errorSecondary = mutableStateOf(Color.Transparent)
+    override val errorSecondary by mutableStateOf(Color.Transparent)
     override val errorSecondaryActive = p.red100
-    override val errorSecondaryDisabled = mutableStateOf(Color.Transparent)
+    override val errorSecondaryDisabled by mutableStateOf(Color.Transparent)
     override val errorSecondaryHover = p.red050
     override val onErrorDisabled = p.red100
     override val onErrorPrimary = p.gray0
@@ -170,16 +170,16 @@ class FractalLightColors(p: FractalPrimitiveColors) : FractalColors {
     override val primaryActive = p.gray900
     override val primaryDisabled = p.gray100
     override val primaryHover = p.gray800
-    override val secondary = mutableStateOf(Color.Transparent)
+    override val secondary by mutableStateOf(Color.Transparent)
     override val secondaryActive = p.gray150
-    override val secondaryDisabled = mutableStateOf(Color.Transparent)
+    override val secondaryDisabled by mutableStateOf(Color.Transparent)
     override val secondaryHover = p.gray100
     override val onSuccessPrimary = p.gray0
     override val successPrimary = p.green500
     override val surface = p.gray0
     override val surfaceActive = p.gray100
     override val surfaceHover = p.gray050
-    override val onWarningPrimary = mutableStateOf(Color.Black) // TODO staticBlack
+    override val onWarningPrimary by mutableStateOf(Color.Black) // TODO staticBlack
     override val warningPrimary = p.yellow500
 }
 
@@ -216,9 +216,9 @@ class FractalDarkColors(p: FractalPrimitiveColors) : FractalColors {
     override val errorPrimaryActive = p.red600
     override val errorPrimaryDisabled = p.red050
     override val errorPrimaryHover = p.red400
-    override val errorSecondary = mutableStateOf(Color.Transparent)
+    override val errorSecondary by mutableStateOf(Color.Transparent)
     override val errorSecondaryActive = p.red100
-    override val errorSecondaryDisabled = mutableStateOf(Color.Transparent)
+    override val errorSecondaryDisabled by mutableStateOf(Color.Transparent)
     override val errorSecondaryHover = p.red050
     override val onErrorDisabled = p.red100
     override val onErrorPrimary = p.gray0
@@ -250,15 +250,15 @@ class FractalDarkColors(p: FractalPrimitiveColors) : FractalColors {
     override val primaryActive = p.gray900
     override val primaryDisabled = p.gray100
     override val primaryHover = p.gray800
-    override val secondary = mutableStateOf(Color.Transparent)
+    override val secondary by mutableStateOf(Color.Transparent)
     override val secondaryActive = p.gray150
-    override val secondaryDisabled = mutableStateOf(Color.Transparent)
+    override val secondaryDisabled by mutableStateOf(Color.Transparent)
     override val secondaryHover = p.gray100
     override val onSuccessPrimary = p.gray0
     override val successPrimary = p.green500
     override val surface = p.gray0
     override val surfaceActive = p.gray100
     override val surfaceHover = p.gray050
-    override val onWarningPrimary = mutableStateOf(Color.Black) // TODO staticBlack
+    override val onWarningPrimary by mutableStateOf(Color.Black) // TODO staticBlack
     override val warningPrimary = p.yellow500
 }

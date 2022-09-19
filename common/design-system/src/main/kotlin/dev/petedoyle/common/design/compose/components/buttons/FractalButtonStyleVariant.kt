@@ -44,19 +44,19 @@ sealed class FractalButtonStyleVariant {
     class Primary : FractalButtonStyleVariant() {
         override val primaryColor: Color
             @Composable
-            get() = FractalTheme.colors.primary.value
+            get() = FractalTheme.colors.primary
 
         override val primaryColorDisabled: Color
             @Composable
-            get() = FractalTheme.colors.primaryDisabled.value
+            get() = FractalTheme.colors.primaryDisabled
 
         override val contentColor: Color
             @Composable
-            get() = FractalTheme.colors.onPrimary.value
+            get() = FractalTheme.colors.onPrimary
 
         override val contentColorDisabled: Color
             @Composable
-            get() = FractalTheme.colors.onPrimaryDisabled.value
+            get() = FractalTheme.colors.onPrimaryDisabled
 
         override val outlineColor: Color?
             @Composable
@@ -70,45 +70,45 @@ sealed class FractalButtonStyleVariant {
     class Secondary : FractalButtonStyleVariant() {
         override val primaryColor: Color
             @Composable
-            get() = FractalTheme.colors.secondary.value
+            get() = FractalTheme.colors.secondary
 
         override val primaryColorDisabled: Color
             @Composable
-            get() = FractalTheme.colors.secondaryDisabled.value
+            get() = FractalTheme.colors.secondaryDisabled
 
         override val contentColor: Color
             @Composable
-            get() = FractalTheme.colors.onSecondary.value
+            get() = FractalTheme.colors.onSecondary
 
         override val contentColorDisabled: Color
             @Composable
-            get() = FractalTheme.colors.onSecondaryDisabled.value
+            get() = FractalTheme.colors.onSecondaryDisabled
 
         override val outlineColor: Color?
             @Composable
-            get() = FractalTheme.colors.borderSecondary.value
+            get() = FractalTheme.colors.borderSecondary
 
         override val outlineColorDisabled: Color?
             @Composable
-            get() = FractalTheme.colors.borderPrimaryDisabled.value
+            get() = FractalTheme.colors.borderPrimaryDisabled
     }
 
     class DestructivePrimary : FractalButtonStyleVariant() {
         override val primaryColor: Color
             @Composable
-            get() = FractalTheme.colors.errorPrimary.value
+            get() = FractalTheme.colors.errorPrimary
 
         override val primaryColorDisabled: Color
             @Composable
-            get() = FractalTheme.colors.errorPrimaryDisabled.value
+            get() = FractalTheme.colors.errorPrimaryDisabled
 
         override val contentColor: Color
             @Composable
-            get() = FractalTheme.colors.onErrorPrimary.value
+            get() = FractalTheme.colors.onErrorPrimary
 
         override val contentColorDisabled: Color
             @Composable
-            get() = FractalTheme.colors.onErrorDisabled.value
+            get() = FractalTheme.colors.onErrorDisabled
 
         override val outlineColor: Color?
             @Composable
@@ -122,26 +122,26 @@ sealed class FractalButtonStyleVariant {
     class DestructiveSecondary : FractalButtonStyleVariant() {
         override val primaryColor: Color
             @Composable
-            get() = FractalTheme.colors.errorSecondary.value
+            get() = FractalTheme.colors.errorSecondary
 
         override val primaryColorDisabled: Color
             @Composable
-            get() = FractalTheme.colors.primaryDisabled.value
+            get() = FractalTheme.colors.primaryDisabled
 
         override val contentColor: Color
             @Composable
-            get() = FractalTheme.colors.onErrorSecondary.value
+            get() = FractalTheme.colors.onErrorSecondary
 
         override val contentColorDisabled: Color
             @Composable
-            get() = FractalTheme.colors.onErrorSecondary.value
+            get() = FractalTheme.colors.onErrorSecondary
 
         override val outlineColor: Color?
             @Composable
-            get() = FractalTheme.colors.borderError.value
+            get() = FractalTheme.colors.borderError
 
         override val outlineColorDisabled: Color?
             @Composable
-            get() = FractalTheme.colors.borderErrorDisabled.value
+            get() = FractalTheme.colors.borderErrorDisabled
     }
 }

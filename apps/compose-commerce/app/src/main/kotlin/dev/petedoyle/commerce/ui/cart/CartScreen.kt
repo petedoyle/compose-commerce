@@ -126,12 +126,12 @@ fun CartScreen(
             )
         },
         scaffoldState = scaffoldState,
-        backgroundColor = FractalTheme.colors.backgroundSecondary.value,
+        backgroundColor = FractalTheme.colors.backgroundSecondary,
     ) {
         Column(
             Modifier
                 .fillMaxSize()
-                .background(FractalTheme.colors.backgroundPrimary.value)
+                .background(FractalTheme.colors.backgroundPrimary)
                 .padding(it),
         ) {
             if (uiState.cartState.items.isEmpty()) {
@@ -159,7 +159,7 @@ fun CartScreen(
 
                     item {
                         Divider(
-                            color = FractalTheme.colors.borderPrimary.value,
+                            color = FractalTheme.colors.borderPrimary,
                             modifier = Modifier
                                 .fillMaxWidth()
                                 .padding(horizontal = FractalTheme.spacing.m),
@@ -185,7 +185,7 @@ fun CartScreen(
                 Modifier
                     .fillMaxWidth()
                     .height(FractalTheme.spacing.m)
-                    .background(FractalTheme.colors.backgroundSecondary.value),
+                    .background(FractalTheme.colors.backgroundSecondary),
             )
 
             FractalCheckoutButton(
@@ -211,13 +211,13 @@ private fun EmptyState(modifier: Modifier = Modifier) {
         Icon(
             painter = painterResource(id = R.drawable.ico_cart_40),
             contentDescription = null,
-            tint = FractalTheme.colors.onBackground.value,
+            tint = FractalTheme.colors.onBackground,
         )
         Text(
             text = stringResource(R.string.cart_empty),
             style = FractalTheme.typography.heading3,
             textAlign = TextAlign.Center,
-            color = FractalTheme.colors.onBackground.value,
+            color = FractalTheme.colors.onBackground,
             modifier = Modifier.padding(top = FractalTheme.spacing.xxl),
         )
     }
