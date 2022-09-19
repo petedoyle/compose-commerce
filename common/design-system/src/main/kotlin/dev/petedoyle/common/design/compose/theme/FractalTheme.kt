@@ -34,9 +34,9 @@ fun FractalTheme(
     }
 
     val colors: FractalColors = if (darkTheme) {
-        FractalDarkColors()
+        FractalDarkColors(primitiveColors)
     } else {
-        FractalLightColors()
+        FractalLightColors(primitiveColors)
     }
 
     val fractalTypography = defaultFractalTypography()

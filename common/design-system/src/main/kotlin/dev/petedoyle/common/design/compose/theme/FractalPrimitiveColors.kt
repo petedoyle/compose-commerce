@@ -27,6 +27,7 @@ import androidx.compose.ui.graphics.Color
 
 val LocalFractalPrimitiveColors = staticCompositionLocalOf<FractalPrimitiveColors> { FractalLightPrimitiveColors() }
 
+@Stable
 interface FractalPrimitiveColors {
     val blue050: MutableState<Color>
     val blue100: MutableState<Color>
