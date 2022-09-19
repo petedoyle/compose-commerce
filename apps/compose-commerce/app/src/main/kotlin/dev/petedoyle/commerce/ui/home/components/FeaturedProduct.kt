@@ -71,7 +71,7 @@ fun FeaturedProduct(
             modifier = Modifier
                 .aspectRatio(ASPECT_RATIO_3_BY_4)
                 .clip(RoundedCornerShape(IMAGE_CORNER_RADIUS))
-                .background(FractalTheme.colors.primitives_gray_gray50.value),
+                .background(FractalTheme.colors.primitives_gray_gray050.value),
         )
         Text(
             text = categories

@@ -100,7 +100,7 @@ sealed class FractalButtonStyleVariant {
 
         override val primaryColorDisabled: Color
             @Composable
-            get() = FractalTheme.colors.error_states_errorprimary_errorprimarydisabled.value
+            get() = FractalTheme.colors.error_error_errorprimarydisabled.value
 
         override val contentColor: Color
             @Composable

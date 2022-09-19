@@ -84,7 +84,7 @@ fun CartLineItemRow(
                 .width(IMAGE_WIDTH)
                 .aspectRatio(IMAGE_ASPECT_RATIO)
                 .clip(RoundedCornerShape(IMAGE_CORNER_RADIUS))
-                .background(FractalTheme.colors.primitives_gray_gray50.value),
+                .background(FractalTheme.colors.primitives_gray_gray050.value),
         )
 
         Column(
