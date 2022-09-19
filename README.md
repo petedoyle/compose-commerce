@@ -1,5 +1,9 @@
 # Compose Playground
-WIP
+A work-in-progress collection of sample apps and experiments utilizing Jetpack Compose.
+
+## Modules
+This is a Gradle monorepo, with many modules:
+![Modules](/utils/art/project.dot.png)
 
 ## License
 ```
